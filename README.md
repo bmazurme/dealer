@@ -5,7 +5,7 @@
 
 Clone the repository on your computer:
 
-`git clone git@github.com: ...`
+`git@github.com:bmazurme/dealer.git`
 
 Install dependencies:
 
