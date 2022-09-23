@@ -1,10 +1,20 @@
 import React from 'react';
 
-import './App.css';
+import Main from '../../pages/Main';
+import SignUp from '../../pages/SignUp';
+import SignIn from '../../pages/SignIn';
+import NotFoundPage from '../../pages/NotFound';
+import ServerErrorPage from '../../pages/ServerError';
 
 function App() {
   return (
-    <h1>App</h1>
+    <div className="container">
+      <SignUp />
+      <SignIn />
+      <Main />
+      <NotFoundPage />
+      <ServerErrorPage />
+    </div>
   );
 }
 
