@@ -1,0 +1,5 @@
+/* error */
+@import "./blocks/error/error.css";
+@import "./blocks/error/__code/error__code.css";
+@import "./blocks/error/__description/error__description.css";
+@import "./blocks/error/__link/error__link.css";
