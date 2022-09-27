@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/bmazurme/dealer#readme",
   "devDependencies": {
-    "@babel/preset-typescript": "^7.18.6",
+    "@babel/preset-typescript": "7.18.6",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "@types/react-router": "5.1.18",
