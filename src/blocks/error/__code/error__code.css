@@ -1,5 +1,4 @@
 .error__code {
-  font-family: Inter, serif;
   margin: 0 auto;
   padding: 0;
   font-style: normal;
@@ -7,7 +6,7 @@
   font-size: 140px;
   line-height: 169px;
   text-align: center;
-  color: #000;
+  color: var(--error__code_main_color);
   width: 400px;
   height: 169px;
 }
