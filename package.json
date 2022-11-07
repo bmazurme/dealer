@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --mode development --open --hot --config webpack.dev.js",
-    "start": "node src/server.js",
+    "start": "node src/server/server.js",
     "build": "webpack --mode production --config webpack.prod.js",
     "lint": "npx eslint . --no-fix",
     "slint": "npx stylelint '**/*.css'",
-    "test": "jest"
+    "test": "jest",
+    "clear": "rm -rf dist/"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  Route,
+  Routes,
+  // useNavigate,
+  // useLocation,
+} from 'react-router-dom';
 
 import MainPage from 'Pages/MainPage';
 import AboutPage from 'Pages/AboutPage';
@@ -14,14 +20,16 @@ import '../../index.css';
 function App() {
   return (
     <div className="container">
-      <SignUpPage />
-      <SignInPage />
-      <ProfilePage />
-      <MainPage />
-      <AboutPage />
-      <PrivacyPage />
-      <NotFoundPage />
-      <ServerErrorPage />
+      <Routes>
+        <Route path="/signup" element={(<SignUpPage />)} />
+        <Route path="/signin" element={(<SignInPage />)} />
+        <Route path="/profile" element={(<ProfilePage />)} />
+        <Route path="/main" element={(<MainPage />)} />
+        <Route path="/about" element={(<AboutPage />)} />
+        <Route path="/privacy" element={(<PrivacyPage />)} />
+        <Route path="/not-found-page" element={(<NotFoundPage />)} />
+        <Route path="/server-error-page" element={(<ServerErrorPage />)} />
+      </Routes>
     </div>
   );
 }
