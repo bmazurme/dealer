@@ -41,6 +41,27 @@ run test:
 
 `npm run test`
 
+### .env
+create .env in root
+
+```
+DB_HOST= #
+
+DB_USER= #
+
+DB_PASSWORD= #
+
+DB_NAME= #
+```
+
+docker
+
+`docker-compose build`
+
+`docker-compose up`
+
+`docker-compose stop`
+
 ### Deploy
 
 tag image to match Heroku naming conventions
