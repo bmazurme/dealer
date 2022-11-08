@@ -18,6 +18,7 @@
 
 ### Demo
 [heroku](https://teadealer.herokuapp.com/)
+[netlify](https://delicate-blancmange-5a0a6d.netlify.app/)
 
 ### Installation
 
@@ -66,12 +67,23 @@ docker
 
 tag image to match Heroku naming conventions
 
+`heroku container:login`
+
+`heroku create my-app`
+
+`heroku container:push web`
+
+`heroku container:release web`
+
+`heroku open`
+
+
 `docker buildx build --platform linux/amd64 -t teadealer .`
 
-`docker tag myapp registry.heroku.com/myapp/web`
+`docker tag teadealer registry.heroku.com/teadealer/web`
 
 push
 
-`docker push registry.heroku.com/myapp/web`
+`docker push registry.heroku.com/teadealer/web`
 
 `heroku container:release web -a teadealer`
