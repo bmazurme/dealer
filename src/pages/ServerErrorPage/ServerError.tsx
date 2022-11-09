@@ -3,7 +3,7 @@ import { data } from './data';
 
 const { code, text, link } = data;
 
-export default function NotFoundPage() {
+export default function ServerErrorPage() {
   return (
     <section className="error">
       <h2 className="error__code">{code}</h2>

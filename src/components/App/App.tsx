@@ -1,19 +1,25 @@
 import React from 'react';
 
-import Main from '../../pages/Main';
-import SignUp from '../../pages/SignUp';
-import SignIn from '../../pages/SignIn';
-import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
-import ServerErrorPage from '../../pages/ServerError';
+import MainPage from 'Pages/MainPage';
+import AboutPage from 'Pages/AboutPage';
+import PrivacyPage from 'Pages/PrivacyPage';
+import SignUpPage from 'Pages/SignUpPage';
+import SignInPage from 'Pages/SignInPage';
+import ProfilePage from 'Pages/ProfilePage';
+import NotFoundPage from 'Pages/NotFoundPage';
+import ServerErrorPage from 'Pages/ServerErrorPage';
 
 import '../../index.css';
 
 function App() {
   return (
     <div className="container">
-      <SignUp />
-      <SignIn />
-      <Main />
+      <SignUpPage />
+      <SignInPage />
+      <ProfilePage />
+      <MainPage />
+      <AboutPage />
+      <PrivacyPage />
       <NotFoundPage />
       <ServerErrorPage />
     </div>
