@@ -1,17 +1,17 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import MainPage from 'Pages/MainPage';
-import AboutPage from 'Pages/AboutPage';
-import PrivacyPage from 'Pages/PrivacyPage';
-import SignUpPage from 'Pages/SignUpPage';
-import SignInPage from 'Pages/SignInPage';
-import SignConfirmPage from 'Pages/SignConfirmPage';
-import ResetPassword from 'Pages/ResetPassword';
-import ProfilePage from 'Pages/ProfilePage';
-import EditProfile from 'Pages/EditProfilePage';
-import NotFoundPage from 'Pages/NotFoundPage';
-import ServerErrorPage from 'Pages/ServerErrorPage';
+import AboutPage from '../../pages/AboutPage';
+import PrivacyPage from '../../pages/PrivacyPage';
+import SignUpPage from '../../pages/SignUpPage';
+import SignInPage from '../../pages/SignInPage';
+import SignConfirmPage from '../../pages/SignConfirmPage';
+import ResetPassword from '../../pages/ResetPassword';
+import ProfilePage from '../../pages/ProfilePage';
+import EditProfile from '../../pages/EditProfilePage';
+import NotFoundPage from '../../pages/NotFoundPage';
+import ServerErrorPage from '../../pages/ServerErrorPage';
+import MainPage from '../../pages/MainPage';
 import ErrorBoundaryWrapper from '../ErrorBoundaryWrapper';
 
 import { Urls } from '../../utils/routers';
