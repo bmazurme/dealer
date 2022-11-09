@@ -19,23 +19,21 @@ import '../../index.css';
 
 function App() {
   return (
-    <div className="container">
-      <ErrorBoundaryWrapper>
-        <Routes>
-          <Route path={Urls.SIGN.UP} element={(<SignUpPage />)} />
-          <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
-          <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
-          <Route path={Urls.PASSWORD.RESET} element={(<ResetPassword />)} />
-          <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
-          <Route path={Urls.PROFILE.EDIT} element={(<EditProfile />)} />
-          <Route path={Urls.MAIN.INDEX} element={(<MainPage />)} />
-          <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
-          <Route path={Urls.MAIN.PRIVACY} element={(<PrivacyPage />)} />
-          <Route path={Urls.ERROR[404]} element={(<NotFoundPage />)} />
-          <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />
-        </Routes>
-      </ErrorBoundaryWrapper>
-    </div>
+    <ErrorBoundaryWrapper>
+      <Routes>
+        <Route index element={(<MainPage />)} />
+        <Route path={Urls.SIGN.UP} element={(<SignUpPage />)} />
+        <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
+        <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
+        <Route path={Urls.PASSWORD.RESET} element={(<ResetPassword />)} />
+        <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
+        <Route path={Urls.PROFILE.EDIT} element={(<EditProfile />)} />
+        <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
+        <Route path={Urls.MAIN.PRIVACY} element={(<PrivacyPage />)} />
+        <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />
+        <Route path="*" element={(<NotFoundPage />)} />
+      </Routes>
+    </ErrorBoundaryWrapper>
   );
 }
 

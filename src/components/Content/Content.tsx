@@ -4,6 +4,8 @@ import type { PropsWithChildren } from 'react';
 
 import Header from '../Header';
 import HeaderMenu from '../HeaderMenu';
+import Footer from '../Footer';
+import Banner from '../Banner';
 
 type Props = PropsWithChildren<{
   heading?: string;
@@ -20,9 +22,9 @@ export default function Content({ heading, className, children }: Props) {
           <h1 className="">{heading}</h1>
         </section>
       )}
-      <main className="">
-        {children}
-      </main>
+      <main className="">{children}</main>
+      <Footer />
+      <Banner />
     </>
   );
 }

@@ -7,8 +7,6 @@ export default function AboutPage() {
         header
       </header>
 
-      <h2 className="page__title"> About </h2>
-
       <div className="page__content">
         content
       </div>

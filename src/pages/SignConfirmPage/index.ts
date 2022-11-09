@@ -1,3 +1,3 @@
-import SignConfirmPage from './SignConfirm';
+import SignConfirmPage from './SignConfirmPage';
 
 export default SignConfirmPage;
