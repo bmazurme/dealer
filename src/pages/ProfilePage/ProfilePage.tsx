@@ -1,13 +1,11 @@
 import React from 'react';
 import Content from '../../components/Content';
+import Profile from './Profile';
 
 export default function ProfilePage() {
   return (
     <Content heading="Profile">
-      <section className="page">
-        <h2 className="page__title">Profile</h2>
-        <a className="page__link" href="/">Back</a>
-      </section>
+      <Profile />
     </Content>
   );
 }
