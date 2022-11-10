@@ -1,11 +1,14 @@
 import React from 'react';
-import Content from '../../components/Content';
 import Main from './Main';
+import withUser from '../../hoc/withUser';
+import Content from '../../components/Content';
 
-export default function MainPage() {
+function MainPage() {
   return (
-    <Content heading="Main">
+    <Content heading="Main" header menu>
       <Main />
     </Content>
   );
 }
+
+export default withUser(MainPage, false);

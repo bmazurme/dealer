@@ -8,10 +8,11 @@ import SignInPage from '../../pages/SignInPage';
 import SignConfirmPage from '../../pages/SignConfirmPage';
 import ResetPassword from '../../pages/ResetPassword';
 import ProfilePage from '../../pages/ProfilePage';
-import EditProfile from '../../pages/EditProfilePage';
+import EditProfile from '../../pages/ProfileEditPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 import ServerErrorPage from '../../pages/ServerErrorPage';
 import MainPage from '../../pages/MainPage';
+
 import ErrorBoundaryWrapper from '../ErrorBoundaryWrapper';
 
 import { Urls } from '../../utils/routers';

@@ -1,10 +1,14 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import React from 'react';
 import SignIn from './SignIn';
+import withUser from '../../hoc/withUser';
+import Content from '../../components/Content';
 
-export default function SignInPage() {
-  const handleSign = ({ login, password }: Record<string, string>) => console.log(login, password);
+function SignInPage() {
   return (
-    <SignIn handleSign={handleSign} />
-  );
+    <Content>
+      <SignIn />
+    </Content>
+    );
 }
+
+export default withUser(SignInPage, false);

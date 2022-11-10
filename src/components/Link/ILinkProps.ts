@@ -1,8 +1,8 @@
-import React from 'react';
+import { MouseEvent, FormEvent } from 'react';
 
 export interface ILinkProps {
   className: string,
   to: string,
   label: string,
-  onHandleClick: ((e: React.FormEvent) => void)|null,
+  onHandleClick: ((event: FormEvent | MouseEvent) => void) | null,
 }

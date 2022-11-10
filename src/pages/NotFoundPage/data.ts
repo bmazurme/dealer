@@ -1,4 +1,4 @@
-import { IError } from 'interfaces/IError';
+import IError from '../../interfaces';
 import { Urls } from '../../utils/routers';
 
 export const data: IError = {

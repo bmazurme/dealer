@@ -1,0 +1,16 @@
+.link_home {
+  margin: 5px;
+  padding: 0;
+
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  text-align: right;
+  color: #3456f3;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.link_home:hover {
+  text-decoration: underline;
+}

@@ -1,92 +1,115 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useErrorHandler } from 'react-error-boundary';
+import { useNavigate } from 'react-router-dom';
+import { useForm, Controller } from 'react-hook-form';
+
 import Button from '../../components/Button/Button';
-import Inbox from '../../components/Inbox';
+import Input from '../../components/Input';
 import Logo from '../../components/Logo/Logo';
 import SignFooter from '../../components/SignFooter';
-import useFormWithValidation from '../../utils/validator';
+import { useSignInMutation } from '../../store';
+import useUser from '../../hook/useUser';
+import { Urls } from '../../utils/constants';
 
-import { EMAIL_REGEXP, Urls } from '../../utils/constants';
-import { ISignProps } from './ISignProps';
-import { IValid } from './IValid';
+type FormPayload = {
+  login: string;
+  password: string;
+};
 
-function Signin({ handleSign }: ISignProps) {
-  const {
-    values,
-    errors,
-    isValid,
-    handleChange,
-  }: IValid = useFormWithValidation();
+const inputs = [
+  {
+    name: 'login',
+    label: 'Login',
+    pattern: {
+      value: /^[a-z0-9_-]{3,15}$/,
+      message: 'Login is invalid',
+    },
+    required: true,
+    autoComplete: 'username',
+  },
+  {
+    name: 'password',
+    label: 'Password',
+    pattern: {
+      value: /^[a-zA-Z0-9_-]{3,15}$/,
+      message: 'Password is invalid',
+    },
+    required: true,
+    type: 'password',
+    autoComplete: 'current-password',
+  },
+];
+const footer = [
+  {
+    text: 'Еще не зарегистрированы?',
+    link: {
+      url: Urls.SIGN.UP,
+      label: 'SignUp',
+    },
+  },
+  {
+    text: 'Забыли пароль?',
+    link: {
+      url: Urls.PASSWORD.RESET,
+      label: 'Reset',
+    },
+  },
+];
 
-  const handleSubmit = (evt: React.FormEvent) => {
-    evt.preventDefault();
-    handleSign({
-      email: values.email,
-      password: values.password,
-    });
-  };
+function SignIn() {
+  const errorHandler = useErrorHandler();
+  const navigate = useNavigate();
+  const userData = useUser();
+  const [signIn] = useSignInMutation();
+
+  const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { login: '', password: '' } });
+
+  useEffect(() => {
+    if (userData) {
+      navigate('/');
+    }
+  });
+
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      await signIn(data);
+      navigate('/');
+    } catch ({ status, data: { reason } }) {
+      errorHandler(new Error(`${status}: ${reason}`));
+    }
+  });
 
   return (
     <section className="sign">
       <div className="container">
         <Logo />
-        <h2 className="sign__title">Signin</h2>
-        <form onSubmit={handleSubmit}>
-          <Inbox
-            pattern={EMAIL_REGEXP}
-            label="E-mail"
-            name="email"
-            type="text"
-            id="email-input"
-            autoComplete="off"
-            onChange={handleChange}
-            errors={errors}
-            value={values.email || ''}
-            required
-            placeholder=""
-            minLength={5}
-            maxLength={20}
-          />
-          <Inbox
-            onChange={handleChange}
-            label="Password"
-            errors={errors}
-            name="password"
-            type="password"
-            id="password-input"
-            autoComplete="off"
-            value={values.password || ''}
-            minLength={6}
-            maxLength={20}
-            required
-            placeholder=""
-            pattern=""
-          />
-          <Button
-            typeButton="submit"
-            value="Войти"
-            className="button_submit"
-            isValid={isValid}
-          />
+        <h2 className="sign__title">SignIn</h2>
+        <form onSubmit={onSubmit}>
+          {inputs.map((input) => (
+            <Controller
+              key={input.name}
+              name={input.name as keyof FormPayload}
+              rules={{
+                pattern: input.pattern,
+                required: input.required,
+              }}
+              control={control}
+              render={({ field, fieldState }) => (
+                <Input
+                  {...field}
+                  {...input}
+                  errorText={fieldState.error?.message}
+                />
+              )}
+            />
+          ))}
+          <Button className="button button_submit" onClick={onSubmit} variant="outline">Войти</Button>
         </form>
-
-        <SignFooter
-          text="Еще не зарегистрированы?"
-          link={{
-            url: Urls.SIGN.UP,
-            label: 'SignUp',
-          }}
-        />
-
-        <SignFooter
-          text="Забыли пароль?"
-          link={{
-            url: Urls.PASSWORD.RESET,
-            label: 'Reset',
-          }}
-        />
+        {footer.map((item) => (<SignFooter key={item.link.label} {...item} />))}
       </div>
     </section>
   );
 }
 
-export default Signin;
+export default SignIn;

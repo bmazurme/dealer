@@ -6,7 +6,7 @@ import { ErrorBoundary, type FallbackProps } from 'react-error-boundary';
 import { Link } from 'react-router-dom';
 
 import Header from '../Header';
-import HeaderMenu from '../HeaderMenu';
+// import HeaderMenu from '../HeaderMenu';
 import Button from '../Button';
 import Footer from '../Footer';
 import Banner from '../Banner';
@@ -17,37 +17,26 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
   return (
     <>
       <Header />
-      <HeaderMenu />
-      <div className="">
-        <div role="alert" className="">
-          <div className="">
-            <div className="">
-              APPERROR
-            </div>
-            <div className="">
-              <pre className="">{error.message}</pre>
-            </div>
-            <div className="">
-              Try to
-              <Button
-                className=""
-                onClick={resetErrorBoundary}
-              >
-                Reload app
-              </Button>
-              or
-              <Button
-                className=""
-                onClick={resetErrorBoundary}
-                as={Link}
-                to="/"
-              >
-                Go to homepage
-              </Button>
-            </div>
+      {/* <HeaderMenu /> */}
+
+      <div className="error-boundary">
+        <div className="error-boundary__title">
+          <h2 className="error-boundary__title">APP-ERROR </h2>
+          <p className="error-boundary__message">{error.message}</p>
+
+          <div className="error-boundary__block">
+            Try to
+            <Button className="button button_reload" onClick={resetErrorBoundary} variant="outline">
+              Reload app
+            </Button>
+            or
+            <Button className="link link_home" onClick={resetErrorBoundary} variant="outline" as={Link} to="/">
+              Go to homepage
+            </Button>
           </div>
         </div>
       </div>
+
       <Footer />
       <Banner />
     </>
