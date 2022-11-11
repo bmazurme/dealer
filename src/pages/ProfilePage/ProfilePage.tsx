@@ -1,11 +1,14 @@
 import React from 'react';
-import Content from '../../components/Content';
 import Profile from './Profile';
+import withUser from '../../hoc/withUser';
+import Content from '../../components/Content';
 
-export default function ProfilePage() {
+function ProfilePage() {
   return (
-    <Content heading="Profile">
+    <Content heading="Profile" header menu>
       <Profile />
     </Content>
   );
 }
+
+export default withUser(ProfilePage, false);

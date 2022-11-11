@@ -6,8 +6,10 @@ import { ErrorBoundary, type FallbackProps } from 'react-error-boundary';
 import { Link } from 'react-router-dom';
 
 import Header from '../Header';
+// import HeaderMenu from '../HeaderMenu';
 import Button from '../Button';
-import Content from '../Content';
+import Footer from '../Footer';
+import Banner from '../Banner';
 
 type ErrorBoundaryWrapperProps = PropsWithChildren<unknown>;
 
@@ -15,42 +17,28 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
   return (
     <>
       <Header />
-      <Content className="">
-        <div className="grow h-full w-max flex items-center mx-auto">
-          <div role="alert" className="m-auto bg-gray-100 content-center p-8 rounded-3xl">
-            <div className="scene x3">
-              <div className="tiles">
-                {'APPERROR'.split('')
-                  .map((char, index) => ({ char, id: `${char}-${index}` }))
-                  .map(({ char, id }, index) => (
-                    <div key={id} className={`square s${index} bg-red-600`}>{char}</div>
-                  ))}
-              </div>
-              <div className="w-full flex justify-between max-w-[410px]">
-                <pre className="my-4 text-left whitespace-normal">{error.message}</pre>
-              </div>
-              <div className="border-t pt-6">
-                Try to
-                <Button
-                  className="mx-3"
-                  onClick={resetErrorBoundary}
-                >
-                  Reload app
-                </Button>
-                or
-                <Button
-                  className="mx-3"
-                  onClick={resetErrorBoundary}
-                  as={Link}
-                  to="/"
-                >
-                  Go to homepage
-                </Button>
-              </div>
-            </div>
+      {/* <HeaderMenu /> */}
+
+      <div className="error-boundary">
+        <div className="error-boundary__title">
+          <h2 className="error-boundary__title">APP-ERROR </h2>
+          <p className="error-boundary__message">{error.message}</p>
+
+          <div className="error-boundary__block">
+            Try to
+            <Button className="button button_reload" onClick={resetErrorBoundary} variant="outline">
+              Reload app
+            </Button>
+            or
+            <Button className="link link_home" onClick={resetErrorBoundary} variant="outline" as={Link} to="/">
+              Go to homepage
+            </Button>
           </div>
         </div>
-      </Content>
+      </div>
+
+      <Footer />
+      <Banner />
     </>
   );
 }

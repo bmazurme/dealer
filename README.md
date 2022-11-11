@@ -14,35 +14,24 @@
 ![Express](https://img.shields.io/badge/-Express-black?style=flat-square&logo=express)
 
 ### Layout
-[figma](https://www.figma.com/file/vbRrCeW3YFaiJfEzw9u4Na?)
+
+[![Figma](https://img.shields.io/badge/-Figma-black?style=flat-square&logo=figma)](https://www.figma.com/file/vbRrCeW3YFaiJfEzw9u4Na?)
 
 ### Demo
-[heroku](https://teadealer.herokuapp.com/)
-[netlify](https://delicate-blancmange-5a0a6d.netlify.app/)
+
+[![Heroky](https://img.shields.io/badge/-Heroky-black?style=flat-square&logo=heroku)](https://teadealer.herokuapp.com/)
+[![Netlify](https://img.shields.io/badge/-Netlify-black?style=flat-square&logo=netlify)](https://delicate-blancmange-5a0a6d.netlify.app/)
 
 ### Installation
 
-Clone the repository on your computer:
-
-`git@github.com:bmazurme/dealer.git`
-
-Install dependencies:
-
-`npm install`
-
-Launch:
-
-`npm start`
-
-run dev:
-
-`npm run dev`
-
-run test:
-
-`npm run test`
+- Clone the repository on your computer: `git@github.com:bmazurme/dealer.git`
+- Install dependencies: `npm install`
+- Launch: `npm start`
+- run dev: `npm run dev`
+- run test: `npm run test`
 
 ### .env
+
 create .env in root
 
 ```
@@ -77,12 +66,9 @@ tag image to match Heroku naming conventions
 
 `heroku open`
 
-
 `docker buildx build --platform linux/amd64 -t teadealer .`
 
 `docker tag teadealer registry.heroku.com/teadealer/web`
-
-push
 
 `docker push registry.heroku.com/teadealer/web`
 

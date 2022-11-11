@@ -4,25 +4,30 @@ import type { PropsWithChildren } from 'react';
 
 import Header from '../Header';
 import HeaderMenu from '../HeaderMenu';
+import Footer from '../Footer';
+import Banner from '../Banner';
 
 type Props = PropsWithChildren<{
   heading?: string;
-  className?: string;
+  header?: boolean;
+  menu?: boolean;
 }>;
 
-export default function Content({ heading, className, children }: Props) {
+export default function Content({ heading, children, header, menu }: Props) {
   return (
     <>
-      <Header />
-      <HeaderMenu />
-      {heading && (
-        <section className="">
-          <h1 className="">{heading}</h1>
-        </section>
-      )}
-      <main className="">
+      {header && <Header />}
+      {menu && <HeaderMenu />}
+      
+      <main className="content">
+        {heading && (
+          <h2 className="content__title">{heading}</h2>
+        )}
         {children}
       </main>
+
+      <Footer />
+      <Banner />
     </>
   );
 }

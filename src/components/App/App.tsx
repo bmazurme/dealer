@@ -8,10 +8,11 @@ import SignInPage from '../../pages/SignInPage';
 import SignConfirmPage from '../../pages/SignConfirmPage';
 import ResetPassword from '../../pages/ResetPassword';
 import ProfilePage from '../../pages/ProfilePage';
-import EditProfile from '../../pages/EditProfilePage';
+import EditProfile from '../../pages/ProfileEditPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 import ServerErrorPage from '../../pages/ServerErrorPage';
 import MainPage from '../../pages/MainPage';
+
 import ErrorBoundaryWrapper from '../ErrorBoundaryWrapper';
 
 import { Urls } from '../../utils/routers';
@@ -19,23 +20,21 @@ import '../../index.css';
 
 function App() {
   return (
-    <div className="container">
-      <ErrorBoundaryWrapper>
-        <Routes>
-          <Route path={Urls.SIGN.UP} element={(<SignUpPage />)} />
-          <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
-          <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
-          <Route path={Urls.PASSWORD.RESET} element={(<ResetPassword />)} />
-          <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
-          <Route path={Urls.PROFILE.EDIT} element={(<EditProfile />)} />
-          <Route path={Urls.MAIN.INDEX} element={(<MainPage />)} />
-          <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
-          <Route path={Urls.MAIN.PRIVACY} element={(<PrivacyPage />)} />
-          <Route path={Urls.ERROR[404]} element={(<NotFoundPage />)} />
-          <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />
-        </Routes>
-      </ErrorBoundaryWrapper>
-    </div>
+    <ErrorBoundaryWrapper>
+      <Routes>
+        <Route index element={(<MainPage />)} />
+        <Route path={Urls.SIGN.UP} element={(<SignUpPage />)} />
+        <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
+        <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
+        <Route path={Urls.PASSWORD.RESET} element={(<ResetPassword />)} />
+        <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
+        <Route path={Urls.PROFILE.EDIT} element={(<EditProfile />)} />
+        <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
+        <Route path={Urls.MAIN.PRIVACY} element={(<PrivacyPage />)} />
+        <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />
+        <Route path="*" element={(<NotFoundPage />)} />
+      </Routes>
+    </ErrorBoundaryWrapper>
   );
 }
 

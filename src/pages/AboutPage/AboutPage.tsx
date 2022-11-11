@@ -1,11 +1,15 @@
 import React from 'react';
-import Content from '../../components/Content';
 import About from './About';
+import withUser from '../../hoc/withUser';
+import Content from '../../components/Content';
 
-export default function AboutPage() {
+function AboutPage() {
+  // return (<>{Error()}</>);
   return (
-    <Content heading="About">
+    <Content heading="About" header menu>
       <About />
     </Content>
   );
 }
+
+export default withUser(AboutPage, false);
