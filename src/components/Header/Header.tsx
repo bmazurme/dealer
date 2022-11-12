@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../Logo/Logo';
 import Navigation from '../Navigation';
 
-function Header() {
+export default function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const handlerClick = () => {
     setIsOpen(!isOpen);
@@ -14,5 +14,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

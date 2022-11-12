@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Banner() {
+export default function Banner() {
   return (
     <div className="banner">
       Используя этот сайт, вы соглашаетесь на использование файлов cookie.
@@ -9,5 +9,3 @@ function Banner() {
     </div>
   );
 }
-
-export default Banner;

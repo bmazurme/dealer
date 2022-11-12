@@ -1,26 +1,48 @@
 import React, { MouseEvent, FormEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { Urls } from '../../utils/constants';
-import Link from '../Link';
 import { INavigationProps } from './INavigationProps';
 import ProfileButton from '../ProfileButton';
+import Link from '../Link';
 import useUser from '../../hook/useUser';
-import { setCredentials, useSignOutMutation } from '../../store';
+import { useSignOutMutation } from '../../store';
 
-function Navigation({ isOpen, handlerClick }: INavigationProps) {
+export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
   const userData = useUser();
-  const dispatch = useDispatch();
   const [signOut] = useSignOutMutation();
+  const navigate = useNavigate();
+  
+  const linksSign = [
+    {
+      label: 'SignUp',
+      link: Urls.SIGN.UP,
+      className: 'navigation__signup',
+    },
+    {
+      label: 'SignIn',
+      link: Urls.SIGN.IN,
+      className: 'navigation__signin',
+    },
+  ];
+  const linksProfile = [
+    {
+      label: 'Profile Edite',
+      link: Urls.PROFILE.EDIT,
+      className: 'navigation__link navigation__link',
+      handler: null,
+    },
+    {
+      label: 'Exit',
+      link: Urls.MAIN.INDEX,
+      className: 'navigation__link navigation__link',
 
-  const signOutHandler = (event: FormEvent | MouseEvent) => {
-    event.preventDefault();
-
-    signOut().then(() => {
-      close();
-      dispatch(setCredentials(null));
-      localStorage.removeItem('userAuth');
-    });
-  };
+      handler: async (event: FormEvent | MouseEvent) => {
+        await signOut();
+        navigate('/');
+      },
+    },
+  ];
 
   return (
     <>
@@ -33,36 +55,34 @@ function Navigation({ isOpen, handlerClick }: INavigationProps) {
             onHandleClick={null}
           />
 
-          <Link
-            className="navigation__link navigation__link_home"
-            to={Urls.MAIN.INDEX}
-            label="Exit"
-            onHandleClick={signOutHandler}
-          />
-
-
+          {userData?.login ?
+            (<>
+              {linksProfile.map(({ label, link, className, handler }) => 
+                <Link
+                  key={label}
+                  className={className}
+                  to={link}
+                  label={label}
+                  onHandleClick={handler}
+                /> 
+              )}
+            </>) : null
+          }
 
           {!userData?.login
-            ? (
-              <>
-                <Link
-                  className="navigation__signup"
-                  to={Urls.SIGN.UP}
-                  label="Signup"
-                  onHandleClick={null}
-                />
-                <Link
-                  className="navigation__signin"
-                  to={Urls.SIGN.IN}
-                  label="Signin"
-                  onHandleClick={null}
-                />
-              </>
-            )
-            : null }
-          {
-            userData?.login ? (<ProfileButton isOpen />) : null
+            ? (<>
+                {linksSign.map(({ label, link, className }) => 
+                  <Link
+                    key={label}
+                    className={className}
+                    to={link}
+                    label={label}
+                    onHandleClick={null}
+                  /> 
+                )}
+              </>) : null 
           }
+          { userData?.login ? <ProfileButton isOpen /> : null }
         </ul>
       </div>
 
@@ -77,5 +97,3 @@ function Navigation({ isOpen, handlerClick }: INavigationProps) {
     </>
   );
 }
-
-export default Navigation;

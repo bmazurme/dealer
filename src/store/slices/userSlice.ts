@@ -17,13 +17,7 @@ const slice = createSlice({
     setCredentials: (
       state,
       { payload: data }: PayloadAction<User | null>,
-    ) => (data ? {
-      ...state,
-      data: {
-        ...data,
-        avatar: data?.avatar ? `https://ya-praktikum.tech/api/v2/resources${data.avatar}` : undefined,
-      },
-    } : undefined),
+    ) => ({ ...state, data }),
   },
 });
 

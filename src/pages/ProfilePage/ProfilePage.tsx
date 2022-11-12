@@ -11,4 +11,4 @@ function ProfilePage() {
   );
 }
 
-export default withUser(ProfilePage, false);
+export default withUser(ProfilePage, true);

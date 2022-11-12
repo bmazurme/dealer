@@ -1,11 +1,12 @@
 import React from 'react';
-import Content from '../../components/Content';
-import SignConfirm from './SignConfirm';
 
-export default function SignConfirmPage() {
+import Content from '../../components/Content';
+import PasswordReset from './PasswordReset';
+
+export default function PasswordResetPage() {
   return (
     <Content>
-      <SignConfirm />
+      <PasswordReset />
     </Content>
   );
 }

@@ -2,7 +2,7 @@
 import React from 'react';
 import { IInboxProps } from './IInboxProps';
 
-function Inbox(props: IInboxProps) {
+export default function Inbox(props: IInboxProps) {
   const {
     label,
     pattern,
@@ -62,5 +62,3 @@ function Inbox(props: IInboxProps) {
     </div>
   );
 }
-
-export default Inbox;

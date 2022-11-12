@@ -1,9 +1,11 @@
 .navigation {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
   align-self: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 319px) {
