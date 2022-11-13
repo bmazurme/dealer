@@ -1,11 +1,12 @@
 import React from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';
 import { useForm, Controller } from 'react-hook-form';
 
 import Logo from '../../components/Logo/Logo';
-import Button from '../../components/Button/Button';
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 import SignFooter from '../../components/SignFooter';
 
 import { Urls } from '../../utils/constants';
@@ -34,13 +35,6 @@ export default function PasswordReset() {
 
   const footer = [
     {
-      text: 'На главную',
-      link: {
-        url: Urls.MAIN.INDEX,
-        label: 'Home',
-      },
-    },
-    {
       text: 'Еще не зарегистрированы?',
       link: {
         url: Urls.SIGN.UP,
@@ -54,11 +48,18 @@ export default function PasswordReset() {
         label: 'SignIn',
       },
     },
+    {
+      text: 'На главную',
+      link: {
+        url: Urls.MAIN.INDEX,
+        label: 'Home',
+      },
+    },
   ];
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      navigate('/');
+      navigate(Urls.MAIN.INDEX);
     } catch ({ status, data: { reason } }) {
       errorHandler(new Error(`${status}: ${reason}`));
     }

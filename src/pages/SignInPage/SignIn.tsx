@@ -69,14 +69,14 @@ function SignIn() {
 
   useEffect(() => {
     if (userData) {
-      navigate('/');
+      navigate(Urls.MAIN.INDEX);
     }
   });
 
   const onSubmit = handleSubmit(async (data) => {
     try {
       await signIn(data);
-      navigate('/');
+      navigate(Urls.MAIN.INDEX);
     } catch ({ status, data: { reason } }) {
       errorHandler(new Error(`${status}: ${reason}`));
     }

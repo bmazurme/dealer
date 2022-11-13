@@ -1,12 +1,16 @@
 import React, { MouseEvent, FormEvent } from 'react';
+
 import { useNavigate } from 'react-router-dom';
+
+import useUser from '../../hook/useUser';
+import { useSignOutMutation } from '../../store';
 
 import { Urls } from '../../utils/constants';
 import { INavigationProps } from './INavigationProps';
-import ProfileButton from '../ProfileButton';
+
 import Link from '../Link';
-import useUser from '../../hook/useUser';
-import { useSignOutMutation } from '../../store';
+import ButtonBurger from '../ButtonBurger';
+import ProfileButton from '../ProfileButton';
 
 export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
   const userData = useUser();
@@ -54,7 +58,6 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
             label="Main"
             onHandleClick={null}
           />
-
           {userData?.login ?
             (<>
               {linksProfile.map(({ label, link, className, handler }) => 
@@ -68,7 +71,6 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
               )}
             </>) : null
           }
-
           {!userData?.login
             ? (<>
                 {linksSign.map(({ label, link, className }) => 
@@ -85,15 +87,7 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
           { userData?.login ? <ProfileButton isOpen /> : null }
         </ul>
       </div>
-
-      <button
-        onClick={handlerClick}
-        type="button"
-        className={`button navigation__button
-        ${isOpen ? 'navigation__button_open' : ''}`}
-      >
-        <span className="label_off">toggle</span>
-      </button>
+      <ButtonBurger isOpen={isOpen} handlerClick={handlerClick} />
     </>
   );
 }
