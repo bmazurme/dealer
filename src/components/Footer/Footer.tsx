@@ -1,18 +1,18 @@
 import React from 'react';
 
-function Footer() {
+import { Urls } from '../../utils/routers';
+
+export default function Footer() {
   return (
     <div className="footer">
       <div className="footer__bottom">
         <p className="footer__copyright">&copy; 2022 Withus</p>
         <p className="footer__text">
           Этот сайт защищен reCAPTCHA и Google
-          <a className="footer__link" href="/">Политика конфиденциальности</a>
-          <a className="footer__link" href="/">Условия использования</a>
+          <a className="footer__link" href={Urls.MAIN.PRIVACY}>Политика конфиденциальности</a>
+          <a className="footer__link" href={Urls.MAIN.PRIVATE}>Условия использования</a>
         </p>
       </div>
     </div>
   );
 }
-
-export default Footer;

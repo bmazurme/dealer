@@ -6,7 +6,7 @@ interface IProps {
   link: Record<string, string>,
 }
 
-function SignFooter({ text, link }: IProps) {
+export default function SignFooter({ text, link }: IProps) {
   return (
     <div className="sign__footer">
       <p className="sign__help">
@@ -21,5 +21,3 @@ function SignFooter({ text, link }: IProps) {
     </div>
   );
 }
-
-export default SignFooter;

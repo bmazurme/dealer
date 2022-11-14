@@ -6,7 +6,6 @@ import { ErrorBoundary, type FallbackProps } from 'react-error-boundary';
 import { Link } from 'react-router-dom';
 
 import Header from '../Header';
-// import HeaderMenu from '../HeaderMenu';
 import Button from '../Button';
 import Footer from '../Footer';
 import Banner from '../Banner';
@@ -17,8 +16,7 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
   return (
     <>
       <Header />
-      {/* <HeaderMenu /> */}
-
+      
       <div className="error-boundary">
         <div className="error-boundary__title">
           <h2 className="error-boundary__title">APP-ERROR </h2>

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useEffect, type ComponentType } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';

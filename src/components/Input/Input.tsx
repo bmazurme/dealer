@@ -1,6 +1,6 @@
 /* eslint-disable */
-import React from 'react';
-import { forwardRef, type InputHTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
+import { type InputHTMLAttributes } from 'react';
 
 type OwnProps = {
   id?: string;

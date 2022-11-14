@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { NavLink } from 'react-router-dom';
+
 import { ILinkProps } from './ILinkProps';
 
-function Link({
+export default function Link({
   className,
   to,
   label,
@@ -20,5 +22,3 @@ function Link({
     </li>
   );
 }
-
-export default Link;

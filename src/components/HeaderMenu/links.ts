@@ -22,14 +22,6 @@ const links = [
     link: Urls.PASSWORD.RESET,
   },
   {
-    label: 'Profile',
-    link: Urls.PROFILE.INDEX,
-  },
-  {
-    label: 'ProfileEdit',
-    link: Urls.PROFILE.EDIT,
-  },
-  {
     label: 'ServerErrorPage',
     link: Urls.ERROR[500],
   },
