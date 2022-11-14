@@ -16,7 +16,7 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
   const userData = useUser();
   const [signOut] = useSignOutMutation();
   const navigate = useNavigate();
-  
+
   const linksSign = [
     {
       label: 'SignUp',
@@ -50,7 +50,7 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
 
   return (
     <>
-      <div className={`navigation ${isOpen ? 'navigation_opened' : ''}`} >
+      <div className={`navigation ${isOpen ? 'navigation_opened' : ''}`}>
         <ul className={`navigation__links ${isOpen ? 'navigation__links_opened' : ''}`}>
           <Link
             className="navigation__link navigation__link_home"
@@ -58,32 +58,36 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
             label="Main"
             onHandleClick={null}
           />
-          {userData?.login ?
-            (<>
-              {linksProfile.map(({ label, link, className, handler }) => 
-                <Link
-                  key={label}
-                  className={className}
-                  to={link}
-                  label={label}
-                  onHandleClick={handler}
-                /> 
-              )}
-            </>) : null
-          }
+          {userData?.login
+            ? (
+              <>
+                {linksProfile.map(({
+                  label, link, className, handler,
+                }) => (
+                  <Link
+                    key={label}
+                    className={className}
+                    to={link}
+                    label={label}
+                    onHandleClick={handler}
+                  />
+                ))}
+              </>
+            ) : null}
           {!userData?.login
-            ? (<>
-                {linksSign.map(({ label, link, className }) => 
+            ? (
+              <>
+                {linksSign.map(({ label, link, className }) => (
                   <Link
                     key={label}
                     className={className}
                     to={link}
                     label={label}
                     onHandleClick={null}
-                  /> 
-                )}
-              </>) : null 
-          }
+                  />
+                ))}
+              </>
+            ) : null}
           { userData?.login ? <ProfileButton isOpen /> : null }
         </ul>
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useEffect } from 'react';
 
 import { useErrorHandler } from 'react-error-boundary';
@@ -96,11 +97,11 @@ const footer = [
 
 export default function SignUp() {
   const errorHandler = useErrorHandler();
-  
+
   const navigate = useNavigate();
   const userData = useUser();
   const [signUp] = useSignUpMutation();
-  
+
   const { control, handleSubmit } = useForm<FormPayload>({
     defaultValues: userData ?? {
       avatar: '',

@@ -34,6 +34,7 @@
     "./src",
     "./src/*.d.ts",
     "typings/**/*.d.ts",
+    "./webpack.config.ts",
     "./node_modules/@types",
     "@types/*.d.ts"
   ],

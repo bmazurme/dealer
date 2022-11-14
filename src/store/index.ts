@@ -1,12 +1,13 @@
+/* eslint-disable no-use-before-define */
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory, createMemoryHistory } from 'history';
 
 import {
-  appApi,
+  // appApi,
   authApi,
-  forumApi,
+  // forumApi,
   usersApi,
 } from './api';
 import userReducer from './slices/userSlice';
@@ -34,18 +35,18 @@ export const store = configureStore({
     router: routerReducer,
     // Add the generated reducer as a specific top-level slice
     user: userReducer,
-    [appApi.reducerPath]: appApi.reducer,
+    // [appApi.reducerPath]: appApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
-    [forumApi.reducerPath]: forumApi.reducer,
+    // [forumApi.reducerPath]: forumApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) => getDefaultMiddleware()
     .concat(
-      appApi.middleware,
+      // appApi.middleware,
       authApi.middleware,
-      forumApi.middleware,
+      // forumApi.middleware,
       usersApi.middleware,
       routerMiddleware,
     ),

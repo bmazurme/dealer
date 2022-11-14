@@ -16,7 +16,7 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
   return (
     <>
       <Header />
-      
+
       <div className="error-boundary">
         <div className="error-boundary__title">
           <h2 className="error-boundary__title">APP-ERROR </h2>

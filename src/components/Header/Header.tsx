@@ -5,7 +5,7 @@ import Navigation from '../Navigation';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const handlerClick = () => {
     setIsOpen(!isOpen);
   };
