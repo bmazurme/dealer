@@ -31,26 +31,28 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
   ];
   const linksProfile = [
     {
-      label: 'Profile Edite',
-      link: Urls.PROFILE.EDIT,
-      className: 'navigation__link navigation__link',
-      handler: null,
-    },
-    {
       label: 'Exit',
       link: Urls.MAIN.INDEX,
       className: 'navigation__link navigation__link',
-
       handler: async (event: FormEvent | MouseEvent) => {
         await signOut();
         navigate('/');
       },
     },
+    {
+      label: 'Profile Edite',
+      link: Urls.PROFILE.EDIT,
+      className: 'navigation__link navigation__link',
+      handler: null,
+    },
   ];
 
   return (
     <>
-      <div className={`navigation ${isOpen ? 'navigation_opened' : ''}`}>
+      <div
+        className={`navigation ${isOpen ? 'navigation_opened' : ''}`}
+        onClick={(evt: MouseEvent<HTMLElement>) => handlerClick(evt)}
+      >
         <ul className={`navigation__links ${isOpen ? 'navigation__links_opened' : ''}`}>
           <Link
             className="navigation__link navigation__link_home"
