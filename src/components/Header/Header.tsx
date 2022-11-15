@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState, MouseEvent } from 'react';
 
 import Logo from '../Logo/Logo';
