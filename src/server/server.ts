@@ -3,9 +3,9 @@ import path from 'path';
 import { errors } from 'celebrate';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
-
 import { config as dotEnvConfig } from 'dotenv';
 import cors from 'cors';
+
 import { requestLogger, errorLogger } from './middlewares/logger';
 import corsOptions from './utils/corsOptions';
 
