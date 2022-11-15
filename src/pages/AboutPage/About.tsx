@@ -1,10 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 
 export default function AboutPage() {
   return (
     <section className="page">
       <div className="page__content">
-      <p className="about__text">
+        <p className="about__text">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>
         <p className="about__text">

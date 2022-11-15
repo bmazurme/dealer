@@ -4,7 +4,7 @@ export default function Privacy() {
   return (
     <section className="page">
       <div className="page__content">
-      <h4 className="privacy__title">Права и обязанности сторон</h4>
+        <h4 className="privacy__title">Права и обязанности сторон</h4>
         <p className="privacy__text">Пользователь имеет право:</p>
         <p className="privacy__text">- осуществлять поиск информации на сайте</p>
         <p className="privacy__text">- получать информацию на сайте</p>
