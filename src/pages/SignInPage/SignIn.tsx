@@ -58,7 +58,7 @@ const footer = [
   },
 ];
 
-function SignIn() {
+export default function SignIn() {
   const errorHandler = useErrorHandler();
 
   const navigate = useNavigate();
@@ -113,5 +113,3 @@ function SignIn() {
     </section>
   );
 }
-
-export default SignIn;

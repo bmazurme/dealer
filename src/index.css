@@ -26,6 +26,7 @@
 @import "./blocks/navigation/__link/navigation__link.css";
 @import "./blocks/navigation/__links/navigation__links.css";
 @import "./blocks/navigation/__links/_opened/navigation__links_opened.css";
+@import "./blocks/navigation/__links/_rev/navigation__links_rev.css";
 @import "./blocks/navigation/__link/_active/navigation__link_active.css";
 @import "./blocks/navigation/__link/_home/navigation__link_home.css";
 @import "./blocks/navigation/__signin/navigation__signin.css";
@@ -94,3 +95,12 @@
 @import "./blocks/error-boundary/__title/error-boundary__title.css";
 @import "./blocks/error-boundary/__message/error-boundary__message.css";
 @import "./blocks/error-boundary/__block/error-boundary__block.css";
+
+/* about */
+@import "./blocks/about/about.css";
+@import "./blocks/about/__text/about__text.css";
+
+/* privacy */
+@import "./blocks/privacy/__title/privacy__title.css";
+@import "./blocks/privacy/__container/privacy__container.css";
+@import "./blocks/privacy/__text/privacy__text.css";

@@ -13,12 +13,14 @@ type Props = PropsWithChildren<{
   menu?: boolean;
 }>;
 
-export default function Content({ heading, children, header, menu }: Props) {
+export default function Content({
+  heading, children, header, menu,
+}: Props) {
   return (
     <>
       {header && <Header />}
       {menu && <HeaderMenu />}
-      
+
       <main className="content">
         {heading && (
           <h2 className="content__title">{heading}</h2>

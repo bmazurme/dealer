@@ -57,7 +57,7 @@ export default function PasswordReset() {
     },
   ];
 
-  const onSubmit = handleSubmit(async (data) => {
+  const onSubmit = handleSubmit(async () => {
     try {
       navigate(Urls.MAIN.INDEX);
     } catch ({ status, data: { reason } }) {

@@ -8,7 +8,7 @@ function SignInPage() {
     <Content>
       <SignIn />
     </Content>
-    );
+  );
 }
 
 export default withUser(SignInPage, false);

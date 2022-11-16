@@ -32,7 +32,7 @@ export default function SignConfirm() {
     <section className="sign">
       <div className="container">
         <Logo />
-        
+
         <h2 className="sign__title">SignConfirm</h2>
         <p className="page__description">{message}</p>
 

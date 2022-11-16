@@ -44,6 +44,7 @@
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-var-requires": 0,
         "@typescript-eslint/ban-ts-comment": "off",
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
         "import/extensions": [
             "error",
             "ignorePackages",

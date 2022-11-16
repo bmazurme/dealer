@@ -1,4 +1,6 @@
+import { MouseEvent } from 'react';
+
 export interface INavigationProps {
   isOpen: boolean,
-  handlerClick: () => void,
+  handlerClick: (evt: MouseEvent<HTMLElement>) => void,
 }

@@ -1,12 +1,28 @@
 .profile-button__label {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 12px;
-  text-decoration: none;
-  color: #222;
-  margin: 0 7px 0 11px;
+  margin: 0 20px 0 0;
   padding: 0;
-  display: flex;
-  align-self: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: none;
+  text-align: right;
+  color: #000;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .profile-button__label {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 12px;
+    text-decoration: none;
+    color: #222;
+    margin: 0 7px 0 11px;
+    padding: 0;
+    display: flex;
+    align-self: center;
+  }
 }
