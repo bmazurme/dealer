@@ -24,22 +24,6 @@ const validateObjectId = celebrate({
   }),
 });
 
-const validateMovieData = celebrate({
-  body: Joi.object().keys({
-    nameRU: Joi.string().min(2).max(30).required(),
-    nameEN: Joi.string().min(2).max(30).required(),
-    country: Joi.string().min(2).max(30).required(),
-    director: Joi.string().min(2).max(30).required(),
-    description: Joi.string().min(2).max(200).required(),
-    duration: Joi.number().required(),
-    year: Joi.string().min(2).max(4).required(),
-    image: Joi.string().required().custom(checkUrl),
-    trailerLink: Joi.string().required().custom(checkUrl),
-    thumbnail: Joi.string().required().custom(checkUrl),
-    movieId: Joi.number().required(),
-  }),
-});
-
 const validateUserData = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
@@ -67,7 +51,6 @@ const validateRegistrData = celebrate({
 export {
   validateObjectId,
   validateUserData,
-  validateMovieData,
   validateLoginData,
   validateRegistrData,
 };
