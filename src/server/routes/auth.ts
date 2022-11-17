@@ -1,17 +1,13 @@
 import { Router } from 'express';
-import auth from '../controllers/auth';
 
-import {
-  validateLoginData,
-  validateRegistrData,
-} from '../utils/validator';
+import { login, createUser } from '../controllers/auth';
+import { validateLoginData, validateRegistrData } from '../utils/validator';
 
 const router = Router();
 
-router.get('/api/auth', auth);
-router.post('/api/signin', validateLoginData, auth);
-router.post('/api/signup', validateRegistrData, auth);
-router.post('/api/signout', auth);
-router.post('/api/confirm/:code', auth);
+router.post('/api/signin', validateLoginData, login);
+router.post('/api/signup', validateRegistrData, createUser);
+router.post('/api/signout', login);
+router.post('/api/confirm/:code', login);
 
 export default router;

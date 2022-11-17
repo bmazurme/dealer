@@ -1,9 +1,10 @@
 import { celebrate, Joi } from 'celebrate';
 import { isValidObjectId } from 'mongoose';
 import validator from 'validator';
+
 import BadRequestError from '../errors/BadRequestError';
 
-const checkUrl = (value: any, helpers: any) => {
+const checkUrl = (value: string, helpers: any) => {
   if (validator.isURL(value)) {
     return value;
   }
