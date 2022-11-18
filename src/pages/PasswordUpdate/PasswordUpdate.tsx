@@ -55,16 +55,6 @@ export default function PasswordUpdate() {
     },
   ];
 
-  const footer = [
-    {
-      text: 'Back',
-      link: {
-        url: Urls.MAIN.INDEX,
-        label: 'Home',
-      },
-    },
-  ];
-
   const onSubmit = handleSubmit(async () => {
     try {
       navigate(Urls.MAIN.INDEX);
