@@ -42,8 +42,8 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
       },
     },
     {
-      label: 'Profile Edit',
-      link: Urls.PROFILE.EDIT,
+      label: 'Bucket',
+      link: Urls.BUCKET.INDEX,
       className: 'navigation__link navigation__link',
       handler: null,
     },

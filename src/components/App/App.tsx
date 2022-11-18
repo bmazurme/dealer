@@ -12,6 +12,7 @@ import EditProfile from '../../pages/ProfileEditPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 import ServerErrorPage from '../../pages/ServerErrorPage';
 import MainPage from '../../pages/MainPage';
+import BucketPage from '../../pages/Bucket';
 
 import ErrorBoundaryWrapper from '../ErrorBoundaryWrapper';
 
@@ -30,6 +31,7 @@ export default function App() {
         <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
         <Route path={Urls.PROFILE.EDIT} element={(<EditProfile />)} />
         <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
+        <Route path={Urls.BUCKET.INDEX} element={(<BucketPage />)} />
         <Route path={Urls.MAIN.PRIVACY} element={(<PrivacyPage />)} />
         <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />
         <Route path="*" element={(<NotFoundPage />)} />
