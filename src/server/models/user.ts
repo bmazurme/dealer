@@ -8,7 +8,7 @@ import {
 } from 'mongoose';
 
 import validator from 'validator';
-import isUrl from 'validator/lib/isURL';
+// import isUrl from 'validator/lib/isURL';
 import bcrypt from 'bcryptjs';
 
 export interface IUser extends Document {
@@ -39,10 +39,10 @@ const UserSchema = new Schema({
   avatar: {
     type: String,
     required: true,
-    validate: {
-      validator: (link: string) => isUrl(link),
-      message: 'некорректные данные',
-    },
+    // validate: {
+    //   validator: (link: string) => isUrl(link),
+    //   message: 'некорректные данные',
+    // },
   },
   email: {
     type: String,

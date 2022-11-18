@@ -1,4 +1,4 @@
-import { login, createUser } from './auth';
-import { confirmEmail } from './user';
+import { login as loginController, createUser as createUserController } from './auth';
+import { confirmEmail as confirmEmailController } from './user';
 
-export { login, createUser, confirmEmail };
+export { loginController, createUserController, confirmEmailController };

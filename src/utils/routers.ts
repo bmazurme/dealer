@@ -7,7 +7,7 @@ export const Urls = {
   },
   PASSWORD: {
     INDEX: '/password',
-    EDIT: '/password/edit',
+    UPDATE: '/password/update',
     RESET: '/password/reset',
     NEW: '/password/new/:token',
   },

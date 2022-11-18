@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import path from 'path';
 import { errors } from 'celebrate';
 import helmet from 'helmet';
@@ -31,12 +32,21 @@ const helmetConfig = {
 };
 
 const port = process.env.PORT ?? 3000;
+const pth = 'mongodb://localhost:27017/dealer';
 
 const app = express();
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+mongoose.connect(pth, {
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true,
+  // useCreateIndex: true,
+  // useFindAndModify: false,
+});
+
 app.use(requestLogger);
 
 app.use(limiter);
@@ -46,7 +56,7 @@ app.use('/static', express.static(path.resolve(process.cwd(), 'static')));
 
 app.use(express.static(path.resolve(__dirname), { extensions: ['css', 'js'] }));
 
-app.use('/', index);
+app.use('/api/', index);
 
 app.get('*', (_req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, 'index.html'));

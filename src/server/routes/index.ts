@@ -1,15 +1,15 @@
 import { Router } from 'express';
 
-import test from './test';
-import auth from './auth';
-import user from './user';
-import profile from './profile';
+import authRoute from './auth';
+import userRoute from './user';
+import profileRoute from './profile';
+
+import authMiddleware from '../middlewares/auth';
 
 const router = Router();
 
-router.use('/', test);
-router.use('/', auth);
-router.use('/', user);
-router.use('/', profile);
+router.use('/', authRoute);
+router.use('/', authMiddleware, userRoute);
+router.use('/', profileRoute);
 
 export default router;
