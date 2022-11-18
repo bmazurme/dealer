@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { celebrate, Joi } from 'celebrate';
 import { isValidObjectId } from 'mongoose';
 import validator from 'validator';

@@ -38,6 +38,7 @@
 
 /* container */
 @import "./blocks/container/container.css";
+@import "./blocks/container/_profile/container_profile.css";
 
 /* footer */
 @import "./blocks/footer/footer.css";
@@ -62,15 +63,27 @@
 /* link */
 @import "./blocks/link/_home/link_home.css";
 
+/* page */
+@import "./blocks/page/__link/page__link.css";
+
 /* avatar */
 @import "./blocks/avatar/avatar.css";
 @import "./blocks/avatar/__link/avatar__link.css";
+
+/* fields */
+@import "./blocks/fields/fields.css";
+
+/* field */
+@import "./blocks/field/field.css";
+@import "./blocks/field/__label/field__label.css";
+@import "./blocks/field/__value/field__value.css";
 
 /* profile-button */
 @import "./blocks/profile-button/profile-button.css";
 @import "./blocks/profile-button/__icon/profile-button__icon.css";
 @import "./blocks/profile-button/__label/profile-button__label.css";
 
+/* headermenu */
 @import "./blocks/headermenu/headermenu.css";
 @import "./blocks/headermenu/__link/headermenu__link.css";
 

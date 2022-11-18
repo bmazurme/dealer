@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { MouseEvent, FormEvent } from 'react';
-
 import { useNavigate } from 'react-router-dom';
 
 import useUser from '../../hook/useUser';
@@ -42,7 +42,7 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
       },
     },
     {
-      label: 'Profile Edite',
+      label: 'Profile Edit',
       link: Urls.PROFILE.EDIT,
       className: 'navigation__link navigation__link',
       handler: null,

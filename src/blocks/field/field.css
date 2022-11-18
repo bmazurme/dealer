@@ -1,0 +1,15 @@
+.field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.field:first-child {
+  margin-top: 60px;
+}
+
+.field:last-child {
+  margin-bottom: 60px;
+}
