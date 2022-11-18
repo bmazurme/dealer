@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import cors from 'cors';
+
 import { METHODS, ALLOWED_HEADERS, WHITE_LIST } from './constCors';
 
 const checkWhiteList: any = (origin: string, callback: any) => {

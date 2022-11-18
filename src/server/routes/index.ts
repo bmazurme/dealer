@@ -2,14 +2,14 @@ import { Router } from 'express';
 
 import test from './test';
 import auth from './auth';
-import profile from './profile';
 import user from './user';
+import profile from './profile';
 
 const router = Router();
 
 router.use('/', test);
 router.use('/', auth);
-router.use('/', profile);
 router.use('/', user);
+router.use('/', profile);
 
 export default router;
