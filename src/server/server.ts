@@ -20,14 +20,12 @@ import errorHandler from './middlewares/errorHandler';
 dotEnvConfig();
 
 const helmetConfig = {
-  hidePoweredBy: false,
-  contentSecurityPolicy: {
-    useDefaults: true,
-    directives: {
-      'img-src': ["'self'", "'unsafe-inline'"],
-      'connect-src': ["'self'", 'https://ya-praktikum.tech/api/v2/'],
-      'default-src': ["'self'", 'https://ya-praktikum.tech/api/v2/'],
-    },
+  directives: {
+    defaultSrc: ["'self'", 'https://ya-praktikum.tech/api/v2/'],
+    scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+    connectSrc: ["'self'", 'https://ya-praktikum.tech/api/v2/'],
+    styleSrc: ["'self'", "'unsafe-inline'"],
+    imgSrc: ["'self'", 'https://chairai.ru/'],
   },
 };
 
@@ -50,10 +48,10 @@ mongoose.connect(pth, {
 app.use(requestLogger);
 
 app.use(limiter);
-app.use(helmet(helmetConfig));
+
+app.use(helmet.contentSecurityPolicy(helmetConfig));
 
 app.use('/static', express.static(path.resolve(process.cwd(), 'static')));
-
 app.use(express.static(path.resolve(__dirname), { extensions: ['css', 'js'] }));
 
 app.use('/api/', index);
