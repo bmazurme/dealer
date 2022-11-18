@@ -3,7 +3,7 @@ import { celebrate, Joi } from 'celebrate';
 import { isValidObjectId } from 'mongoose';
 import validator from 'validator';
 
-import BadRequestError from '../errors/BadRequestError';
+import { BadRequestError } from '../errors';
 
 const checkUrl = (value: string, helpers: any) => {
   if (validator.isURL(value)) {
@@ -21,6 +21,7 @@ const validateObjectId = celebrate({
       if (!isValidObjectId(value)) {
         throw new BadRequestError('переданы некорректные данные');
       }
+
       return value;
     }),
   }),

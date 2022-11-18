@@ -5,9 +5,7 @@ import { config as dotEnvConfig } from 'dotenv';
 
 import User, { IUser } from '../models/user';
 
-import UnauthorizedError from '../errors/UnauthorizedError';
-import BadRequestError from '../errors/BadRequestError';
-import ConflictError from '../errors/ConflictError';
+import { UnauthorizedError, BadRequestError, ConflictError } from '../errors';
 
 dotEnvConfig();
 

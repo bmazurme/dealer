@@ -10,7 +10,7 @@ import { requestLogger, errorLogger } from './middlewares/logger';
 import corsOptions from './utils/corsOptions';
 
 import index from './routes/index';
-import NotFoundError from './errors/NotFoundError';
+import { NotFoundError } from './errors';
 
 import limiter from './utils/limiter';
 
