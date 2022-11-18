@@ -56,6 +56,7 @@ const client = merge<Configuration>(common, {
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'dist'),
+    publicPath: '/',
   },
   optimization: {
     minimize: process.env.NODE_ENV === 'production',

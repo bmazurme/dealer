@@ -62,6 +62,10 @@
 /* link */
 @import "./blocks/link/_home/link_home.css";
 
+/* avatar */
+@import "./blocks/avatar/avatar.css";
+@import "./blocks/avatar/__link/avatar__link.css";
+
 /* profile-button */
 @import "./blocks/profile-button/profile-button.css";
 @import "./blocks/profile-button/__icon/profile-button__icon.css";

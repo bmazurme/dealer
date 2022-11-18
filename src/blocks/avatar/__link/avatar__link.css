@@ -1,0 +1,17 @@
+.avatar__link {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.avatar__link:hover {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  transform: scale(1.2);
+  position: relative;
+}

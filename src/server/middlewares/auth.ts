@@ -1,10 +1,13 @@
+import { Response, NextFunction } from 'express';
+
 import jwt from 'jsonwebtoken';
 import UnauthorizedError from '../errors/UnauthorizedError';
 // import DEV_JWT_SECRET from '../utils/devConfig';
 
 const DEV_JWT_SECRET: any = {};
 
-const auth = (req: any, _res: Response, next: any) => {
+// eslint-disable-next-line max-len
+const auth = (req: any, _res: Response, next: NextFunction) => {
   const { authorization } = req.headers as unknown as Record<string, string>;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {

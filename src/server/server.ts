@@ -48,7 +48,7 @@ app.use(express.static(path.resolve(__dirname), { extensions: ['css', 'js'] }));
 
 app.use('/', index);
 
-app.get('/:page', (_req, res) => {
+app.get('*', (_req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, 'index.html'));
 });
 
