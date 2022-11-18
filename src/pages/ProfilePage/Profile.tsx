@@ -21,7 +21,7 @@ export default function ProfilePage() {
         </ul>
 
         <NavLink className="page__link" to={Urls.PROFILE.EDIT}>Edit Profile</NavLink>
-        <NavLink className="page__link" to={Urls.PROFILE.EDIT}>Edit Password</NavLink>
+        <NavLink className="page__link" to={Urls.PASSWORD.UPDATE}>Update Password</NavLink>
         <NavLink className="page__link" to={Urls.MAIN.INDEX}>Back</NavLink>
       </div>
     </section>

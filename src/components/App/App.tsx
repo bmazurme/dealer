@@ -6,7 +6,8 @@ import PrivacyPage from '../../pages/PrivacyPage';
 import SignUpPage from '../../pages/SignUpPage';
 import SignInPage from '../../pages/SignInPage';
 import SignConfirmPage from '../../pages/SignConfirmPage';
-import PasswordReset from '../../pages/PasswordReset';
+import PasswordResetPage from '../../pages/PasswordReset';
+import PasswordUpdatePage from '../../pages/PasswordUpdate';
 import ProfilePage from '../../pages/ProfilePage';
 import EditProfile from '../../pages/ProfileEditPage';
 import NotFoundPage from '../../pages/NotFoundPage';
@@ -27,7 +28,8 @@ export default function App() {
         <Route path={Urls.SIGN.UP} element={(<SignUpPage />)} />
         <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
         <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
-        <Route path={Urls.PASSWORD.RESET} element={(<PasswordReset />)} />
+        <Route path={Urls.PASSWORD.RESET} element={(<PasswordResetPage />)} />
+        <Route path={Urls.PASSWORD.UPDATE} element={(<PasswordUpdatePage />)} />
         <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
         <Route path={Urls.PROFILE.EDIT} element={(<EditProfile />)} />
         <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
