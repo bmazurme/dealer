@@ -1,5 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
+
+import livereload from 'livereload';
+import connectLivereload from 'connect-livereload';
+
 import path from 'path';
 import { errors } from 'celebrate';
 import helmet from 'helmet';
@@ -20,6 +24,7 @@ import errorHandler from './middlewares/errorHandler';
 dotEnvConfig();
 
 const helmetConfig = {
+  useDefaults: true,
   directives: {
     defaultSrc: ["'self'", 'https://ya-praktikum.tech/api/v2/'],
     scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
@@ -49,7 +54,22 @@ app.use(requestLogger);
 
 app.use(limiter);
 
-app.use(helmet.contentSecurityPolicy(helmetConfig));
+if (process.env.NODE_ENV === 'production') {
+  app.use(helmet.hidePoweredBy());
+  app.use(helmet.contentSecurityPolicy(helmetConfig));
+}
+
+if (process.env.NODE_ENV === 'development') {
+  const liveReloadServer = livereload.createServer();
+
+  liveReloadServer.server.once('connection', () => {
+    setTimeout(() => {
+      liveReloadServer.refresh('/');
+    }, 100);
+  });
+
+  app.use(connectLivereload());
+}
 
 app.use('/static', express.static(path.resolve(process.cwd(), 'static')));
 app.use(express.static(path.resolve(__dirname), { extensions: ['css', 'js'] }));
