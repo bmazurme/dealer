@@ -1,7 +1,7 @@
 import { Response, NextFunction } from 'express';
-
 import jwt from 'jsonwebtoken';
-import { IUser } from 'server/models/user';
+
+import { IUser } from '../models/user';
 import { UnauthorizedError } from '../errors';
 import DEV_JWT_SECRET from '../utils/devConfig';
 

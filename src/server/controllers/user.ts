@@ -1,10 +1,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { NextFunction, Request, Response } from 'express';
-import bcrypt from 'bcryptjs';
+import { NextFunction, Response } from 'express';
 
-import User, { IUser } from '../models/user';
-
+import User from '../models/user';
 import { NotFoundError, BadRequestError, ConflictError } from '../errors';
 
 // eslint-disable-next-line max-len
@@ -27,35 +25,49 @@ const getCurrentUser = (req: any, res: Response, next: NextFunction) => {
     });
 };
 
-const updatePassword = (req: Request, res: Response, next: NextFunction) => {
-  const { password, newPassword, email } = req.body;
-
-  User.findUserByCredentials(email, password)
-    .then((user: IUser | undefined) => {
-      bcrypt.hash(newPassword, 10)
-        .then((hash: string) => {
-          (user as IUser).password = hash;
-          user?.save();
-
-          const { name, _id } = user!;
-          res.send({ email, name, id: _id });
-        });
-    })
-    .catch((err) => {
-      next(err);
-    });
-};
-
 const updateUser = (req: any, res: Response, next: NextFunction) => {
-  const { name, email } = req.body;
+  const { name, about, email } = req.body;
 
   User.findByIdAndUpdate(
     // eslint-disable-next-line no-underscore-dangle
     req.user._id,
     {
       name,
+      about,
       email,
     },
+    {
+      new: true,
+      runValidators: true,
+    },
+  )
+    .then((data) => {
+      if (!data) {
+        return next(new NotFoundError('USER_NOT_FOUND_RU'));
+      }
+
+      return res.send(data);
+    })
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        return next(new BadRequestError());
+      }
+
+      if (err.code === 11000) {
+        return next(new ConflictError('USER_CONFLICT_RU'));
+      }
+
+      return next(err);
+    });
+};
+
+const updateUserAvatar = (req: any, res: Response, next: NextFunction) => {
+  const { avatar } = req.body;
+
+  User.findByIdAndUpdate(
+    // eslint-disable-next-line no-underscore-dangle
+    req.user._id,
+    { avatar },
     {
       new: true,
       runValidators: true,
@@ -104,7 +116,7 @@ const confirmEmail = (req: any, res: Response, next: NextFunction) => {
 
 export {
   getCurrentUser,
-  updatePassword,
   updateUser,
+  updateUserAvatar,
   confirmEmail,
 };

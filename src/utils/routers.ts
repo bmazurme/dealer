@@ -17,6 +17,9 @@ export const Urls = {
     PRIVACY: '/privacy',
     PRIVATE: '/private',
   },
+  ADMIN: {
+    INDEX: 'admin',
+  },
   BUCKET: {
     INDEX: '/bucket',
   },

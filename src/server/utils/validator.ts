@@ -30,6 +30,21 @@ const validateObjectId = celebrate({
 const validateUserData = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
+    about: Joi.string().min(2).max(30),
+    email: Joi.string().required().email(),
+  }),
+});
+
+const validateUserAvatar = celebrate({
+  body: Joi.object().keys({
+    avatar: Joi.string().min(2),
+  }),
+});
+
+const validatePassword = celebrate({
+  body: Joi.object().keys({
+    password: Joi.string().required(),
+    newPassword: Joi.string().required(),
     email: Joi.string().required().email(),
   }),
 });
@@ -56,4 +71,6 @@ export {
   validateUserData,
   validateLoginData,
   validateRegistrData,
+  validateUserAvatar,
+  validatePassword,
 };

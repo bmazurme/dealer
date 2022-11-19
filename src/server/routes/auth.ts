@@ -1,9 +1,7 @@
 import { Router } from 'express';
 
 import { loginController, createUserController, confirmEmailController } from '../controllers';
-
 import { validateLoginData, validateRegistrData } from '../utils/validator';
-
 import { UrlsApi } from '../utils/routers';
 
 const router = Router();
