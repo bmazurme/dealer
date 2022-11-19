@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
 import { useNavigate, NavLink } from 'react-router-dom';
@@ -89,9 +90,7 @@ export default function PasswordUpdate() {
           ))}
           <Button className="button button_submit" onClick={onSubmit} variant="outline">Update</Button>
         </form>
-        <NavLink className="page__link" to="/profile">
-          Back
-        </NavLink>
+        <NavLink className="page__link" to="/profile">Back</NavLink>
       </div>
     </section>
   );

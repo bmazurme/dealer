@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import AboutPage from '../../pages/AboutPage';
+import AdminPage from '../../pages/AdminPage';
 import PrivacyPage from '../../pages/PrivacyPage';
 import SignUpPage from '../../pages/SignUpPage';
 import SignInPage from '../../pages/SignInPage';
@@ -25,6 +26,7 @@ export default function App() {
     <ErrorBoundaryWrapper>
       <Routes>
         <Route index element={(<MainPage />)} />
+        <Route path={Urls.ADMIN.INDEX} element={(<AdminPage />)} />
         <Route path={Urls.SIGN.UP} element={(<SignUpPage />)} />
         <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
         <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
