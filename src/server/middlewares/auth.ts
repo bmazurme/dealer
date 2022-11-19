@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
@@ -6,14 +7,13 @@ import { UnauthorizedError } from '../errors';
 import DEV_JWT_SECRET from '../utils/devConfig';
 
 const auth = (req: any, _res: Response, next: NextFunction) => {
-  const { authorization } = req.headers as unknown as Record<string, string>;
+  const { token } = req.cookies as unknown as Record<string, string>;
   const { JWT_SECRET, NODE_ENV } = process.env;
 
-  if (!authorization || !authorization.startsWith('Bearer ')) {
+  if (!token) {
     throw new UnauthorizedError();
   }
 
-  const token = authorization.replace('Bearer ', '');
   let payload;
 
   try {

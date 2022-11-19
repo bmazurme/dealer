@@ -22,6 +22,10 @@ const links = [
     link: Urls.PASSWORD.RESET,
   },
   {
+    label: 'NewPassword',
+    link: Urls.PASSWORD.NEW,
+  },
+  {
     label: 'ServerErrorPage',
     link: Urls.ERROR[500],
   },

@@ -2,7 +2,7 @@ export const UrlsApi = {
   SIGN: {
     UP: '/signup',
     IN: '/signin',
-    OUT: '/signout',
+    OUT: '/logout',
     CONFIRM: '/confirm/:code',
   },
   USER: {
@@ -14,5 +14,6 @@ export const UrlsApi = {
   PASS: {
     UPDATE: '/password/update',
     RESET: '/password/reset',
+    NEW: '/password/new',
   },
 };

@@ -17,6 +17,4 @@ const usersApiEndpoints = usersApi
     }),
   });
 
-export const {
-  useGetUsersInfoQuery,
-} = usersApiEndpoints;
+export const { useGetUsersInfoQuery } = usersApiEndpoints;

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextFunction, Response } from 'express';
@@ -26,15 +28,23 @@ const getCurrentUser = (req: any, res: Response, next: NextFunction) => {
 };
 
 const updateUser = (req: any, res: Response, next: NextFunction) => {
-  const { name, about, email } = req.body;
+  const {
+    firstName,
+    secontName,
+    login,
+    email,
+    phone,
+  } = req.body;
 
   User.findByIdAndUpdate(
     // eslint-disable-next-line no-underscore-dangle
     req.user._id,
     {
-      name,
-      about,
+      firstName,
+      secontName,
+      login,
       email,
+      phone,
     },
     {
       new: true,
@@ -93,30 +103,11 @@ const updateUserAvatar = (req: any, res: Response, next: NextFunction) => {
     });
 };
 
-const confirmEmail = (req: any, res: Response, next: NextFunction) => {
-  User.findOne({ confirmationCode: req.params.confirmationCode })
-    .then((user: any) => {
-      if (!user) {
-        return next(new NotFoundError('USER_NOT_FOUND_RU'));
-      }
-
-      if (user.status === 'Pending') {
-        user.status = 'Active';
-        user.save();
-
-        return res.send('ok'); // ???
-      }
-
-      return res.status(409).send('xxx'); // ???
-    })
-    .catch((err) => {
-      next(err);
-    });
-};
+const logout = (req: Request, res: Response) => res.clearCookie('token', { path: '/' }).send('logout');
 
 export {
   getCurrentUser,
   updateUser,
   updateUserAvatar,
-  confirmEmail,
+  logout,
 };

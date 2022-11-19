@@ -10,6 +10,7 @@ import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import { config as dotEnvConfig } from 'dotenv';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 import { requestLogger, errorLogger } from './middlewares/logger';
 import corsOptions from './utils/corsOptions';
@@ -26,9 +27,9 @@ dotEnvConfig();
 const helmetConfig = {
   useDefaults: true,
   directives: {
-    defaultSrc: ["'self'", 'https://ya-praktikum.tech/api/v2/'],
+    defaultSrc: ["'self'", 'https://ya-praktikum.tech/api/v2/', 'http://localhost:3000/api/'],
     scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-    connectSrc: ["'self'", 'https://ya-praktikum.tech/api/v2/'],
+    connectSrc: ["'self'", 'https://ya-praktikum.tech/api/v2/', 'http://localhost:3000/api/'],
     styleSrc: ["'self'", "'unsafe-inline'"],
     imgSrc: ["'self'", 'https://chairai.ru/'],
   },
@@ -42,6 +43,7 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 mongoose.connect(pth, {
   // useNewUrlParser: true,

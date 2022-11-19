@@ -2,7 +2,7 @@ import createApi from '../../createApi';
 
 import { getBaseQuery } from '../../baseQuery';
 
-const baseQuery = getBaseQuery('https://ya-praktikum.tech/api/v2/auth');
+const baseQuery = getBaseQuery('http://localhost:3000/api');
 
 const authApi = createApi({
   reducerPath: 'authApi',

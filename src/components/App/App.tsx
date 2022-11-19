@@ -7,10 +7,11 @@ import PrivacyPage from '../../pages/PrivacyPage';
 import SignUpPage from '../../pages/SignUpPage';
 import SignInPage from '../../pages/SignInPage';
 import SignConfirmPage from '../../pages/SignConfirmPage';
-import PasswordResetPage from '../../pages/PasswordReset';
+import PasswordResetPage from '../../pages/PasswordResetPage';
 import PasswordUpdatePage from '../../pages/PasswordUpdate';
+import PasswordNewPage from '../../pages/PasswordNewPage';
 import ProfilePage from '../../pages/ProfilePage';
-import EditProfile from '../../pages/ProfileEditPage';
+import EditProfilePage from '../../pages/ProfileEditPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 import ServerErrorPage from '../../pages/ServerErrorPage';
 import MainPage from '../../pages/MainPage';
@@ -31,9 +32,10 @@ export default function App() {
         <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
         <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
         <Route path={Urls.PASSWORD.RESET} element={(<PasswordResetPage />)} />
+        <Route path={Urls.PASSWORD.NEW} element={(<PasswordNewPage />)} />
         <Route path={Urls.PASSWORD.UPDATE} element={(<PasswordUpdatePage />)} />
         <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
-        <Route path={Urls.PROFILE.EDIT} element={(<EditProfile />)} />
+        <Route path={Urls.PROFILE.EDIT} element={(<EditProfilePage />)} />
         <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
         <Route path={Urls.BUCKET.INDEX} element={(<BucketPage />)} />
         <Route path={Urls.MAIN.PRIVACY} element={(<PrivacyPage />)} />
