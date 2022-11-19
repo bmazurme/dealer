@@ -1,5 +1,9 @@
 .profile-button__label {
-  margin: 0 20px 0 0;
+  /* margin: 0 20px 0 0; */
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  margin-left: 20px;
   padding: 0;
   font-style: normal;
   font-weight: 400;
@@ -10,6 +14,12 @@
   color: #000;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+
+@media screen and (max-width: 319px) {
+  .profile-button__label {
+    margin: 0;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
