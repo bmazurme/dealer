@@ -41,7 +41,7 @@ export default function Rating() {
     <div className="rating">
       {stars.map((star, index) => (
         <Star
-          key={star.key}
+          key={`${star.key}${index}`}
           id={index}
           active={star.active}
           handleClick={handleClick}

@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 /* eslint-disable import/prefer-default-export */
 import usersApi from '..';
+import { setCredentials } from '../../../slices/userSlice';
 
 const usersApiEndpoints = usersApi
   .enhanceEndpoints({
@@ -14,7 +16,17 @@ const usersApiEndpoints = usersApi
         }),
         providesTags: ['Users'],
       }),
+      updateUser: builder.mutation({
+        query: (user) => ({
+          url: '/users/update',
+          method: 'PATCH',
+          data: user,
+          async onSuccess(dispatch, data) {
+            dispatch(setCredentials(data as User));
+          },
+        }),
+      }),
     }),
   });
 
-export const { useGetUsersInfoQuery } = usersApiEndpoints;
+export const { useGetUsersInfoQuery, useUpdateUserMutation } = usersApiEndpoints;

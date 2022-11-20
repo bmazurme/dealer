@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
+
 import { useErrorHandler } from 'react-error-boundary';
 import { useForm, Controller } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
@@ -8,12 +9,17 @@ import { NavLink } from 'react-router-dom';
 import useUser from '../../hook/useUser';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input';
+import { useUpdateUserMutation } from '../../store';
 
 import { FormPayload } from '../SignUpPage/SignUp';
+// import { Urls } from '../../utils/routers';
+import Notification, { type NotificationProps } from '../Notification';
 
 export default function ProfileEdit() {
   const userData = useUser();
   const errorHandler = useErrorHandler();
+  const [updateUser] = useUpdateUserMutation();
+  const [notification, setNotification] = useState<{ type: NotificationProps['type']; message: string; } | null>(null);
 
   const inputs = [
     {
@@ -71,8 +77,8 @@ export default function ProfileEdit() {
   const { control, handleSubmit } = useForm<FormPayload>({
     defaultValues: userData ?? {
       avatar: '',
-      first_name: '',
-      second_name: '',
+      firstName: '',
+      secondName: '',
       login: '',
       email: '',
       password: '',
@@ -80,13 +86,31 @@ export default function ProfileEdit() {
     },
   });
 
-  const onSubmit = handleSubmit(async (data) => {
-    try {
-      // await signUp(data);
-      // navigate('/');
-    } catch ({ status, data: { reason } }: any) {
-      errorHandler(new Error(`${status}: ${reason}`));
-    }
+  const onSubmit = handleSubmit(async (data: FormPayload) => {
+    const actions = [];
+
+    const {
+      firstName,
+      secondName,
+      login,
+      email,
+      phone,
+    } = data;
+
+    actions.push(updateUser({
+      firstName,
+      secondName,
+      login,
+      email,
+      phone,
+    }));
+    Promise.all(actions)
+      .then(() => setNotification({
+        type: 'success',
+        message: 'Profile updated',
+      }))
+      .then(() => setTimeout(() => setNotification(null), 3000))
+      .catch(({ status, data: { reason } }) => errorHandler(new Error(`${status}: ${reason}`)));
   });
 
   return (
@@ -111,14 +135,25 @@ export default function ProfileEdit() {
               )}
             />
           ))}
-
           <Button className="button button_submit" onClick={onSubmit} variant="outline">
             Сохранить
           </Button>
         </form>
+
         <NavLink className="page__link" to="/profile">
           Back
         </NavLink>
+
+        {notification && (
+          <Notification
+            type={notification.type}
+            className=""
+          >
+            <span>
+              {notification.message}
+            </span>
+          </Notification>
+        )}
       </div>
     </section>
   );
