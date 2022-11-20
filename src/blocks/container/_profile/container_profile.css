@@ -1,6 +1,7 @@
 .container_profile {
   margin-top: 30px;
   margin-bottom: 30px;
+  justify-content: center;
 }
 
 @media screen and (min-width: 320px) and (max-width: 599px) {

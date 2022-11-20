@@ -30,7 +30,7 @@ const validateObjectId = celebrate({
 const validateUserData = celebrate({
   body: Joi.object().keys({
     firstName: Joi.string().min(2).max(30),
-    secontName: Joi.string().min(2).max(30),
+    secondName: Joi.string().min(2).max(30),
     login: Joi.string().min(2).max(30),
     email: Joi.string().required().email(),
     phone: Joi.string().min(2),
@@ -61,7 +61,7 @@ const validateLoginData = celebrate({
 const validateRegistrData = celebrate({
   body: Joi.object().keys({
     firstName: Joi.string().min(2).max(30),
-    secontName: Joi.string().min(2).max(30),
+    secondName: Joi.string().min(2).max(30),
     login: Joi.string().min(2).max(30),
     email: Joi.string().required().email(),
     phone: Joi.string().min(2),

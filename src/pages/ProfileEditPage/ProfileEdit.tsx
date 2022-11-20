@@ -17,7 +17,7 @@ export default function ProfileEdit() {
 
   const inputs = [
     {
-      name: 'first_name',
+      name: 'firstName',
       label: 'First name',
       pattern: {
         value: /^[a-zA-Zа-яА-ЯёЁ-]{3,15}$/,
@@ -27,7 +27,7 @@ export default function ProfileEdit() {
       autoComplete: 'given-name',
     },
     {
-      name: 'second_name',
+      name: 'secondName',
       label: 'Second name',
       pattern: {
         value: /^[a-zA-Zа-яА-ЯёЁ-]{3,15}$/,

@@ -6,7 +6,7 @@ http://localhost:3000/api/signup
 ```
 {
     "firstName": "firstName",
-    "secontName": "secontName",
+    "secondName": "secondName",
     "login": "login",
     "avatar":"http://localhost.com",
     "email": "s@s.com",
@@ -18,7 +18,7 @@ http://localhost:3000/api/signup
 {
     "_id": "637906fc2cbb6d3888854837",
     "firstName": "firstName",
-    "secontName": "secontName",
+    "secondName": "secondName",
     "login": "login",
     "email": "s@s.com",
     "phone": "01234567890",
@@ -54,7 +54,7 @@ http://localhost:3000/api/users/me
 {
     "_id": "637906fc2cbb6d3888854837",
     "firstName": "firstName",
-    "secontName": "secontName",
+    "secondName": "secondName",
     "login": "login",
     "email": "s@s.com",
     "phone": "01234567890",

@@ -1,29 +1,38 @@
+import { Urls } from '../../utils/constants';
+
 const fields = [
   {
-    label: 'First name',
-    value: 'firstName',
+    label: 'First Name',
     key: 'firstName',
   },
   {
-    label: 'Second name',
-    value: 'secondName',
+    label: 'Second Name',
     key: 'secondName',
   },
   {
-    label: 'Login',
-    value: 'login',
-    key: 'login',
-  },
-  {
     label: 'Email',
-    value: 'email',
     key: 'email',
   },
   {
     label: 'Phone',
-    value: 'phone',
     key: 'phone',
   },
 ];
 
+const links = [
+  {
+    label: 'Edit Profile',
+    url: Urls.PROFILE.EDIT,
+  },
+  {
+    label: 'Update Password',
+    url: Urls.PASSWORD.UPDATE,
+  },
+  {
+    label: 'Back',
+    url: Urls.MAIN.INDEX,
+  },
+];
+
 export default fields;
+export { links };

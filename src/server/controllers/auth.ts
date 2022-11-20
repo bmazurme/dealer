@@ -24,7 +24,7 @@ const CHARACTERS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX
 const createUser = (req: Request, res: Response, next: NextFunction) => {
   const {
     firstName,
-    secontName,
+    secondName,
     login,
     email,
     phone,
@@ -41,7 +41,7 @@ const createUser = (req: Request, res: Response, next: NextFunction) => {
   bcrypt.hash(password, 10)
     .then((hash: string) => User.create({
       firstName,
-      secontName,
+      secondName,
       login,
       email,
       phone,
@@ -55,7 +55,7 @@ const createUser = (req: Request, res: Response, next: NextFunction) => {
         // eslint-disable-next-line no-underscore-dangle
         _id: user?._id,
         firstName,
-        secontName,
+        secondName,
         login,
         email,
         phone,

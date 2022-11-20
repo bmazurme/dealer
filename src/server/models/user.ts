@@ -13,7 +13,7 @@ import bcrypt from 'bcryptjs';
 
 export interface IUser extends Document {
   firstName: string;
-  secontName: string;
+  secondName: string;
   login: string
   email: string;
   phone: string;
@@ -34,7 +34,7 @@ const UserSchema = new Schema({
     minlength: 2,
     maxlength: 30,
   },
-  secontName: {
+  secondName: {
     type: String,
     required: true,
     minlength: 2,

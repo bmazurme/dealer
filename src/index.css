@@ -135,3 +135,7 @@
 @import "./blocks/rating/rating.css";
 @import "./blocks/rating/__star/rating__star.css";
 @import "./blocks/rating/__star/_active/rating__star_active.css";
+
+/* title */
+@import "./blocks/title/title.css";
+@import "./blocks/title/_profile/title_profile.css";

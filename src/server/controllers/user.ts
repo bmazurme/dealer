@@ -30,7 +30,7 @@ const getCurrentUser = (req: any, res: Response, next: NextFunction) => {
 const updateUser = (req: any, res: Response, next: NextFunction) => {
   const {
     firstName,
-    secontName,
+    secondName,
     login,
     email,
     phone,
@@ -41,7 +41,7 @@ const updateUser = (req: any, res: Response, next: NextFunction) => {
     req.user._id,
     {
       firstName,
-      secontName,
+      secondName,
       login,
       email,
       phone,
