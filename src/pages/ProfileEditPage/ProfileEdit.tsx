@@ -7,13 +7,11 @@ import { useForm, Controller } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
 
 import useUser from '../../hook/useUser';
-import Button from '../../components/Button/Button';
+import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useUpdateUserMutation } from '../../store';
-
 import { FormPayload } from '../SignUpPage/SignUp';
-// import { Urls } from '../../utils/routers';
-import Notification, { type NotificationProps } from '../Notification';
+import Notification, { type NotificationProps } from '../../components/App/Notification';
 
 export default function ProfileEdit() {
   const userData = useUser();
@@ -104,6 +102,7 @@ export default function ProfileEdit() {
       email,
       phone,
     }));
+
     Promise.all(actions)
       .then(() => setNotification({
         type: 'success',

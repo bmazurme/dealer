@@ -1,28 +1,35 @@
+/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, { useState } from 'react';
 
-import { useNavigate, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';
 import { useForm, Controller } from 'react-hook-form';
+
+import useUser from '../../hook/useUser';
+import { useUpdatePasswordMutation } from '../../store';
+import Notification, { type NotificationProps } from '../../components/App/Notification';
 
 import Logo from '../../components/Logo/Logo';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Urls } from '../../utils/constants';
-
 type FormPayload = {
-  email: string;
+  password: string;
+  newPassword: string;
+  confirmPassword: string;
 };
 
 export default function PasswordUpdate() {
   const errorHandler = useErrorHandler();
-  const navigate = useNavigate();
-  const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { email: '' } });
-
+  const userData = useUser();
+  const { email } = userData! as User;
+  const [updatePass] = useUpdatePasswordMutation();
+  const [notification, setNotification] = useState<{ type: NotificationProps['type']; message: string; } | null>(null);
+  const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { password: '', newPassword: '', confirmPassword: '' } });
   const inputs = [
     {
-      name: 'old-password',
+      name: 'password',
       label: 'Old password',
       pattern: {
         value: /^[a-zA-Z0-9_-]{3,15}$/,
@@ -33,7 +40,7 @@ export default function PasswordUpdate() {
       autoComplete: 'new-password',
     },
     {
-      name: 'new-password',
+      name: 'newPassword',
       label: 'New password',
       pattern: {
         value: /^[a-zA-Z0-9_-]{3,15}$/,
@@ -44,7 +51,7 @@ export default function PasswordUpdate() {
       autoComplete: 'new-password',
     },
     {
-      name: 'confirm-password',
+      name: 'confirmPassword',
       label: 'New password confirm',
       pattern: {
         value: /^[a-zA-Z0-9_-]{3,15}$/,
@@ -56,12 +63,20 @@ export default function PasswordUpdate() {
     },
   ];
 
-  const onSubmit = handleSubmit(async () => {
-    try {
-      navigate(Urls.MAIN.INDEX);
-    } catch ({ status, data: { reason } }: any) {
-      errorHandler(new Error(`${status}: ${reason}`));
-    }
+  const onSubmit = handleSubmit(async (data: Record<string, string>) => {
+    const actions = [];
+    const { password, newPassword } = data;
+    actions.push(updatePass({ password, newPassword, email }));
+
+    Promise.all(actions)
+      .then((message: any) => {
+        setNotification({
+          type: 'success',
+          message: `${message[0]?.error ? 'error' : 'Password updated'}`,
+        });
+      })
+      .then(() => setTimeout(() => setNotification(null), 3000))
+      .catch(({ status, data: { reason } }) => errorHandler(new Error(`${status}: ${reason}`)));
   });
 
   return (
@@ -91,6 +106,17 @@ export default function PasswordUpdate() {
           <Button className="button button_submit" onClick={onSubmit} variant="outline">Update</Button>
         </form>
         <NavLink className="page__link" to="/profile">Back</NavLink>
+
+        {notification && (
+          <Notification
+            type={notification.type}
+            className=""
+          >
+            <span>
+              {notification.message}
+            </span>
+          </Notification>
+        )}
       </div>
     </section>
   );

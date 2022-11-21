@@ -26,7 +26,21 @@ const usersApiEndpoints = usersApi
           },
         }),
       }),
+      updatePassword: builder.mutation({
+        query: (pass: Record<string, string>) => ({
+          url: '/password/update',
+          method: 'PATCH',
+          data: pass,
+          async onSuccess(dispatch, data) {
+            dispatch(setCredentials(data as User));
+          },
+        }),
+      }),
     }),
   });
 
-export const { useGetUsersInfoQuery, useUpdateUserMutation } = usersApiEndpoints;
+export const {
+  useGetUsersInfoQuery,
+  useUpdateUserMutation,
+  useUpdatePasswordMutation,
+} = usersApiEndpoints;
