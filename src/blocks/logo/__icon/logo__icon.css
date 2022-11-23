@@ -11,9 +11,9 @@
 
 @media screen and (max-width: 319px) {
   .logo__icon {
-    width: 28px;
-    height: 28px;
-    background-size: 28px;
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
   }
 }
 

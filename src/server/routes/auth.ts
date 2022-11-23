@@ -1,13 +1,22 @@
 import { Router } from 'express';
 
-import { login, createUser } from '../controllers/auth';
+import {
+  loginController,
+  createUserController,
+  confirmEmailController,
+  newPasswordController,
+  resetPasswordController,
+} from '../controllers';
+
 import { validateLoginData, validateRegistrData } from '../utils/validator';
+import { UrlsApi } from '../utils/routers';
 
 const router = Router();
 
-router.post('/api/signin', validateLoginData, login);
-router.post('/api/signup', validateRegistrData, createUser);
-router.post('/api/signout', login);
-router.post('/api/confirm/:code', login);
+router.post(UrlsApi.SIGN.IN, validateLoginData, loginController);
+router.post(UrlsApi.SIGN.UP, validateRegistrData, createUserController);
+router.get(UrlsApi.SIGN.CONFIRM, confirmEmailController);
+router.patch(UrlsApi.PASS.RESET, resetPasswordController);
+router.patch(UrlsApi.PASS.NEW, newPasswordController);
 
 export default router;

@@ -1,9 +1,9 @@
 export default class UnauthorizedError extends Error {
-  statusCode: number;
+  status: number;
 
   constructor(message = 'HTTP 401 Unauthorized') {
     super(message);
 
-    this.statusCode = 401;
+    this.status = 401;
   }
 }

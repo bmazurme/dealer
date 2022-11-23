@@ -8,6 +8,12 @@
   z-index: 1000;
 }
 
+/* @media screen and (min-width: 769px) {
+  .navigation__links {
+    flex-direction: row-reverse;
+  }
+} */
+
 @media screen and (max-width: 319px) and (max-width: 479px) {
   .navigation__links {
     display: none;

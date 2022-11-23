@@ -3,15 +3,6 @@
   flex-direction: column;
   margin: 0 70px;
   padding: 0;
-  /* box-sizing: content-box;
-  height: 74px;
-  width: auto;
-
-  padding: 0;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  justify-content: space-between; */
 }
 
 @media screen and (max-width: 319px) {

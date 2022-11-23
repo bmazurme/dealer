@@ -1,9 +1,9 @@
 export default class ForbiddenError extends Error {
-  statusCode: number;
+  status: number;
 
   constructor(message = 'HTTP 403 Forbidden') {
     super(message);
 
-    this.statusCode = 403;
+    this.status = 403;
   }
 }

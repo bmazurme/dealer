@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
 
-const sendMail = (userEmail: string, token: string, name: string, type: number) => {
+const sendMail = (userEmail: string, token: string, login: string, type: number) => {
   const email = userEmail;
   const confirmationCode = token;
 
@@ -22,7 +22,7 @@ const sendMail = (userEmail: string, token: string, name: string, type: number) 
     to: email,
     subject: 'Please confirm your account',
     html: `
-      <h2>Hello ${name}</h2>
+      <h2>Hello ${login}</h2>
       <p>Thank you for subscribing. Please confirm your email by clicking on the following link</p>
       <a href=${process.env.HOST}/confirm/${confirmationCode}> Click here </a>`,
   };
@@ -32,7 +32,7 @@ const sendMail = (userEmail: string, token: string, name: string, type: number) 
     to: email,
     subject: 'Please confirm your account',
     html: `
-      <h2>Hello ${name}</h2>
+      <h2>Hello ${login}</h2>
       <p>Thank you for subscribing. Please confirm your email by clicking on the following link</p>
       <a href=${process.env.HOST}/profile/new/password/${confirmationCode}> Click here </a>`,
   };

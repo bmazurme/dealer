@@ -105,8 +105,8 @@ export default function SignUp() {
   const { control, handleSubmit } = useForm<FormPayload>({
     defaultValues: userData ?? {
       avatar: '',
-      first_name: '',
-      second_name: '',
+      firstName: '',
+      secondName: '',
       login: '',
       email: '',
       password: '',
@@ -124,7 +124,7 @@ export default function SignUp() {
     try {
       await signUp(data);
       navigate('/');
-    } catch ({ status, data: { reason } }) {
+    } catch ({ status, data: { reason } }: any) {
       errorHandler(new Error(`${status}: ${reason}`));
     }
   });

@@ -7,7 +7,7 @@ export const Urls = {
   },
   PASSWORD: {
     INDEX: '/password',
-    EDIT: '/password/edit',
+    UPDATE: '/password/update',
     RESET: '/password/reset',
     NEW: '/password/new/:token',
   },
@@ -16,6 +16,12 @@ export const Urls = {
     ABOUT: '/about',
     PRIVACY: '/privacy',
     PRIVATE: '/private',
+  },
+  ADMIN: {
+    INDEX: 'admin',
+  },
+  BUCKET: {
+    INDEX: '/bucket',
   },
   PROFILE: {
     INDEX: '/profile',

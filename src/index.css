@@ -38,6 +38,7 @@
 
 /* container */
 @import "./blocks/container/container.css";
+@import "./blocks/container/_profile/container_profile.css";
 
 /* footer */
 @import "./blocks/footer/footer.css";
@@ -62,11 +63,27 @@
 /* link */
 @import "./blocks/link/_home/link_home.css";
 
+/* page */
+@import "./blocks/page/__link/page__link.css";
+
+/* avatar */
+@import "./blocks/avatar/avatar.css";
+@import "./blocks/avatar/__link/avatar__link.css";
+
+/* fields */
+@import "./blocks/fields/fields.css";
+
+/* field */
+@import "./blocks/field/field.css";
+@import "./blocks/field/__label/field__label.css";
+@import "./blocks/field/__value/field__value.css";
+
 /* profile-button */
 @import "./blocks/profile-button/profile-button.css";
 @import "./blocks/profile-button/__icon/profile-button__icon.css";
 @import "./blocks/profile-button/__label/profile-button__label.css";
 
+/* headermenu */
 @import "./blocks/headermenu/headermenu.css";
 @import "./blocks/headermenu/__link/headermenu__link.css";
 
@@ -104,3 +121,21 @@
 @import "./blocks/privacy/__title/privacy__title.css";
 @import "./blocks/privacy/__container/privacy__container.css";
 @import "./blocks/privacy/__text/privacy__text.css";
+
+/* cards */
+@import "./blocks/cards/cards.css";
+/* card */
+@import "./blocks/card/card.css";
+@import "./blocks/card/__container/card__container.css";
+@import "./blocks/card/__image/card__image.css";
+@import "./blocks/card/__title/card__title.css";
+@import "./blocks/card/__description/card__description.css";
+
+/* rating */
+@import "./blocks/rating/rating.css";
+@import "./blocks/rating/__star/rating__star.css";
+@import "./blocks/rating/__star/_active/rating__star_active.css";
+
+/* title */
+@import "./blocks/title/title.css";
+@import "./blocks/title/_profile/title_profile.css";

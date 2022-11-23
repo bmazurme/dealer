@@ -15,7 +15,7 @@ const authApiEndpoints = authApi
           data,
         }),
       }),
-      signIn: builder.mutation<void, { login: string, password: string }>({
+      signIn: builder.mutation<void, { email: string, password: string }>({
         query: (data) => ({
           url: '/signin',
           method: 'POST',
@@ -24,10 +24,10 @@ const authApiEndpoints = authApi
       }),
       getUser: builder.mutation<User | null, void>({
         query: () => ({
-          url: '/user',
+          url: '/users/me',
           method: 'GET',
           async onSuccess(dispatch, data) {
-            await dispatch(setCredentials(data as User));
+            dispatch(setCredentials(data as User));
           },
         }),
         invalidatesTags: ['User'],

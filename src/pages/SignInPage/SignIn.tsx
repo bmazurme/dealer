@@ -14,20 +14,20 @@ import useUser from '../../hook/useUser';
 import { Urls } from '../../utils/constants';
 
 type FormPayload = {
-  login: string;
+  email: string;
   password: string;
 };
 
 const inputs = [
   {
-    name: 'login',
-    label: 'Login',
+    name: 'email',
+    label: 'Email',
     pattern: {
-      value: /^[a-z0-9_-]{3,15}$/,
-      message: 'Login is invalid',
+      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      message: 'Email is invalid',
     },
     required: true,
-    autoComplete: 'username',
+    autoComplete: 'email',
   },
   {
     name: 'password',
@@ -65,7 +65,7 @@ export default function SignIn() {
   const userData = useUser();
   const [signIn] = useSignInMutation();
 
-  const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { login: '', password: '' } });
+  const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { email: '', password: '' } });
 
   useEffect(() => {
     if (userData) {
