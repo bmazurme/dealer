@@ -17,7 +17,7 @@ export type FormPayload = Omit<User, 'id'>;
 
 const inputs = [
   {
-    name: 'first_name',
+    name: 'firstName',
     label: 'First name',
     pattern: {
       value: /^[a-zA-Zа-яА-ЯёЁ-]{3,15}$/,
@@ -27,7 +27,7 @@ const inputs = [
     autoComplete: 'given-name',
   },
   {
-    name: 'second_name',
+    name: 'secondName',
     label: 'Second name',
     pattern: {
       value: /^[a-zA-Zа-яА-ЯёЁ-]{3,15}$/,
@@ -104,7 +104,7 @@ export default function SignUp() {
 
   const { control, handleSubmit } = useForm<FormPayload>({
     defaultValues: userData ?? {
-      avatar: '',
+      avatar: 'https://localhost.ru',
       firstName: '',
       secondName: '',
       login: '',
@@ -124,7 +124,7 @@ export default function SignUp() {
     try {
       await signUp(data);
       navigate('/');
-    } catch ({ status, data: { reason } }: any) {
+    } catch ({ status, data: { reason } }: unknown) {
       errorHandler(new Error(`${status}: ${reason}`));
     }
   });
@@ -155,7 +155,7 @@ export default function SignUp() {
             />
           ))}
 
-          <Button className="button button_submit" onClick={onSubmit} variant="outline">Войти</Button>
+          <Button className="button button_submit" onClick={onSubmit} variant="outline">Зарегистрировать</Button>
         </form>
 
         {footer.map((item) => (<SignFooter key={item.link.label} {...item} />))}

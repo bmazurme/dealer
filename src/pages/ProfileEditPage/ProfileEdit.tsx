@@ -11,7 +11,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useUpdateUserMutation } from '../../store';
 import { FormPayload } from '../SignUpPage/SignUp';
-import Notification, { type NotificationProps } from '../../components/App/Notification';
+import Notification, { type NotificationProps } from '../../components/Notification';
 
 export default function ProfileEdit() {
   const userData = useUser();

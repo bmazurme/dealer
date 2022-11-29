@@ -8,7 +8,7 @@ import { useForm, Controller } from 'react-hook-form';
 
 import useUser from '../../hook/useUser';
 import { useUpdatePasswordMutation } from '../../store';
-import Notification, { type NotificationProps } from '../../components/App/Notification';
+import Notification, { type NotificationProps } from '../../components/Notification';
 
 import Logo from '../../components/Logo/Logo';
 import Input from '../../components/Input';

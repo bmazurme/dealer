@@ -32,6 +32,16 @@ const authApiEndpoints = authApi
         }),
         invalidatesTags: ['User'],
       }),
+      confirmUser: builder.mutation({
+        query: (token: string) => ({
+          url: `/confirm/${token}`,
+          method: 'GET',
+          // async onSuccess(dispatch, data) {
+          //   dispatch(setCredentials(data as User));
+          // },
+        }),
+        invalidatesTags: ['User'],
+      }),
       signOut: builder.mutation<void, void>({
         query: () => ({
           url: '/logout',
@@ -50,4 +60,5 @@ export const {
   useSignInMutation,
   useGetUserMutation,
   useSignOutMutation,
+  useConfirmUserMutation,
 } = authApiEndpoints;
