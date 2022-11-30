@@ -143,16 +143,12 @@ export default function ProfileEdit() {
           Back
         </NavLink>
 
-        {notification && (
-          <Notification
-            type={notification.type}
-            className=""
-          >
-            <span>
-              {notification.message}
-            </span>
-          </Notification>
-        )}
+        <div className={`notification ${notification === null ? '' : 'notification_open'}`}>
+          {notification && (
+            <Notification type={notification.type} className="" children={notification.message} />
+          )}
+        </div>
+
       </div>
     </section>
   );

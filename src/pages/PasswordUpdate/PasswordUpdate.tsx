@@ -23,7 +23,9 @@ type FormPayload = {
 export default function PasswordUpdate() {
   const errorHandler = useErrorHandler();
   const userData = useUser();
+
   const { email } = userData! as User;
+
   const [updatePass] = useUpdatePasswordMutation();
   const [notification, setNotification] = useState<{ type: NotificationProps['type']; message: string; } | null>(null);
   const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { password: '', newPassword: '', confirmPassword: '' } });
@@ -107,16 +109,12 @@ export default function PasswordUpdate() {
         </form>
         <NavLink className="page__link" to="/profile">Back</NavLink>
 
-        {notification && (
-          <Notification
-            type={notification.type}
-            className=""
-          >
-            <span>
-              {notification.message}
-            </span>
-          </Notification>
-        )}
+        <div className={`notification ${notification === null ? '' : 'notification_open'}`}>
+          {notification && (
+            <Notification type={notification.type} className="" children={notification.message} />
+          )}
+        </div>
+
       </div>
     </section>
   );

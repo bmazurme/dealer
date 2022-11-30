@@ -97,7 +97,6 @@ const footer = [
 
 export default function SignUp() {
   const errorHandler = useErrorHandler();
-
   const navigate = useNavigate();
   const userData = useUser();
   const [signUp] = useSignUpMutation();

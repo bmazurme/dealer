@@ -124,6 +124,7 @@
 
 /* cards */
 @import "./blocks/cards/cards.css";
+
 /* card */
 @import "./blocks/card/card.css";
 @import "./blocks/card/__container/card__container.css";
@@ -139,3 +140,8 @@
 /* title */
 @import "./blocks/title/title.css";
 @import "./blocks/title/_profile/title_profile.css";
+
+/* notification */
+@import "./blocks/notification/notification.css";
+@import "./blocks/notification/_open/notification_open.css";
+@import "./blocks/notification/__container/notification__container.css";

@@ -6,15 +6,10 @@ export type NotificationProps = {
   className?: string,
 };
 
-export default function Notification({ type = 'notification', children, className = '' }: NotificationProps) {
-  // const classesOfType = {
-  //   error: 'text-error bg-red-200',
-  //   success: 'text-success bg-green-200',
-  //   notification: 'text-notification bg-orange-200',
-  // };
-
+export default function Notification({ type = 'notification', children, className }: NotificationProps) {
+  console.log(type, className);
   return (
-    <div>
+    <div className="notification__container">
       { children }
     </div>
   );

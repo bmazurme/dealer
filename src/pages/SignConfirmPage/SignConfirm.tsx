@@ -22,7 +22,7 @@ export default function SignConfirm() {
         setTimeout(() => (navigate(Urls.SIGN.IN)), 10000);
       }
     })
-      .catch(({ status, data: { reason } }: any) => errorHandler(new Error(`${status}: ${reason}`)));
+      .catch(({ status, data: { reason } }) => errorHandler(new Error(`${status}: ${reason}`)));
     return () => {
       console.log('end');
     };
