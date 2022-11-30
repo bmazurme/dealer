@@ -6,20 +6,31 @@ import Avatar from '../../components/Avatar';
 import fields, { links } from './fields';
 
 export default function ProfilePage() {
-  const userData: any = useUser();
+  const userData: {
+    id: number;
+    firstName: string;
+    secondName: string;
+    displayName: string;
+    login: string;
+    email: string;
+    phone: string;
+    avatar?: string;
+    password?: string;
+  } | null = useUser();
+  const getValue = (data: Record<string, string | number>, key: string) => data[key];
 
   return (
     <section className="page">
       <div className="container container_profile">
         <Avatar />
 
-        <h3 className="title title_profile">{userData.login}</h3>
+        <h3 className="title title_profile">{userData!.login}</h3>
 
         <ul className="fields">
-          {fields.map((field) => (
-            <li className="field" key={field.key}>
-              <p className="field__label">{field.label}</p>
-              <p className="field__value">{userData[field.key]}</p>
+          {fields.map(({ key, label }) => (
+            <li className="field" key={key}>
+              <p className="field__label">{label}</p>
+              <p className="field__value">{getValue(userData!, key)}</p>
             </li>
           ))}
         </ul>

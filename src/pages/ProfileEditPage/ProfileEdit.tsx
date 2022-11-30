@@ -11,7 +11,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useUpdateUserMutation } from '../../store';
 import { FormPayload } from '../SignUpPage/SignUp';
-import Notification, { type NotificationProps } from '../../components/App/Notification';
+import Notification, { type NotificationProps } from '../../components/Notification';
 
 export default function ProfileEdit() {
   const userData = useUser();
@@ -143,16 +143,12 @@ export default function ProfileEdit() {
           Back
         </NavLink>
 
-        {notification && (
-          <Notification
-            type={notification.type}
-            className=""
-          >
-            <span>
-              {notification.message}
-            </span>
-          </Notification>
-        )}
+        <div className={`notification ${notification === null ? '' : 'notification_open'}`}>
+          {notification && (
+            <Notification type={notification.type} className="" children={notification.message} />
+          )}
+        </div>
+
       </div>
     </section>
   );

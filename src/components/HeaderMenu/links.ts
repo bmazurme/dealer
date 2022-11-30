@@ -18,10 +18,6 @@ const links = [
     link: Urls.SIGN.CONFIRM,
   },
   {
-    label: 'ResetPassword',
-    link: Urls.PASSWORD.RESET,
-  },
-  {
     label: 'NewPassword',
     link: Urls.PASSWORD.NEW,
   },

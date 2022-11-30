@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink, useParams } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';
 import { useForm, Controller } from 'react-hook-form';
+
+import { useNewPasswordMutation } from '../../store';
 
 import Logo from '../../components/Logo/Logo';
 import Input from '../../components/Input';
@@ -12,17 +14,23 @@ import Button from '../../components/Button';
 import { Urls } from '../../utils/constants';
 
 type FormPayload = {
-  email: string;
+  newPassword: string;
+  confirmPassword: string;
 };
 
 export default function PasswordNew() {
   const errorHandler = useErrorHandler();
+  const [newPassword] = useNewPasswordMutation();
   const navigate = useNavigate();
-  const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { email: '' } });
+
+  const params = useParams();
+  const { token } = params;
+
+  const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { newPassword: '', confirmPassword: '' } });
 
   const inputs = [
     {
-      name: 'new-password',
+      name: 'newPassword',
       label: 'New password',
       pattern: {
         value: /^[a-zA-Z0-9_-]{3,15}$/,
@@ -33,7 +41,7 @@ export default function PasswordNew() {
       autoComplete: 'new-password',
     },
     {
-      name: 'confirm-password',
+      name: 'confirmPassword',
       label: 'New password confirm',
       pattern: {
         value: /^[a-zA-Z0-9_-]{3,15}$/,
@@ -45,9 +53,14 @@ export default function PasswordNew() {
     },
   ];
 
-  const onSubmit = handleSubmit(async () => {
+  console.log(token);
+
+  const onSubmit = handleSubmit(async (data: Record<string, string>) => {
     try {
-      navigate(Urls.MAIN.INDEX);
+      console.log({ password: data.newPassword, token: token! });
+      await newPassword({ password: data.newPassword, token: token! });
+      console.log(navigate(Urls.MAIN.INDEX));
+      // navigate(Urls.MAIN.INDEX);
     } catch ({ status, data: { reason } }: any) {
       errorHandler(new Error(`${status}: ${reason}`));
     }
