@@ -1,8 +1,8 @@
-.button_inactive {
+.icon-button_disabled {
   cursor: default;
   opacity: 0.4;
 }
 
-.button_inactive:hover {
+.icon-button_disabled:hover {
   opacity: 0.4;
 }

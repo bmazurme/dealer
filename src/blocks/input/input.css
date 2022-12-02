@@ -1,4 +1,4 @@
-.inbox__input {
+.input {
   background-color: #f4f4f4;
   border: #f4f4f4 1px solid;
   border-radius: 8px;
@@ -8,9 +8,12 @@
   padding: 0 15px;
   box-sizing: border-box;
 }
+.input::placeholder {
+  color: #a0a0a0;
+}
 
 @media screen and (min-width: 320px) and (max-width: 599px) {
-  .inbox__input {
+  .input {
     /* max-width: 366px; */
   }
 }
