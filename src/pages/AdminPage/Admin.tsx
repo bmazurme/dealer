@@ -26,6 +26,28 @@ export default function Admin() {
     required: true,
     autoComplete: 'email',
   };
+  const list = [
+    {
+      key: 'white',
+      name: 'Белый чай',
+    },
+    {
+      key: 'green',
+      name: 'Зеленый чай',
+    },
+    {
+      key: 'red',
+      name: 'Красный чай',
+    },
+    {
+      key: 'puer',
+      name: 'Пуэр',
+    },
+    {
+      key: 'ulun',
+      name: 'Улун',
+    },
+  ];
 
   return (
     <section className="page">
@@ -52,30 +74,8 @@ export default function Admin() {
           <Chip value="Example" />
           <Chip value="Chip" type="outline" />
 
-          <List
-            value={[
-              {
-                key: 'white',
-                name: 'Белый чай',
-              },
-              {
-                key: 'green',
-                name: 'Зеленый чай',
-              },
-              {
-                key: 'red',
-                name: 'Красный чай',
-              },
-              {
-                key: 'puer',
-                name: 'Пуэр',
-              },
-              {
-                key: 'ulun',
-                name: 'Улун',
-              },
-            ]}
-          />
+          <List value={list} />
+          <List value={list} type="line" />
 
           {/* <IconButton className="icon-button" onClick={onSubmit} variant="filled" />
           <IconButton className="icon-button" onClick={onSubmit} variant="filled" /> */}

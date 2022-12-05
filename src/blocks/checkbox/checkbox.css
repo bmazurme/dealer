@@ -26,3 +26,7 @@
 .checkbox__input:checked ~ .checkbox__checkmark:before {
   display: block;
 }
+
+.checkbox__input:disabled ~ .checkbox__checkmark:before {
+  display: block;
+}
