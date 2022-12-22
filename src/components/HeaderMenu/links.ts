@@ -14,17 +14,25 @@ const links = [
     link: Urls.MAIN.PRIVACY,
   },
   {
-    label: 'SignConfirm',
-    link: Urls.SIGN.CONFIRM,
+    label: 'Delivery',
+    link: Urls.MAIN.DELIVERY,
   },
   {
-    label: 'ResetPassword',
-    link: Urls.PASSWORD.RESET,
+    label: 'Admin',
+    link: Urls.ADMIN.INDEX,
   },
   {
-    label: 'NewPassword',
-    link: Urls.PASSWORD.NEW,
+    label: 'Product',
+    link: Urls.MAIN.PRODUCT,
   },
+  // {
+  //   label: 'SignConfirm',
+  //   link: Urls.SIGN.CONFIRM,
+  // },
+  // {
+  //   label: 'NewPassword',
+  //   link: Urls.PASSWORD.NEW,
+  // },
   {
     label: 'ServerErrorPage',
     link: Urls.ERROR[500],

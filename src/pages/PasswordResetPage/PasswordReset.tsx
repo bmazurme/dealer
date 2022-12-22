@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';
@@ -8,8 +8,10 @@ import Logo from '../../components/Logo/Logo';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import SignFooter from '../../components/SignFooter';
+import Notification, { type NotificationProps } from '../../components/Notification';
 
 import { Urls } from '../../utils/constants';
+import { useResetPasswordMutation } from '../../store';
 
 type FormPayload = {
   email: string;
@@ -19,6 +21,8 @@ export default function PasswordReset() {
   const errorHandler = useErrorHandler();
   const navigate = useNavigate();
   const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { email: '' } });
+  const [resetPassword] = useResetPasswordMutation();
+  const [notification, setNotification] = useState<{ type: NotificationProps['type']; message: string; } | null>(null);
 
   const inputs = [
     {
@@ -57,10 +61,15 @@ export default function PasswordReset() {
     },
   ];
 
-  const onSubmit = handleSubmit(async () => {
+  const onSubmit = handleSubmit(async (data: Record<string, string>) => {
     try {
-      navigate(Urls.MAIN.INDEX);
-    } catch ({ status, data: { reason } }) {
+      const result = await resetPassword(data) as { data: Record<string, string> };
+      const { message } = result.data as Record<string, string>;
+
+      setNotification({ type: 'success', message });
+
+      setTimeout(() => navigate(Urls.MAIN.INDEX), 3000);
+    } catch ({ status, data: { reason } }: unknown) {
       errorHandler(new Error(`${status}: ${reason}`));
     }
   });
@@ -92,6 +101,11 @@ export default function PasswordReset() {
           <Button className="button button_submit" onClick={onSubmit} variant="outline">Reset</Button>
         </form>
         {footer.map((item) => (<SignFooter key={item.link.label} {...item} />))}
+      </div>
+      <div className={`notification ${notification === null ? '' : 'notification_open'}`}>
+        {notification && (
+          <Notification type={notification.type} className="" children={notification.message} />
+        )}
       </div>
     </section>
   );

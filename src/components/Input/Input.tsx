@@ -18,20 +18,22 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     label,
     id,
     value,
+    placeholder,
   } = props;
   return (
-    <div className="inbox">
-      {label && <label htmlFor={id} className="inbox__label">{label}</label>}
+    <div className="input-field">
+      {label && <label htmlFor={id} className={`input__label ${errorText ? 'input__label_error' : ''}`}>{label}</label>}
       <input
         ref={ref}
         onChange={onChange}
         type={type}
         value={value}
-        className={`input inbox__input ${errorText !== '' ? 'inbox__input_error' : ''}`}
+        placeholder={placeholder}
+        className={`input ${errorText !== '' ? 'input_error' : ''}`}
       />
       {
         errorText
-        && <span className={`${label}-input-error inbox__label_error`}>{ errorText }</span>
+        && <span className={`${label}-input-error input__label_error`}>{ errorText }</span>
       }
     </div>
   );

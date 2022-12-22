@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 
 import livereload from 'livereload';
 import connectLivereload from 'connect-livereload';
@@ -36,7 +36,7 @@ const helmetConfig = {
 };
 
 const port = process.env.PORT ?? 3000;
-const pth = 'mongodb://localhost:27017/dealer';
+// const pth = 'mongodb://localhost:27017/dealer';
 
 const app = express();
 
@@ -45,12 +45,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-mongoose.connect(pth, {
-  // useNewUrlParser: true,
-  // useUnifiedTopology: true,
-  // useCreateIndex: true,
-  // useFindAndModify: false,
-});
+// mongoose.connect(pth, {
+//   // useNewUrlParser: true,
+//   // useUnifiedTopology: true,
+//   // useCreateIndex: true,
+//   // useFindAndModify: false,
+// });
 
 app.use(requestLogger);
 

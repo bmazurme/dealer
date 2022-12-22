@@ -77,7 +77,7 @@ export default function SignIn() {
     try {
       await signIn(data);
       navigate(Urls.MAIN.INDEX);
-    } catch ({ status, data: { reason } }) {
+    } catch ({ status, data: { reason } }: unknown) {
       errorHandler(new Error(`${status}: ${reason}`));
     }
   });

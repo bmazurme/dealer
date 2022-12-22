@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 
 import AboutPage from '../../pages/AboutPage';
 import AdminPage from '../../pages/AdminPage';
+import ProductPage from '../../pages/ProductPage';
+import DeliveryPage from '../../pages/AboutDelivery';
 import PrivacyPage from '../../pages/PrivacyPage';
 import SignUpPage from '../../pages/SignUpPage';
 import SignInPage from '../../pages/SignInPage';
@@ -36,7 +38,11 @@ export default function App() {
         <Route path={Urls.PASSWORD.UPDATE} element={(<PasswordUpdatePage />)} />
         <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
         <Route path={Urls.PROFILE.EDIT} element={(<EditProfilePage />)} />
+
+        <Route path={Urls.MAIN.PRODUCT} element={(<ProductPage />)} />
+
         <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
+        <Route path={Urls.MAIN.DELIVERY} element={(<DeliveryPage />)} />
         <Route path={Urls.BUCKET.INDEX} element={(<BucketPage />)} />
         <Route path={Urls.MAIN.PRIVACY} element={(<PrivacyPage />)} />
         <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />

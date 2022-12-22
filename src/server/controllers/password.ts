@@ -37,13 +37,13 @@ const resetPassword = (req: Request, res: Response, next: NextFunction) => {
         token += CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
       }
 
-      const { _id, login } = user!;
+      const { login } = user!;
       user!.confirmationCode = token;
 
       user!.save();
       sendMail(email, token, login, RESET);
 
-      return res.send({ id: _id });
+      return res.send({ message: 'message was sent' });
     })
     .catch(next);
 };
@@ -57,8 +57,7 @@ const newPassword = (req: Request, res: Response, next: NextFunction) => {
       bcrypt.hash(password, 10)
         .then((hash: string) => {
           user!.password = hash;
-          user!.confirmationCode = '';
-
+          user!.confirmationCode = user!.email;
           user!.save();
 
           return res.send({ token });
