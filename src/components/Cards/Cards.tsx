@@ -7,7 +7,7 @@ export default function Cards() {
 
   return (
     <div className="cards">
-      {arr.map((x) => <Card key={x} />)}
+      {arr.map((x) => <Card key={x} id={x} />)}
     </div>
   );
 }

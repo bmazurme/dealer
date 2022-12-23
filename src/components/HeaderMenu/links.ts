@@ -1,6 +1,6 @@
 import { Urls } from '../../utils/constants';
 
-const links = [
+const links: Array<Record<string, string>> = [
   {
     label: 'Main',
     link: Urls.MAIN.INDEX,
@@ -23,7 +23,15 @@ const links = [
   },
   {
     label: 'Product',
-    link: Urls.MAIN.PRODUCT,
+    link: Urls.MAIN.PRODUCT.INDEX,
+  },
+  {
+    label: 'Products',
+    link: Urls.MAIN.PRODUCT.LIST,
+  },
+  {
+    label: 'Product Create',
+    link: Urls.MAIN.PRODUCT.CREATE,
   },
   // {
   //   label: 'SignConfirm',

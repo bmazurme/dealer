@@ -7,8 +7,8 @@ import { useForm, Controller } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
 
 import useUser from '../../hook/useUser';
-import Button from '../../components/Button';
-import Input from '../../components/Input';
+import Button from '../../components/formui/Button';
+import Input from '../../components/formui/Input';
 import { useUpdateUserMutation } from '../../store';
 import { FormPayload } from '../SignUpPage/SignUp';
 import Notification, { type NotificationProps } from '../../components/Notification';

@@ -11,8 +11,7 @@ import { useUpdatePasswordMutation } from '../../store';
 import Notification, { type NotificationProps } from '../../components/Notification';
 
 import Logo from '../../components/Logo/Logo';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import { Input, Button } from '../../components/formui';
 
 type FormPayload = {
   password: string;

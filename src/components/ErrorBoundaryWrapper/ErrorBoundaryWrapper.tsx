@@ -6,7 +6,7 @@ import { ErrorBoundary, type FallbackProps } from 'react-error-boundary';
 import { Link } from 'react-router-dom';
 
 import Header from '../Header';
-import Button from '../Button';
+import Button from '../formui/Button';
 import Footer from '../Footer';
 import Banner from '../Banner';
 

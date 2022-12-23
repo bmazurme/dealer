@@ -1,9 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import Rating from '../Rating';
 import cardData from './mockData';
 
-export default function Card() {
+export default function Card({ id }: Record<string, number>) {
   return (
     <div className="card">
       <div className="card__container">
@@ -20,9 +21,9 @@ export default function Card() {
         &#8381;
       </h5>
       <Rating />
-      <p className="card__description">
+      <NavLink to={`/product/${id}`} className="card__description">
         {cardData.description}
-      </p>
+      </NavLink>
     </div>
   );
 }

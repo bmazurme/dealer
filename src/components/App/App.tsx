@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import AboutPage from '../../pages/AboutPage';
 import AdminPage from '../../pages/AdminPage';
-import ProductPage from '../../pages/ProductPage';
+
 import DeliveryPage from '../../pages/AboutDelivery';
 import PrivacyPage from '../../pages/PrivacyPage';
 import SignUpPage from '../../pages/SignUpPage';
@@ -18,6 +18,9 @@ import NotFoundPage from '../../pages/NotFoundPage';
 import ServerErrorPage from '../../pages/ServerErrorPage';
 import MainPage from '../../pages/MainPage';
 import BucketPage from '../../pages/Bucket';
+import ProductPage from '../../pages/ProductPage';
+import ProductTablePage from '../../pages/ProductTablePage';
+import CreateCard from '../../pages/ProductCreatePage';
 
 import ErrorBoundaryWrapper from '../ErrorBoundaryWrapper';
 
@@ -38,11 +41,13 @@ export default function App() {
         <Route path={Urls.PASSWORD.UPDATE} element={(<PasswordUpdatePage />)} />
         <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
         <Route path={Urls.PROFILE.EDIT} element={(<EditProfilePage />)} />
-
-        <Route path={Urls.MAIN.PRODUCT} element={(<ProductPage />)} />
+        <Route path={Urls.MAIN.PRODUCT.INDEX} element={(<ProductPage />)} />
+        <Route path={Urls.MAIN.PRODUCT.LIST} element={(<ProductTablePage />)} />
+        <Route path={Urls.MAIN.PRODUCT.CREATE} element={(<CreateCard />)} />
 
         <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
         <Route path={Urls.MAIN.DELIVERY} element={(<DeliveryPage />)} />
+
         <Route path={Urls.BUCKET.INDEX} element={(<BucketPage />)} />
         <Route path={Urls.MAIN.PRIVACY} element={(<PrivacyPage />)} />
         <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />

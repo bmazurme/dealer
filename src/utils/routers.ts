@@ -17,7 +17,11 @@ export const Urls = {
     DELIVERY: '/delivery',
     PRIVACY: '/privacy',
     PRIVATE: '/private',
-    PRODUCT: '/product',
+    PRODUCT: {
+      INDEX: '/product/:id',
+      CREATE: '/product/create',
+      LIST: '/products/:number',
+    },
   },
   ADMIN: {
     INDEX: '/admin',

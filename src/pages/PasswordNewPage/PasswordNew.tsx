@@ -7,9 +7,8 @@ import { useForm, Controller } from 'react-hook-form';
 
 import { useNewPasswordMutation } from '../../store';
 
-import Logo from '../../components/Logo/Logo';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import Logo from '../../components/Logo';
+import { Input, Button } from '../../components/formui';
 
 import { Urls } from '../../utils/constants';
 
@@ -52,8 +51,6 @@ export default function PasswordNew() {
       autoComplete: 'new-password',
     },
   ];
-
-  console.log(token);
 
   const onSubmit = handleSubmit(async (data: Record<string, string>) => {
     try {

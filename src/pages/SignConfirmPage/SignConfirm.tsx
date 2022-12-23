@@ -3,8 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';
 import { useConfirmUserMutation } from '../../store';
 
-import Logo from '../../components/Logo/Logo';
+import Logo from '../../components/Logo';
 import SignFooter from '../../components/SignFooter';
+import links from './links';
 import { Urls } from '../../utils/constants';
 
 export default function SignConfirm() {
@@ -28,16 +29,6 @@ export default function SignConfirm() {
     };
   }, []);
 
-  const footer = [
-    {
-      text: 'На главную',
-      link: {
-        url: Urls.MAIN.INDEX,
-        label: 'Home',
-      },
-    },
-  ];
-
   return (
     <section className="sign">
       <div className="container">
@@ -45,8 +36,7 @@ export default function SignConfirm() {
 
         <h2 className="sign__title">SignConfirm</h2>
         <p className="page__description">{message}</p>
-
-        {footer.map((item) => (<SignFooter key={item.link.label} {...item} />))}
+        <SignFooter links={links} />
       </div>
     </section>
   );
