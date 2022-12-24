@@ -1,7 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useMemo } from 'react';
 
-import { Button, Input, Checkbox } from '../../components/formui';
+import {
+  Button,
+  Input,
+  Checkbox,
+  Select,
+} from '../../components/formui';
 import Chip from '../../components/Chip';
 import List from '../../components/List';
 import Table from '../../components/Table';
@@ -140,6 +145,31 @@ export default function Admin() {
 
           <List value={list} />
           <List value={list} type="line" />
+
+          <Select
+            value={10}
+            classes={{
+              list: 'bottom-full',
+            }}
+            options={[
+              { label: 'Show 10 items', value: 10 },
+              { label: 'Show 25 items', value: 25 },
+              { label: 'Show 50 items', value: 50 },
+            ]}
+            onChange={writeTest}
+          />
+          <Select
+            value={10}
+            classes={{
+              list: 'bottom-full',
+            }}
+            options={[
+              { label: 'Show 10 items', value: 10 },
+              { label: 'Show 25 items', value: 25 },
+              { label: 'Show 50 items', value: 50 },
+            ]}
+            onChange={writeTest}
+          />
 
           {/* <IconButton className="icon-button" onClick={onSubmit} variant="filled" />
           <IconButton className="icon-button" onClick={onSubmit} variant="filled" /> */}

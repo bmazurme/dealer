@@ -1,13 +1,14 @@
-/* eslint-disable max-len */
-// import {
-//   ChevronDoubleLeftIcon,
-//   ChevronDoubleRightIcon,
-//   ChevronLeftIcon,
-//   ChevronRightIcon,
-// } from '@heroicons/react/solid';
-
 import React from 'react';
+
+import {
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from '@heroicons/react/solid';
+
 import type { TableState } from 'react-table';
+
 import { Button, Select } from '../formui';
 
 type PaginationProps = {
@@ -19,7 +20,7 @@ type PaginationProps = {
   canNextPage: boolean;
   previousPage: () => void;
   nextPage: () => void;
-  state: TableState<object> & { pageIndex: number; pageSize: number; }
+  state: TableState<object[]> & { pageIndex: number; pageSize: number; }
 };
 
 export default function Pagination({
@@ -66,7 +67,7 @@ export default function Pagination({
               disabled={!canPreviousPage}
             >
               <span className="sr-only">First</span>
-              {/* <ChevronDoubleLeftIcon className="h-5 w-5 text-gray-400" aria-hidden="true" /> */}
+              <ChevronDoubleLeftIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
             </Button>
             <Button
               variant="icon"
@@ -74,7 +75,7 @@ export default function Pagination({
               disabled={!canPreviousPage}
             >
               <span className="sr-only">Previous</span>
-              {/* <ChevronLeftIcon className="h-5 w-5 text-gray-400" aria-hidden="true" /> */}
+              <ChevronLeftIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
             </Button>
             <Button
               variant="icon"
@@ -82,7 +83,7 @@ export default function Pagination({
               disabled={!canNextPage}
             >
               <span className="sr-only">Next</span>
-              {/* <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" /> */}
+              <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
             </Button>
             <Button
               variant="icon"
@@ -91,7 +92,7 @@ export default function Pagination({
               disabled={!canNextPage}
             >
               <span className="sr-only">Last</span>
-              {/* <ChevronDoubleRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" /> */}
+              <ChevronDoubleRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
             </Button>
           </nav>
         </div>
