@@ -47,6 +47,7 @@ export default function Pagination({
               value={pageSize}
               classes={{
                 list: 'bottom-full',
+                size: 'select-button_sm',
               }}
               options={[
                 { label: 'Show 10 items', value: 10 },

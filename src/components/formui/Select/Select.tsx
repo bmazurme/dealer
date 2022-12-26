@@ -21,6 +21,7 @@ type SelectProps<T> = {
   classes?: {
     button?: string,
     list?: string,
+    size?: string,
   },
   options: OptionProps<T>[];
   onChange: (value: T) => void;
@@ -42,6 +43,7 @@ export default function Select<T>({
         {labelText && <label className={`select-button__label ${errorText ? 'select-button__label_error' : ''}`}>{ labelText }</label>}
         <Listbox.Button className={classnames(
           'select-button',
+          { 'select-button_sm': classes?.size },
           { 'select-button_error': errorText },
           classes?.button,
         )}
@@ -57,7 +59,12 @@ export default function Select<T>({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className={classnames('select-options z-40', classes?.list)}>
+          <Listbox.Options className={classnames(
+            'select-options z-40',
+            { 'select-options_sm': classes?.size },
+            classes?.list,
+          )}
+          >
             {options.map((item) => (
               <Listbox.Option
                 key={item.label}
