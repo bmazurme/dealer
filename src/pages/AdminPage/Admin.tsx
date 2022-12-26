@@ -14,6 +14,7 @@ import Notification, { NotificationProps } from '../../components/Notification';
 
 export default function Admin() {
   const [notification, setNotification] = useState<{ type: NotificationProps['type']; message: string; } | null>(null);
+  const [select, setSelect] = useState(10);
   const onSubmit = () => {
     setNotification({ type: 'success', message: 'message' });
     setTimeout(() => setNotification(null), 3000);
@@ -143,11 +144,35 @@ export default function Admin() {
           <Chip value="Example" />
           <Chip value="Chip" type="outline" />
 
-          <List value={list} />
-          <List value={list} type="line" />
+          <Select
+            value={select}
+            classes={{
+              list: 'bottom-full',
+            }}
+            options={[
+              { label: 'Show 10 items', value: 10 },
+              { label: 'Show 25 items', value: 25 },
+              { label: 'Show 50 items', value: 50 },
+            ]}
+            onChange={setSelect}
+          />
+          <Select
+            value={select}
+            classes={{
+              list: 'bottom-full',
+            }}
+            options={[
+              { label: 'Show 10 items', value: 10 },
+              { label: 'Show 25 items', value: 25 },
+              { label: 'Show 50 items', value: 50 },
+            ]}
+            onChange={setSelect}
+            errorText="Data is invalid"
+          />
 
           <Select
-            value={10}
+            value={select}
+            labelText="Select button"
             classes={{
               list: 'bottom-full',
             }}
@@ -156,10 +181,11 @@ export default function Admin() {
               { label: 'Show 25 items', value: 25 },
               { label: 'Show 50 items', value: 50 },
             ]}
-            onChange={writeTest}
+            onChange={setSelect}
           />
           <Select
-            value={10}
+            value={select}
+            labelText="Select button"
             classes={{
               list: 'bottom-full',
             }}
@@ -168,8 +194,12 @@ export default function Admin() {
               { label: 'Show 25 items', value: 25 },
               { label: 'Show 50 items', value: 50 },
             ]}
-            onChange={writeTest}
+            onChange={setSelect}
+            errorText="Data is invalid"
           />
+
+          <List value={list} />
+          <List value={list} type="line" />
 
           {/* <IconButton className="icon-button" onClick={onSubmit} variant="filled" />
           <IconButton className="icon-button" onClick={onSubmit} variant="filled" /> */}

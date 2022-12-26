@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-empty-pattern */
@@ -15,6 +16,8 @@ type OptionProps<T> = {
 
 type SelectProps<T> = {
   value: T;
+  errorText?: string;
+  labelText?: string;
   classes?: {
     button?: string,
     list?: string,
@@ -27,6 +30,8 @@ export default function Select<T>({
   value,
   options,
   classes,
+  errorText,
+  labelText,
   onChange,
 }: SelectProps<T>) {
   const { label } = options.find((item) => item.value === value) ?? options[0];
@@ -34,7 +39,13 @@ export default function Select<T>({
   return (
     <Listbox value={value} onChange={onChange}>
       <div className="relative">
-        <Listbox.Button className={classnames('select-button', classes?.button)}>
+        {labelText && <label className={`select-button__label ${errorText ? 'select-button__label_error' : ''}`}>{ labelText }</label>}
+        <Listbox.Button className={classnames(
+          'select-button',
+          { 'select-button_error': errorText },
+          classes?.button,
+        )}
+        >
           <span className="block truncate text-black">{label}</span>
           <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
             <SelectorIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
@@ -81,6 +92,10 @@ export default function Select<T>({
             ))}
           </Listbox.Options>
         </Transition>
+        {
+          errorText
+          && <span className={`${label}-select-button-error select-button__label_error`}>{ errorText }</span>
+        }
       </div>
     </Listbox>
   );
