@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import { useErrorHandler } from 'react-error-boundary';
 import { useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
-
 import { Button, Input } from '../../formui';
 import { useSignUpMutation } from '../../../store';
 import useUser from '../../../hook/useUser';

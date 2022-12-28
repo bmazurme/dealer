@@ -18,10 +18,6 @@ const links: Array<Record<string, string>> = [
     link: Urls.MAIN.DELIVERY,
   },
   {
-    label: 'Admin',
-    link: Urls.ADMIN.INDEX,
-  },
-  {
     label: 'Product',
     link: Urls.MAIN.PRODUCT.INDEX,
   },

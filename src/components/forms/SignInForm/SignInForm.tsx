@@ -3,9 +3,7 @@ import React, { useEffect } from 'react';
 import { useErrorHandler } from 'react-error-boundary';
 import { useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
-
 import { Button, Input } from '../../formui';
-
 import { useSignInMutation } from '../../../store';
 import useUser from '../../../hook/useUser';
 import { Urls } from '../../../utils/constants';
@@ -41,7 +39,6 @@ const inputs = [
 
 export default function SignInForm() {
   const errorHandler = useErrorHandler();
-
   const navigate = useNavigate();
   const userData = useUser();
   const [signIn] = useSignInMutation();

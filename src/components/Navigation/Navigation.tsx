@@ -47,6 +47,12 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
       className: 'navigation__link navigation__link',
       handler: null,
     },
+    {
+      label: 'Admin',
+      link: Urls.ADMIN.INDEX,
+      className: 'navigation__link navigation__link',
+      handler: null,
+    },
   ];
 
   return (
