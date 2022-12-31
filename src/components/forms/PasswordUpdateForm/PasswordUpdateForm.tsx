@@ -1,19 +1,11 @@
 /* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-
 import { useErrorHandler } from 'react-error-boundary';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import useUser from '../../../hook/useUser';
 import { useUpdatePasswordMutation } from '../../../store';
-import { Input, Button } from '../../formui';
-
-type FormPayload = {
-  password: string;
-  newPassword: string;
-  confirmPassword: string;
-};
+import Form, { FormInputs, FormPayload } from '../Form';
 
 interface INotificationProps {
   type: 'error' | 'success' | 'notification',
@@ -27,12 +19,10 @@ interface IProps {
 export default function PasswordUpdateForm({ setNotification }: IProps) {
   const errorHandler = useErrorHandler();
   const userData = useUser();
-
   const { email } = userData! as User;
-
   const [updatePass] = useUpdatePasswordMutation();
   const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { password: '', newPassword: '', confirmPassword: '' } });
-  const inputs = [
+  const inputs: FormInputs[] = [
     {
       name: 'password',
       label: 'Old password',
@@ -74,37 +64,15 @@ export default function PasswordUpdateForm({ setNotification }: IProps) {
     actions.push(updatePass({ password, newPassword, email }));
 
     Promise.all(actions)
-      .then((message: any) => {
+      .then((message: unknown) => {
         setNotification({
           type: 'success',
-          message: `${message[0]?.error ? 'error' : 'Password updated'}`,
+          message: `${(message as Record<string, string>[])[0]?.error ? 'error' : 'Password updated'}`,
         });
       })
       .then(() => setTimeout(() => setNotification(null), 3000))
       .catch(({ status, data: { reason } }) => errorHandler(new Error(`${status}: ${reason}`)));
   });
 
-  return (
-    <form onSubmit={onSubmit}>
-      {inputs.map((input) => (
-        <Controller
-          key={input.name}
-          name={input.name as keyof FormPayload}
-          rules={{
-            pattern: input.pattern,
-            required: input.required,
-          }}
-          control={control}
-          render={({ field, fieldState }) => (
-            <Input
-              {...field}
-              {...input}
-              errorText={fieldState.error?.message}
-            />
-          )}
-        />
-      ))}
-      <Button className="button button_submit" onClick={onSubmit} variant="outline">Update</Button>
-    </form>
-  );
+  return (<Form onSubmit={onSubmit} inputs={inputs} control={control} buttonLabel="Update" />);
 }

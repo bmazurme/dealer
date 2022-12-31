@@ -1,28 +1,17 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import AboutPage from '../../pages/AboutPage';
-import AdminPage from '../../pages/AdminPage';
-
-import DeliveryPage from '../../pages/AboutDelivery';
-import PrivacyPage from '../../pages/PrivacyPage';
-import SignUpPage from '../../pages/SignUpPage';
-import SignInPage from '../../pages/SignInPage';
-import SignConfirmPage from '../../pages/SignConfirmPage';
-import PasswordResetPage from '../../pages/PasswordResetPage';
-import PasswordUpdatePage from '../../pages/PasswordUpdate';
-import PasswordNewPage from '../../pages/PasswordNewPage';
-import ProfilePage from '../../pages/ProfilePage';
-import EditProfilePage from '../../pages/ProfileEditPage';
-import NotFoundPage from '../../pages/NotFoundPage';
-import ServerErrorPage from '../../pages/ServerErrorPage';
+import { AboutPage, DeliveryPage, PrivacyPage } from '../../pages/content';
+import { SignUpPage, SignInPage, SignConfirmPage } from '../../pages/sign';
+import { PasswordResetPage, PasswordUpdatePage, PasswordNewPage } from '../../pages/password';
+import { ProductPage, ProductCreatePage, ProductTablePage } from '../../pages/product';
+import { NotFoundPage, ServerErrorPage } from '../../pages/error';
+import { ProfilePage, ProfileEditPage } from '../../pages/profile';
+import { AdminPage } from '../../pages/admin';
 import MainPage from '../../pages/MainPage';
-import BucketPage from '../../pages/Bucket';
-import ProductPage from '../../pages/ProductPage';
-import ProductTablePage from '../../pages/ProductTablePage';
-import CreateCard from '../../pages/ProductCreatePage';
+import BucketPage from '../../pages/BucketPage';
 
-import ErrorBoundaryWrapper from '../ErrorBoundaryWrapper';
+import ErrorBoundaryWrapper from '../core/ErrorBoundaryWrapper';
 
 import { Urls } from '../../utils/routers';
 import '../../index.css';
@@ -40,14 +29,12 @@ export default function App() {
         <Route path={Urls.PASSWORD.NEW} element={(<PasswordNewPage />)} />
         <Route path={Urls.PASSWORD.UPDATE} element={(<PasswordUpdatePage />)} />
         <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
-        <Route path={Urls.PROFILE.EDIT} element={(<EditProfilePage />)} />
+        <Route path={Urls.PROFILE.EDIT} element={(<ProfileEditPage />)} />
         <Route path={Urls.MAIN.PRODUCT.INDEX} element={(<ProductPage />)} />
         <Route path={Urls.MAIN.PRODUCT.LIST} element={(<ProductTablePage />)} />
-        <Route path={Urls.MAIN.PRODUCT.CREATE} element={(<CreateCard />)} />
-
+        <Route path={Urls.MAIN.PRODUCT.CREATE} element={(<ProductCreatePage />)} />
         <Route path={Urls.MAIN.ABOUT} element={(<AboutPage />)} />
         <Route path={Urls.MAIN.DELIVERY} element={(<DeliveryPage />)} />
-
         <Route path={Urls.BUCKET.INDEX} element={(<BucketPage />)} />
         <Route path={Urls.MAIN.PRIVACY} element={(<PrivacyPage />)} />
         <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />

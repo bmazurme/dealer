@@ -1,18 +1,11 @@
-/* eslint-disable max-len */
 import React from 'react';
-
 import { useNavigate } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';
-import { useForm, Controller } from 'react-hook-form';
-
-import { Input, Button } from '../../formui';
-import { Urls } from '../../../utils/constants';
+import { useForm } from 'react-hook-form';
 
 import { useResetPasswordMutation } from '../../../store';
-
-type FormPayload = {
-  email: string;
-};
+import Form, { FormInputs, FormPayload } from '../Form';
+import { Urls } from '../../../utils/constants';
 
 interface IProps {
   setNotification: ({ type, message }: { type: 'error' | 'success' | 'notification'; message: string; }) => void;
@@ -23,7 +16,7 @@ export default function PasswordResetForm({ setNotification }: IProps) {
   const navigate = useNavigate();
   const { control, handleSubmit } = useForm<FormPayload>({ defaultValues: { email: '' } });
   const [resetPassword] = useResetPasswordMutation();
-  const inputs = [
+  const inputs: FormInputs[] = [
     {
       name: 'email',
       label: 'Email',
@@ -42,34 +35,11 @@ export default function PasswordResetForm({ setNotification }: IProps) {
       const { message } = result.data as Record<string, string>;
 
       setNotification({ type: 'success', message });
-
       setTimeout(() => navigate(Urls.MAIN.INDEX), 3000);
     } catch ({ status, data: { reason } }: unknown) {
       errorHandler(new Error(`${status}: ${reason}`));
     }
   });
 
-  return (
-    <form onSubmit={onSubmit}>
-      {inputs.map((input) => (
-        <Controller
-          key={input.name}
-          name={input.name as keyof FormPayload}
-          rules={{
-            pattern: input.pattern,
-            required: input.required,
-          }}
-          control={control}
-          render={({ field, fieldState }) => (
-            <Input
-              {...field}
-              {...input}
-              errorText={fieldState.error?.message}
-            />
-          )}
-        />
-      ))}
-      <Button className="button button_submit" onClick={onSubmit} variant="outline">Reset</Button>
-    </form>
-  );
+  return (<Form onSubmit={onSubmit} inputs={inputs} control={control} buttonLabel="Reset" />);
 }

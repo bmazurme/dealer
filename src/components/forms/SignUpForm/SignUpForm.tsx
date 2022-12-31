@@ -1,16 +1,14 @@
 /* eslint-disable no-undef */
 import React, { useEffect } from 'react';
-
 import { useErrorHandler } from 'react-error-boundary';
 import { useNavigate } from 'react-router-dom';
-import { useForm, Controller } from 'react-hook-form';
-import { Button, Input } from '../../formui';
-import { useSignUpMutation } from '../../../store';
+import { useForm } from 'react-hook-form';
+
 import useUser from '../../../hook/useUser';
+import { useSignUpMutation } from '../../../store';
+import Form, { FormInputs, FormPayload } from '../Form';
 
-export type FormPayload = Omit<User, 'id'>;
-
-const inputs = [
+const inputs: FormInputs[] = [
   {
     name: 'firstName',
     label: 'First name',
@@ -100,35 +98,12 @@ export default function SignUpForm() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await signUp(data);
+      await signUp(data as Omit<User, 'id' | 'display_name'>);
       navigate('/');
     } catch ({ status, data: { reason } }: unknown) {
       errorHandler(new Error(`${status}: ${reason}`));
     }
   });
 
-  return (
-    <form onSubmit={onSubmit}>
-      {inputs.map((input) => (
-        <Controller
-          key={input.name}
-          name={input.name as keyof FormPayload}
-          rules={{
-            pattern: input.pattern,
-            required: input.required,
-          }}
-          control={control}
-          render={({ field, fieldState }) => (
-            <Input
-              {...field}
-              {...input}
-              errorText={fieldState.error?.message}
-            />
-          )}
-        />
-      ))}
-
-      <Button className="button button_submit" onClick={onSubmit} variant="outline">Зарегистрировать</Button>
-    </form>
-  );
+  return (<Form onSubmit={onSubmit} inputs={inputs} control={control} buttonLabel="Signup" />);
 }

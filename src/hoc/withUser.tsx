@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';
 import type { AxiosError } from 'axios';
 
-import Preloader from '../components/Preloader';
+import Preloader from '../components/core/Preloader';
 
 import useUser from '../hook/useUser';
 import { useGetUserMutation } from '../store';

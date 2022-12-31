@@ -6,20 +6,15 @@
   text-align: left;
   letter-spacing: -0.04em;
   margin: 0;
-  /* padding: 20px; */
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 15px;
   padding-top: 15px;
   overflow: hidden;
-  /* padding-top: 5px;
-  padding-left: 5px; */
-
   width: 100%;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  /* color: #E8E8E8; */
 }
 
 .list__item:last-child {
@@ -31,6 +26,10 @@
 
 .list__item:hover {
   background-color: #e8e8e8;;
-  /* opacity: 0.4; */
-  /* background-color: aqua; */
+}
+
+@media (prefers-color-scheme: dark) {
+  .list__item:hover {
+    color: #000;
+  } 
 }

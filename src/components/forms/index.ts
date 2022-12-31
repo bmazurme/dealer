@@ -5,6 +5,7 @@ import PasswordResetForm from './PasswordResetForm';
 import ProfileEditForm from './ProfileEditForm';
 import PasswordUpdateForm from './PasswordUpdateForm';
 import PasswordNewForm from './PasswordNewForm';
+import ProductCreateForm from './ProductCreateForm';
 
 export {
   SignInForm,
@@ -14,4 +15,5 @@ export {
   PasswordResetForm,
   PasswordUpdateForm,
   PasswordNewForm,
+  ProductCreateForm,
 };

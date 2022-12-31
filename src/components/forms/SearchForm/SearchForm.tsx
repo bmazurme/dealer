@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Input, Button } from '../../formui';
+import { Input, Button } from '../../form-components';
 
 export default function SearchForm() {
   const onSubmit = () => {

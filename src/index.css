@@ -5,7 +5,7 @@
 @import "./blocks/root/root.css";
 
 /* body */
-@import "./blocks/body/body.css";
+/* @import "./blocks/body/body.css"; */
 
 /* logo */
 @import "./blocks/logo/logo.css";

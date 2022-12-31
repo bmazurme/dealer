@@ -9,7 +9,7 @@ import {
 
 import type { TableState } from 'react-table';
 
-import { Button, Select } from '../formui';
+import { Button, Select } from '../form-components';
 
 type PaginationProps = {
   setPageSize: (value: number) => void;

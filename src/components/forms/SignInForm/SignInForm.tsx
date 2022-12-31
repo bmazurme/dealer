@@ -1,19 +1,14 @@
 import React, { useEffect } from 'react';
-
 import { useErrorHandler } from 'react-error-boundary';
 import { useNavigate } from 'react-router-dom';
-import { useForm, Controller } from 'react-hook-form';
-import { Button, Input } from '../../formui';
+import { useForm } from 'react-hook-form';
+
 import { useSignInMutation } from '../../../store';
 import useUser from '../../../hook/useUser';
+import Form, { FormInputs, FormPayload } from '../Form';
 import { Urls } from '../../../utils/constants';
 
-type FormPayload = {
-  email: string;
-  password: string;
-};
-
-const inputs = [
+const inputs: FormInputs[] = [
   {
     name: 'email',
     label: 'Email',
@@ -53,34 +48,12 @@ export default function SignInForm() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await signIn(data);
+      await signIn(data as { email: string, password: string });
       navigate(Urls.MAIN.INDEX);
     } catch ({ status, data: { reason } }: unknown) {
       errorHandler(new Error(`${status}: ${reason}`));
     }
   });
 
-  return (
-    <form onSubmit={onSubmit}>
-      {inputs.map((input) => (
-        <Controller
-          key={input.name}
-          name={input.name as keyof FormPayload}
-          rules={{
-            pattern: input.pattern,
-            required: input.required,
-          }}
-          control={control}
-          render={({ field, fieldState }) => (
-            <Input
-              {...field}
-              {...input}
-              errorText={fieldState.error?.message}
-            />
-          )}
-        />
-      ))}
-      <Button className="button button_submit" onClick={onSubmit} variant="outline">Войти</Button>
-    </form>
-  );
+  return (<Form onSubmit={onSubmit} inputs={inputs} control={control} buttonLabel="Signin" />);
 }

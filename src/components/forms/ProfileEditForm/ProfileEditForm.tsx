@@ -1,16 +1,10 @@
 import React from 'react';
 import { useErrorHandler } from 'react-error-boundary';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import useUser from '../../../hook/useUser';
-import { Button, Input } from '../../formui';
 import { useUpdateUserMutation } from '../../../store';
-import { FormPayload } from '../../../pages/SignUpPage/SignUp';
-
-interface INotificationProps {
-  type: 'error' | 'success' | 'notification',
-  message: string,
-}
+import Form, { FormInputs, FormPayload, INotificationProps } from '../Form';
 
 interface IProps {
   setNotification: (props: INotificationProps | null) => void;
@@ -21,7 +15,7 @@ export default function ProfileEditForm({ setNotification }: IProps) {
   const errorHandler = useErrorHandler();
   const [updateUser] = useUpdateUserMutation();
 
-  const inputs = [
+  const inputs: FormInputs[] = [
     {
       name: 'firstName',
       label: 'First name',
@@ -114,29 +108,6 @@ export default function ProfileEditForm({ setNotification }: IProps) {
       .catch(({ status, data: { reason } }) => errorHandler(new Error(`${status}: ${reason}`)));
   });
 
-  return (
-    <form onSubmit={onSubmit}>
-      {inputs.map((input) => (
-        <Controller
-          key={input.name}
-          name={input.name as keyof FormPayload}
-          rules={{
-            pattern: input.pattern,
-            required: input.required,
-          }}
-          control={control}
-          render={({ field, fieldState }) => (
-            <Input
-              {...field}
-              {...input}
-              errorText={fieldState.error?.message}
-            />
-          )}
-        />
-      ))}
-      <Button className="button button_submit" onClick={onSubmit} variant="outline">
-        Сохранить
-      </Button>
-    </form>
+  return (<Form onSubmit={onSubmit} control={control} inputs={inputs} buttonLabel="Save" />
   );
 }
