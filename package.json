@@ -37,6 +37,8 @@
     "@types/react-dom": "18.0.6",
     "@types/react-router": "5.1.18",
     "@types/react-router-dom": "5.3.3",
+    "@types/react-table": "7.7.12",
+    "@types/styled-components": "5.1.26",
     "@types/validator": "13.7.10",
     "@types/webpack-node-externals": "2.5.3",
     "@typescript-eslint/eslint-plugin": "5.32.0",
@@ -68,6 +70,8 @@
     "webpack-node-externals": "3.0.0"
   },
   "dependencies": {
+    "@headlessui/react": "1.7.7",
+    "@heroicons/react": "1.0.6",
     "@reduxjs/toolkit": "1.8.4",
     "ajv": "8.11.2",
     "autoprefixer": "10.4.8",
@@ -75,6 +79,7 @@
     "bcryptjs": "2.4.3",
     "body-parser": "1.20.1",
     "celebrate": "15.0.1",
+    "classnames": "2.3.2",
     "cookie-parser": "1.4.6",
     "cors": "2.8.5",
     "dotenv": "16.0.3",
@@ -97,9 +102,11 @@
     "react-hook-form": "7.36.0",
     "react-redux": "8.0.5",
     "react-router-dom": "6.3.0",
+    "react-table": "7.8.0",
     "redux": "4.2.0",
     "redux-first-history": "5.1.1",
     "reselect": "4.1.7",
+    "styled-components": "5.3.6",
     "validator": "13.7.0",
     "webpack-merge": "5.8.0",
     "winston": "3.8.2"

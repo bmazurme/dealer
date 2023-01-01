@@ -1,0 +1,19 @@
+.checkbox__checkmark_black {
+  /* background-color: #000000; */
+  border: 1px solid #000000;
+}
+
+.checkbox__checkmark_black:before {
+  left: 0;
+  top: 0;
+  height: 40px;
+  width: 40px;
+  background-color: #000000;
+  /* border-radius: 8px; */
+}
+
+.checkbox__checkmark_blackr:before {
+  content: "";
+  position: absolute;
+  display: none;
+}

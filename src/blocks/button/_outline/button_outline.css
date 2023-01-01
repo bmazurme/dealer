@@ -1,0 +1,22 @@
+.button_outline {
+  color: #3456f3;
+  /* border: 1px solid #3456f3; */
+  background-color: #fafafa;
+}
+/* 
+.button:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 319px) {
+  .button {
+    max-width: 599px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 599px) {
+  .button {
+    max-width: 599px;
+  }
+} */

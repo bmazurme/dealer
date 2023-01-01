@@ -14,11 +14,17 @@ export const Urls = {
   MAIN: {
     INDEX: '/',
     ABOUT: '/about',
+    DELIVERY: '/delivery',
     PRIVACY: '/privacy',
     PRIVATE: '/private',
+    PRODUCT: {
+      INDEX: '/product/:id',
+      CREATE: '/product/create',
+      LIST: '/products/:number',
+    },
   },
   ADMIN: {
-    INDEX: 'admin',
+    INDEX: '/admin',
   },
   BUCKET: {
     INDEX: '/bucket',

@@ -10,8 +10,8 @@ import { useSignOutMutation } from '../../store';
 import { Urls } from '../../utils/constants';
 import { INavigationProps } from './INavigationProps';
 
-import Link from '../Link';
-import ButtonBurger from '../ButtonBurger';
+import Link from '../page-components/Link';
+import ButtonBurger from '../BurgerButton';
 import ProfileButton from '../ProfileButton';
 
 export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
@@ -44,6 +44,12 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
     {
       label: 'Bucket',
       link: Urls.BUCKET.INDEX,
+      className: 'navigation__link navigation__link',
+      handler: null,
+    },
+    {
+      label: 'Admin',
+      link: Urls.ADMIN.INDEX,
       className: 'navigation__link navigation__link',
       handler: null,
     },
