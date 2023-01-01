@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SignUp from './SignUp';
+import SignUp from '.';
 import withUser from '../../../hoc/withUser';
-import Content from '../../../components/core/Content';
+import { Content } from '../../../components/core';
 
 function SignUpPage() {
   return (

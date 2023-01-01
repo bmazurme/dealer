@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SignIn from './SignIn';
+import SignIn from '.';
 import withUser from '../../../hoc/withUser';
-import Content from '../../../components/core/Content';
+import { Content } from '../../../components/core';
 
 function SignInPage() {
   return (

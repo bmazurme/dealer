@@ -1,11 +1,9 @@
-/* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Notification, { type NotificationProps } from '../../../components/core/Notification';
-import Logo from '../../../components/page-components/Logo';
+import { Notification, type NotificationProps } from '../../../components/core';
 import { PasswordUpdateForm } from '../../../components/forms';
+import Logo from '../../../components/page-components/Logo';
 
 export default function PasswordUpdate() {
   const [notification, setNotification] = useState<{ type: NotificationProps['type']; message: string; } | null>(null);
@@ -18,7 +16,7 @@ export default function PasswordUpdate() {
       <NavLink className="page__link" to="/profile">Back</NavLink>
       <div className={`notification ${notification === null ? '' : 'notification_open'}`}>
         {notification && (
-          <Notification type={notification.type} className="" children={notification.message} />
+          <Notification type={notification.type} children={notification.message} />
         )}
       </div>
     </section>

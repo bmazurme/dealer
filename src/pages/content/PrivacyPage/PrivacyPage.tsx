@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Content from '../../../components/core/Content';
+import { Content } from '../../../components/core';
 import Privacy from './Privacy';
 
 export default function PrivacyPage() {

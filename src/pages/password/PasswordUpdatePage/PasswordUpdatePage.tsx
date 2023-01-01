@@ -1,7 +1,7 @@
 import React from 'react';
 
 import withUser from '../../../hoc/withUser';
-import Content from '../../../components/core/Content';
+import { Content } from '../../../components/core';
 import PasswordUpdate from './PasswordUpdate';
 
 function PasswordResetPage() {

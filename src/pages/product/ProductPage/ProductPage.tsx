@@ -2,7 +2,7 @@ import React from 'react';
 
 import Card from './Product';
 import withUser from '../../../hoc/withUser';
-import Content from '../../../components/core/Content';
+import { Content } from '../../../components/core';
 
 function ProductPage() {
   return (

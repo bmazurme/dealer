@@ -2,7 +2,7 @@ import React from 'react';
 
 import About from './About';
 import withUser from '../../../hoc/withUser';
-import Content from '../../../components/core/Content';
+import { Content } from '../../../components/core';
 
 function AboutPage() {
   // return (<>{Error()}</>);
