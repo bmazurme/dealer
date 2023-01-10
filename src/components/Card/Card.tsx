@@ -14,6 +14,7 @@ export default function Card({ id }: Record<string, number>) {
         <img className="card__image" src={img.url} alt={img.alt} />
       </div>
       <Price type="rub" price={price} />
+      {/* <Price type="rub" price={price} className="card__title" /> */}
       <Rating />
       <NavLink to={`/product/${id}`} className="card__description">
         {description}
