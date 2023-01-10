@@ -2,7 +2,7 @@ import React from 'react';
 
 import EditProfile from './ProfileEdit';
 import withUser from '../../../hoc/withUser';
-import { Content } from '../../../components/core';
+import Content from '../../../components/core/Content';
 
 function ProfileEditPage() {
   return (

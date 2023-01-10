@@ -8,6 +8,9 @@ export type NotificationProps = {
 
 export default function Notification({ type = 'notification', children, className }: NotificationProps) {
   console.log(type, className);
-
-  return (<div className="notification__container">{children}</div>);
+  return (
+    <div className="notification__container">
+      { children }
+    </div>
+  );
 }

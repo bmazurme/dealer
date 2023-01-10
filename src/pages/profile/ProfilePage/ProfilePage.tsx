@@ -2,7 +2,7 @@ import React from 'react';
 
 import Profile from './Profile';
 import withUser from '../../../hoc/withUser';
-import { Content } from '../../../components/core';
+import Content from '../../../components/core/Content';
 
 function ProfilePage() {
   return (
