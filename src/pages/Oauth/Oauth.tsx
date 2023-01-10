@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+
+import { CLIENT_ID, CLIENT_SECRET } from '../../server/utils/devConfig';
 import { Urls } from '../../utils/constants';
 
 export default function Oauth() {
@@ -13,8 +15,8 @@ export default function Oauth() {
     const myHeaders = new Headers();
     const formdata = new FormData();
     formdata.append('grant_type', 'authorization_code');
-    formdata.append('client_id', 'c709762dfe3e447999beb343da0bee9f');
-    formdata.append('client_secret', 'c1ff76a0170e4f49b9572665a233d901');
+    formdata.append('client_id', CLIENT_ID);
+    formdata.append('client_secret', CLIENT_SECRET);
     formdata.append('code', code);
 
     const requestOptions = {
