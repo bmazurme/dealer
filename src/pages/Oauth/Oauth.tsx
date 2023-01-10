@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { Urls } from '../../utils/constants';
 
 export default function Oauth() {
   const [searchParams] = useSearchParams();
-  // const params = useParams();
-  // console.log(params, searchParams.get('code'));
+  const navigate = useNavigate();
   const code: string = searchParams.get('code')!;
   const [token, setToken] = useState('');
 
   // @ts-ignore
   useEffect(() => {
     const myHeaders = new Headers();
-    //  myHeaders.append('Cookie', 'yandexuid=760862031673339314');
     const formdata = new FormData();
     formdata.append('grant_type', 'authorization_code');
     formdata.append('client_id', 'c709762dfe3e447999beb343da0bee9f');
@@ -29,11 +28,6 @@ export default function Oauth() {
     fetch('https://oauth.yandex.ru/token', requestOptions)
       .then((response) => response.text())
       .then((result) => {
-        // console.log('result ->', result);
-        // @ts-ignore
-
-        // console.log('>', JSON.parse(result).access_token);
-        // @ts-ignore
         setToken(JSON.parse(result).access_token);
       })
       .catch((error) => console.log('error', error));
@@ -41,30 +35,26 @@ export default function Oauth() {
 
   useEffect(() => {
     if (token) {
-      // const myHeaders = new Headers();
-      // eslint-disable-next-line max-len
-      // myHeaders.append('Authorization', 'OAuth y0_AgAAAAABpMU3AAj7yAAAAADZXLmYDUWtKfsPQ1WfwGcs_68JW802sBI');
-      // myHeaders.append('Cookie', 'yandexuid=760862031673339314');
-      // myHeaders.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+      const myHeaders = new Headers();
+      myHeaders.append('Content-Type', 'application/json');
+
+      const raw = JSON.stringify({ token });
 
       const requestOptions = {
         method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Access-Control-Allow-Origin': 'http://localhost:3000',
-          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type',
-          'Content-Type': 'text/plain',
-          // Cookie: 'yandexuid=760862031673339314',
-          Authorization: 'OAuth y0_AgAAAAABpMU3AAj7yAAAAADZXLmYDUWtKfsPQ1WfwGcs_68JW802sBI',
-        },
+        headers: myHeaders,
+        body: raw,
         redirect: 'follow',
       };
 
       // @ts-ignore
-      fetch('https://login.yandex.ru/info', requestOptions)
+      fetch('/api/oauth', requestOptions)
         .then((response) => response.text())
-        .then((result) => console.log(result))
+        .then((result: unknown) => {
+          if (JSON.parse(result as string).message === 'Успешная авторизация') {
+            navigate(Urls.MAIN.INDEX);
+          }
+        })
         .catch((error) => console.log('error', error));
     }
   }, [token]);

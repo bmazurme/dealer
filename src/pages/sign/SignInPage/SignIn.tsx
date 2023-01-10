@@ -24,6 +24,10 @@ export default function SignIn() {
       <h2 className="sign__title">SignIn</h2>
       <SignInForm />
       <SignFooter links={links} />
+
+      <a className="sign__link" href="https://oauth.yandex.ru/authorize?response_type=code&client_id=c709762dfe3e447999beb343da0bee9f">
+        OAUTH
+      </a>
     </section>
   );
 }

@@ -6,6 +6,7 @@ import bcrypt from 'bcryptjs';
 import { config as dotEnvConfig } from 'dotenv';
 
 import { ObjectId } from 'mongoose';
+
 import sendMail from './sendMail';
 import User, { IUser } from '../models/user';
 import DEV_JWT_SECRET from '../utils/devConfig';
@@ -83,6 +84,7 @@ const login = (req: Request, res: Response, next: NextFunction) => {
       if (user?.status !== 'Active') {
         return next(new UnauthorizedError('PENDING_ACCAUNT_RU'));
       }
+
       const { JWT_SECRET, NODE_ENV } = process.env;
       const token = jwt.sign(
         { _id: user._id },

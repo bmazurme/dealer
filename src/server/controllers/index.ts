@@ -4,6 +4,8 @@ import {
   confirmEmail as confirmEmailController,
 } from './auth';
 
+import { oauthController } from './oauth';
+
 import {
   updatePassword as updatePasswordController,
   resetPassword as resetPasswordController,
@@ -28,5 +30,5 @@ export {
   updateUserController,
   getCurrentUserController,
   updateUserAvatarController,
-
+  oauthController,
 };
