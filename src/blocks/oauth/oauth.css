@@ -1,0 +1,25 @@
+.oauth {
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.oauth__link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #3456f3;
+  margin: 0 0 0 6px;
+  padding: 0;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.oauth__link:hover {
+  opacity: 0.7;
+}

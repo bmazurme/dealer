@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Oauth from './Oauth';
+import OauthSignUp from './OauthSignUp';
 import withUser from '../../hoc/withUser';
 import Content from '../../components/core/Content';
 
-function OauthPage() {
+function OauthSignUpPage() {
   return (
-    <Content heading="Oauth" header menu>
-      <Oauth />
+    <Content>
+      <OauthSignUp />
     </Content>
   );
 }
 
-export default withUser(OauthPage, false);
+export default withUser(OauthSignUpPage, false);

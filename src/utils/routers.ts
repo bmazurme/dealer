@@ -5,6 +5,7 @@ export const Urls = {
     OUT: '/signout',
     CONFIRM: '/confirm/:token',
     OAUTH: '/oauth',
+    OSIGNUP: '/osignup',
   },
   PASSWORD: {
     INDEX: '/password',

@@ -17,14 +17,14 @@ export default function ProfilePage() {
     avatar?: string;
     password?: string;
   } | null = useUser();
-  const getValue = (data: Record<string, string | number>, key: string) => data[key];
+  const getValue = (data: Record<string, string | number>, key: string) => (data ? data[key] : '******');
 
   return (
     <section className="page">
       <div className="container container_profile">
         <Avatar />
 
-        <h3 className="title title_profile">{userData!.login}</h3>
+        <h3 className="title title_profile">{userData?.login}</h3>
 
         <ul className="fields">
           {fields.map(({ key, label }) => (

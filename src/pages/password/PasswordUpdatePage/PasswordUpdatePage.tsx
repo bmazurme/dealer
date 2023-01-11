@@ -4,7 +4,7 @@ import withUser from '../../../hoc/withUser';
 import Content from '../../../components/core/Content';
 import PasswordUpdate from './PasswordUpdate';
 
-function PasswordResetPage() {
+function PasswordUpdatePage() {
   return (
     <Content>
       <PasswordUpdate />
@@ -12,4 +12,4 @@ function PasswordResetPage() {
   );
 }
 
-export default withUser(PasswordResetPage, false);
+export default withUser(PasswordUpdatePage, false);

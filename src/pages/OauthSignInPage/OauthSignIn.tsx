@@ -4,11 +4,13 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { CLIENT_ID, CLIENT_SECRET } from '../../server/utils/devConfig';
 import { Urls } from '../../utils/constants';
 
-export default function Oauth() {
+export default function OauthSignIn() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const code: string = searchParams.get('code')!;
   const [token, setToken] = useState('');
+  const [resCode, setResCode] = useState('');
+  const [message, setMessage] = useState('');
 
   // @ts-ignore
   useEffect(() => {
@@ -37,10 +39,9 @@ export default function Oauth() {
 
   useEffect(() => {
     if (token) {
+      const raw = JSON.stringify({ token });
       const myHeaders = new Headers();
       myHeaders.append('Content-Type', 'application/json');
-
-      const raw = JSON.stringify({ token });
 
       const requestOptions = {
         method: 'POST',
@@ -51,22 +52,31 @@ export default function Oauth() {
 
       // @ts-ignore
       fetch('/api/oauth', requestOptions)
-        .then((response) => response.text())
-        .then((result: unknown) => {
-          if (JSON.parse(result as string).message === 'Успешная авторизация') {
-            navigate(Urls.MAIN.INDEX);
-          }
+        .then((response) => {
+          setResCode(response.status.toString());
+
+          return response.json();
         })
-        .catch((error) => console.log('error', error));
+        .then((result: unknown) => {
+          setMessage((result as Record<string, string>)?.message);
+          setTimeout(() => navigate(Urls.MAIN.INDEX), 2000);
+        })
+        .catch((error) => {
+          setMessage((error as Record<string, string>)?.message);
+          setTimeout(() => navigate(Urls.MAIN.INDEX), 5000);
+          console.log('error', error);
+        });
     }
   }, [token]);
 
   return (
     <section className="page">
       <div className="page__content">
-        {code}
+        <p>{code}</p>
         -
-        {token}
+        <p>{token}</p>
+        <p>{resCode}</p>
+        <p>{message}</p>
       </div>
     </section>
   );

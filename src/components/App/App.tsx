@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import OauthPage from '../../pages/Oauth';
+import OauthPage from '../../pages/OauthSignInPage';
+import OauthSignUpPage from '../../pages/OauthSignUpPage/OauthSignUp';
 import { AboutPage, DeliveryPage, PrivacyPage } from '../../pages/content';
 import { SignUpPage, SignInPage, SignConfirmPage } from '../../pages/sign';
 import { PasswordResetPage, PasswordUpdatePage, PasswordNewPage } from '../../pages/password';
@@ -26,6 +27,7 @@ export default function App() {
         <Route path={Urls.SIGN.UP} element={(<SignUpPage />)} />
         <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
         <Route path={Urls.SIGN.OAUTH} element={(<OauthPage />)} />
+        <Route path={Urls.SIGN.OSIGNUP} element={(<OauthSignUpPage />)} />
         <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
         <Route path={Urls.PASSWORD.RESET} element={(<PasswordResetPage />)} />
         <Route path={Urls.PASSWORD.NEW} element={(<PasswordNewPage />)} />

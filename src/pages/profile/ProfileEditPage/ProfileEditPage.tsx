@@ -12,4 +12,4 @@ function ProfileEditPage() {
   );
 }
 
-export default withUser(ProfileEditPage, false);
+export default withUser(ProfileEditPage, true);

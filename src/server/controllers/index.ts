@@ -4,7 +4,7 @@ import {
   confirmEmail as confirmEmailController,
 } from './auth';
 
-import { oauthController } from './oauth';
+import { oauthYaSigninController } from './oauth';
 
 import {
   updatePassword as updatePasswordController,
@@ -30,5 +30,5 @@ export {
   updateUserController,
   getCurrentUserController,
   updateUserAvatarController,
-  oauthController,
+  oauthYaSigninController,
 };

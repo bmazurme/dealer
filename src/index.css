@@ -200,3 +200,6 @@
 @import "./blocks/select-button/__label/select-button__label.css";
 @import "./blocks/select-button/__label/_error/select-button__label_error.css";
 @import "./blocks/select-button/_sm/select-button_sm.css";
+
+/* oauth */
+@import "./blocks/oauth/oauth.css";
