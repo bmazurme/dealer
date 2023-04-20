@@ -4,9 +4,6 @@
 /* root */
 @import "./blocks/root/root.css";
 
-/* body */
-/* @import "./blocks/body/body.css"; */
-
 /* logo */
 @import "./blocks/logo/logo.css";
 @import "./blocks/logo/__icon/logo__icon.css";
@@ -38,7 +35,6 @@
 
 /* container */
 @import "./blocks/container/container.css";
-@import "./blocks/container/_profile/container_profile.css";
 
 /* footer */
 @import "./blocks/footer/footer.css";
@@ -94,9 +90,11 @@
 @import "./blocks/fields/fields.css";
 
 /* field */
-@import "./blocks/field/field.css";
-@import "./blocks/field/__label/field__label.css";
-@import "./blocks/field/__value/field__value.css";
+@import url(./blocks/field/field.css);
+@import url(./blocks/field/_border/field_border.css);
+@import url(./blocks/field/__label/field__label.css);
+@import url(./blocks/field/__value/field__value.css);
+@import url(./blocks/field/__input/field__input.css);
 
 /* profile-button */
 @import "./blocks/profile-button/profile-button.css";
@@ -109,9 +107,6 @@
 
 /* banner */
 @import "./blocks/banner/banner.css";
-
-/* variables */
-@import "./_variables.css";
 
 /* sign */
 @import "./blocks/sign/sign.css";
@@ -203,3 +198,17 @@
 
 /* oauth */
 @import "./blocks/oauth/oauth.css";
+
+/* switcher */
+@import url(./blocks/switcher/switcher.css);
+@import url(./blocks/switcher/__label/switcher__label.css);
+@import url(./blocks/switcher/__button/switcher__button.css);
+@import url(./blocks/switcher/__button/_on/switcher__button_on.css);
+
+/* profile */
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__avatar/profile__avatar.css);
+@import url(./blocks/profile/__title/profile__title.css);
+@import url(./blocks/profile/__links/profile__links.css);
+@import url(./blocks/profile/__link/profile__link.css);
+@import url(./blocks/profile/__link/_red/profile__link_red.css);

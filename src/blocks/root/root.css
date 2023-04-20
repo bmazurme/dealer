@@ -1,6 +1,26 @@
-/* .root {
-  font-family: Inter, serif;
-} */
+html {
+  --background: #fafafa;
+  --background-container: #fff;
+  --background-board: #fff;
+  --color: #000;
+  --color-link: #000;
+  --background-profile-button: #fff;
+  --border-color: #bfbfbf;
+  --background-card: #fff;
+  --background-cards: #f4f4f4;
+}
+
+html[data-theme='dark'] {
+  --background: #161616;
+  --background-container: #202124;
+  --background-board: #222222;
+  --color: #d6d6d6;
+  --color-link: #bfbfbf;
+  --background-profile-button: #bfbfbf;
+  --border-color: #5a5a5a;
+  --background-card: #323232;
+  --background-cards: #222222;
+}
 
 .root {
   display: flex;
@@ -12,7 +32,8 @@
   margin: 0 auto;
   font-family: Inter, "Helvetica Neue", Arial, sans-serif;
   font-style: normal;
-  background: #fafafa;
+  background: var(--background);
+  color: var(--color);
 
   --header-background: #fff;
   --card-background: #fff;
@@ -27,13 +48,12 @@
   --card-list-background: #f5f5f5;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   .root {
-    /* color: white; */
     color: #000;
     background: #212121;
   }
-}
+} */

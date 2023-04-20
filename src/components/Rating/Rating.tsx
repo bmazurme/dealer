@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import Star from './Star';
-import mockData from './mockData';
+import mockData from '../../mocks/mockRating';
 
 interface IStar {
   key?: string,

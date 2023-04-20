@@ -2,14 +2,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: auto;
+  padding-top: 16px;
+  padding-bottom: 2px;
   margin: 0;
-  padding: 0;
 }
 
-.field:first-child {
-  margin-top: 40px;
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .field {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
 }
 
-.field:last-child {
-  margin-bottom: 30px;
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .field {
+
+  }
 }

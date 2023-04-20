@@ -36,7 +36,7 @@ const helmetConfig = {
 };
 
 const port = process.env.PORT ?? 3000;
-const pth = 'mongodb://localhost:27017/dealer';
+const pth = 'mongodb://127.0.0.1:27017/dealer';
 
 const app = express();
 
