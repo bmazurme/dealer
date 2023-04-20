@@ -65,7 +65,6 @@
 @import "./blocks/button/button.css";
 @import "./blocks/button/_filled/button_filed.css";
 @import "./blocks/button/_outline/button_outline.css";
-
 @import "./blocks/button/_black/button_black.css";
 @import "./blocks/button/_submit/button_submit.css";
 @import "./blocks/button/_reload/button_reload.css";
@@ -90,11 +89,11 @@
 @import "./blocks/fields/fields.css";
 
 /* field */
-@import url(./blocks/field/field.css);
-@import url(./blocks/field/_border/field_border.css);
-@import url(./blocks/field/__label/field__label.css);
-@import url(./blocks/field/__value/field__value.css);
-@import url(./blocks/field/__input/field__input.css);
+@import "./blocks/field/field.css";
+@import "./blocks/field/_border/field_border.css";
+@import "./blocks/field/__label/field__label.css";
+@import "./blocks/field/__value/field__value.css";
+@import "./blocks/field/__input/field__input.css";
 
 /* profile-button */
 @import "./blocks/profile-button/profile-button.css";
@@ -200,15 +199,15 @@
 @import "./blocks/oauth/oauth.css";
 
 /* switcher */
-@import url(./blocks/switcher/switcher.css);
-@import url(./blocks/switcher/__label/switcher__label.css);
-@import url(./blocks/switcher/__button/switcher__button.css);
-@import url(./blocks/switcher/__button/_on/switcher__button_on.css);
+@import "./blocks/switcher/switcher.css";
+@import "./blocks/switcher/__label/switcher__label.css";
+@import "./blocks/switcher/__button/switcher__button.css";
+@import "./blocks/switcher/__button/_on/switcher__button_on.css";
 
 /* profile */
-@import url(./blocks/profile/profile.css);
-@import url(./blocks/profile/__avatar/profile__avatar.css);
-@import url(./blocks/profile/__title/profile__title.css);
-@import url(./blocks/profile/__links/profile__links.css);
-@import url(./blocks/profile/__link/profile__link.css);
-@import url(./blocks/profile/__link/_red/profile__link_red.css);
+@import "./blocks/profile/profile.css";
+@import "./blocks/profile/__avatar/profile__avatar.css";
+@import "./blocks/profile/__title/profile__title.css";
+@import "./blocks/profile/__links/profile__links.css";
+@import "./blocks/profile/__link/profile__link.css";
+@import "./blocks/profile/__link/_red/profile__link_red.css";
