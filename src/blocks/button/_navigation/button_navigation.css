@@ -1,0 +1,9 @@
+.button_navigation {
+  margin: 0;
+  border-radius: 4px;
+  width: 80px;
+  height: 30px;
+  border: 0;
+  background-color: #f4f4f4;
+  color: var(--color);
+}

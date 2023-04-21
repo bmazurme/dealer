@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { PasswordResetForm } from '../../components/forms';
+import { PasswordResetForm } from '../../forms';
 import Logo from '../../components/page-components/Logo';
 import SignFooter from '../../components/SignFooter';
 import Notification, { type NotificationProps } from '../../components/core/Notification';
@@ -13,7 +13,7 @@ export default function PasswordReset() {
   return (
     <section className="container">
       <Logo />
-      <h2 className="sign__title">Password Reset</h2>
+      <h2 className="title_h2">Password Reset</h2>
       <PasswordResetForm setNotification={setNotification} />
       <SignFooter links={links} />
 

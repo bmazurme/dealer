@@ -9,7 +9,7 @@ import {
 
 import type { TableState } from 'react-table';
 
-import { Button, Select } from '../form-components';
+import { Button, SelectButton } from '../form-components';
 
 type PaginationProps = {
   setPageSize: (value: number) => void;
@@ -35,19 +35,35 @@ export default function Pagination({
   state: { pageIndex, pageSize },
 }: PaginationProps) {
   return (
-    <div className="py-3 flex items-center justify-between sticky top-full">
+    <div className="pagination">
       <div className="flex-1 flex justify-between sm:hidden">
-        <Button variant="icon" onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</Button>
-        <Button variant="icon" onClick={() => nextPage()} disabled={!canNextPage}>Next</Button>
+        <Button
+          className="button button_navigation"
+          variant="icon"
+          onClick={() => previousPage()}
+          disabled={!canPreviousPage}
+        >
+          Previous
+        </Button>
+        <Button
+          className="button button_navigation"
+          variant="icon"
+          onClick={() => nextPage()}
+          disabled={!canNextPage}
+        >
+          Next
+        </Button>
       </div>
+
       <div className="hidden sm:flex sm:items-center w-full">
         <div className="flex w-full gap-x-2 justify-between items-center">
-          <div className="w-[150px]">
-            <Select
+          <div className="pagination__select">
+
+            <SelectButton
               value={pageSize}
               classes={{
                 list: 'bottom-full',
-                size: 'select-button_sm',
+                size: 'select-pagination',
               }}
               options={[
                 { label: 'Show 10 items', value: 10 },
@@ -57,13 +73,14 @@ export default function Pagination({
               onChange={(value) => setPageSize(Number(value))}
             />
           </div>
-          <span className="text-sm text-gray-700">
+
+          <span className="pagination__text">
             {`Page ${pageIndex + 1} of ${pageOptions.length}`}
           </span>
-          <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+          <nav className="pagination__menu" aria-label="Pagination">
             <Button
               variant="icon"
-              className="rounded-l-md"
+              className="button button_square button_left"
               onClick={() => gotoPage(0)}
               disabled={!canPreviousPage}
             >
@@ -72,6 +89,7 @@ export default function Pagination({
             </Button>
             <Button
               variant="icon"
+              className="button button_square button_mid"
               onClick={() => previousPage()}
               disabled={!canPreviousPage}
             >
@@ -80,6 +98,7 @@ export default function Pagination({
             </Button>
             <Button
               variant="icon"
+              className="button button_square button_mid"
               onClick={() => nextPage()}
               disabled={!canNextPage}
             >
@@ -88,7 +107,8 @@ export default function Pagination({
             </Button>
             <Button
               variant="icon"
-              className="rounded-r-md"
+              className="button button_square button_right"
+              // className="rounded-r-md"
               onClick={() => gotoPage(pageCount - 1)}
               disabled={!canNextPage}
             >

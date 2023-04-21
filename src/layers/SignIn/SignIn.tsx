@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { SignInForm } from '../../components/forms';
+import { SignInForm } from '../../forms';
 import Logo from '../../components/page-components/Logo';
 import SignFooter from '../../components/SignFooter';
 import OauthButtons from '../../components/OauthButtons';
@@ -22,7 +22,7 @@ export default function SignIn() {
   return (
     <section className="container">
       <Logo />
-      <h2 className="sign__title">SignIn</h2>
+      <h2 className="title_h2">SignIn</h2>
       <SignInForm />
       <SignFooter links={links} />
       <OauthButtons />

@@ -1,11 +1,10 @@
 .button {
-  margin: 0;
-  margin-top: 10px;
+  margin: 10px 0 0;
   padding: 0;
   width: 100%;
   height: 45px;
   border: 1px solid #3456f3;
-  border-radius: 3px;
+  border-radius: 10px;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
@@ -14,6 +13,50 @@
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+
+.pagination__menu {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+}
+
+.pagination {
+  margin: 10px 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination__select {
+  width: 150px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.pagination__text {
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.select-pagination {
+  padding: 0;
+  margin: 0;
+  height: 30px;
+}
+
+/* .button_square {
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  background-color: #f4f4f4;
+  border: 0;
+  color: var(--color);
+} */
 
 .button:hover {
   opacity: 0.8;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { OauthSignUpForm } from '../../components/forms';
+import { OauthSignUpForm } from '../../forms';
 import Logo from '../../components/page-components/Logo';
 import useUser from '../../hook/useUser';
 
@@ -20,7 +20,7 @@ export default function OauthSignUp() {
   return (
     <section className="sign container">
       <Logo />
-      <h2 className="sign__title">SignUp</h2>
+      <h2 className="title_h2">SignUp</h2>
       <OauthSignUpForm />
     </section>
   );

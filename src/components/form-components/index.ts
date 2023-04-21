@@ -1,6 +1,6 @@
 import Input from './Input';
 import Range from './Range';
-import Select from './Select';
+import SelectButton from './SelectButton';
 import Button from './Button';
 import Checkbox from './Checkbox';
 import DatePicker from './DatePicker';
@@ -9,7 +9,7 @@ import ToggleButton from './ToggleButton';
 export {
   Input,
   Range,
-  Select,
+  SelectButton,
   Button,
   Checkbox,
   DatePicker,

@@ -1,13 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable arrow-body-style */
-/* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextFunction, Response } from 'express';
 
 import User from '../models/user';
 import { NotFoundError, BadRequestError, ConflictError } from '../errors';
 
-// eslint-disable-next-line max-len
 const getCurrentUser = (req: any, res: Response, next: NextFunction) => {
   // eslint-disable-next-line no-underscore-dangle
   User.findById(req.user._id)

@@ -4,7 +4,6 @@
   left: 0;
   height: 40px;
   width: 40px;
-  /* background-color: #3456f3; */
   border: 1px solid #3456f3;
   border-radius: 8px;
   overflow: hidden;
@@ -36,7 +35,6 @@
   height: 40px;
   width: 40px;
   background-color: #3456f3;
-  /* border-radius: 8px; */
 }
 
 .checkbox__checkmark:before {

@@ -5,19 +5,15 @@ import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory, createMemoryHistory } from 'history';
 
 import {
-  // appApi,
   authApi,
   passApi,
-  // forumApi,
   usersApi,
 } from './api';
 import userReducer from './slices/userSlice';
 import { isServer } from '../utils';
 
-export * from './api/appApi/endpoints';
 export * from './api/authApi/endpoints';
 export * from './api/passApi/endpoints';
-export * from './api/forumApi/endpoints';
 export * from './api/usersApi/endpoints';
 export * from './slices';
 
@@ -37,20 +33,16 @@ export const store = configureStore({
     router: routerReducer,
     // Add the generated reducer as a specific top-level slice
     user: userReducer,
-    // [appApi.reducerPath]: appApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [passApi.reducerPath]: passApi.reducer,
-    // [forumApi.reducerPath]: forumApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) => getDefaultMiddleware()
     .concat(
-      // appApi.middleware,
       authApi.middleware,
       passApi.middleware,
-      // forumApi.middleware,
       usersApi.middleware,
       routerMiddleware,
     ),

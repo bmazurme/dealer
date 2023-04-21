@@ -1,4 +1,4 @@
 .input_error {
-  color: #ee3465;
+  color: var(--color-error);
   border: #ee3465 1px solid;
 }

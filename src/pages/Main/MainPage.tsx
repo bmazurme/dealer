@@ -6,7 +6,7 @@ import Content from '../../components/core/Content';
 
 function MainPage() {
   return (
-    <Content heading="Main" header menu>
+    <Content heading="Main" header menu footer banner>
       <Main />
     </Content>
   );

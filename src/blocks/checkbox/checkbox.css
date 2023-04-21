@@ -1,8 +1,7 @@
 .checkbox {
   display: flex;
   position: relative;
-  margin: 0;
-  margin-top: 20px;
+  margin: 20px 0 0;
   padding: 0;
   height: 40px;
   cursor: pointer;
@@ -12,7 +11,7 @@
   -ms-user-select: none;
   user-select: none;
   border-radius: 8px;
-  z-index: 1;
+  /*z-index: 1;*/
 }
 
 .checkbox:hover {

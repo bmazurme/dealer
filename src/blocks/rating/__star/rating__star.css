@@ -2,9 +2,6 @@
   height: 15px;
   width: 15px;
   background-image: url("../../../images/star.svg");
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0px;
-  margin-right: 5px;
+  margin: 0 5px 0 0;
   cursor: pointer;
 }

@@ -15,45 +15,43 @@ export default function ProfilePage() {
   const toggleTheme = () => setStyle(style === 'light' ? 'dark' : 'light');
 
   return (
-    <section className="page">
-      <div className="container">
-        <div className="profile__avatar">
-          <Avatar />
-        </div>
-        <Switcher
-          label="Dark theme"
-          handlerSwitchClick={toggleTheme}
-          value={(localStorage.getItem('wp-theme') === 'dark')}
-        />
-        <Field label="Login" value={userData!.login} />
-        <Field label="E-mail" value={userData!.email} />
-        <Field label="Phone" value={userData!.phone} />
-        <Field label="First name" value={userData!.firstName} />
-        <Field label="Second name" value={userData!.secondName} />
-        <Field label="Coins" value="101" />
-
-        <ul className="profile__links">
-          <li>
-            <NavLink className="profile__link" to={Paths.PROFILE.EDIT}>
-              Edit profile
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="profile__link" to={Paths.PASSWORD.UPDATE}>
-              Update password
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className="profile__link profile__link_red"
-              to={Paths.MAIN}
-              onClick={() => console.log('logout')}
-            >
-              Logout
-            </NavLink>
-          </li>
-        </ul>
+    <div className="container">
+      <div className="profile__avatar">
+        <Avatar />
       </div>
-    </section>
+      <Switcher
+        label="Dark theme"
+        handlerSwitchClick={toggleTheme}
+        value={(localStorage.getItem('wp-theme') === 'dark')}
+      />
+      <Field label="Login" value={userData!.login} />
+      <Field label="E-mail" value={userData!.email} />
+      <Field label="Phone" value={userData!.phone} />
+      <Field label="First name" value={userData!.firstName} />
+      <Field label="Second name" value={userData!.secondName} />
+      <Field label="Coins" value="101" />
+
+      <ul className="profile__links">
+        <li>
+          <NavLink className="profile__link" to={Paths.PROFILE.EDIT}>
+            Edit profile
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="profile__link" to={Paths.PASSWORD.UPDATE}>
+            Update password
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className="profile__link profile__link_red"
+            to={Paths.MAIN}
+            onClick={() => console.log('logout')}
+          >
+            Logout
+          </NavLink>
+        </li>
+      </ul>
+    </div>
   );
 }

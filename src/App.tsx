@@ -1,32 +1,33 @@
 import React, { useLayoutEffect, useState, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import OauthPage from './pages/OauthSignIn';
-import OauthSignUpPage from './layers/OauthSignUp/OauthSignUp';
 import AboutPage from './pages/About';
-import PrivacyPage from './pages/Privacy';
+import AdminPage from './pages/Admin';
+import BucketPage from './pages/Bucket';
 import DeliveryPage from './pages/Delivery';
+import MainPage from './pages/Main';
+import OauthPage from './pages/OauthSignIn';
+import OauthSignUpPage from './layers/OauthSignUp';
+import PasswordNewPage from './pages/PasswordNew';
+import PasswordResetPage from './pages/PasswordReset';
+import PasswordUpdatePage from './pages/PasswordUpdate';
+import PrivacyPage from './pages/Privacy';
+import ProductPage from './pages/Product';
+import ProductCreatePage from './pages/ProductCreate';
+import ProductTablePage from './pages/ProductTable';
+import ProfilePage from './pages/Profile';
+import ProfileEditPage from './pages/ProfileEdit';
 import SignConfirmPage from './pages/SignConfirm';
 import SignInPage from './pages/SignIn';
 import SignUpPage from './pages/SignUp';
-import PasswordResetPage from './pages/PasswordReset';
-import PasswordUpdatePage from './pages/PasswordUpdate';
-import PasswordNewPage from './pages/PasswordNew';
-import ProductCreatePage from './pages/ProductCreate';
-import ProductTablePage from './pages/ProductTable';
-import ProductPage from './pages/Product';
 import { NotFoundPage, ServerErrorPage } from './pages/error';
-import ProfilePage from './pages/Profile';
-import ProfileEditPage from './pages/ProfileEdit';
-import AdminPage from './pages/Admin';
-import MainPage from './pages/Main';
-import BucketPage from './pages/Bucket';
 
 import ErrorBoundaryWrapper from './components/core/ErrorBoundaryWrapper';
 
 import ThemeContext from './context/ThemeContext';
 
 import { Urls } from './utils/routers';
+
 import './index.css';
 
 export default function App() {

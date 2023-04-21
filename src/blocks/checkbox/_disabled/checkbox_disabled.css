@@ -1,10 +1,8 @@
 .checkbox_disabled {
-  /* background-color: #E8E8E8; */
   opacity: .4;
-  cursor: default;  
+  cursor: default;
 }
 
 .checkbox_disabled:hover {
-  /* background-color: #E8E8E8; */
   opacity: .4;
 }

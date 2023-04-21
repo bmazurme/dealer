@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import authApi from '..';
 import { setCredentials } from '../../../slices/userSlice';
 

@@ -94,7 +94,7 @@
 }
 }
 
-[type=button], [type=reset], [type=submit], button {
+/* [type=button], [type=reset], [type=submit], button {
     -webkit-appearance: button;
     background-color: transparent;
     background-image: none;
@@ -113,7 +113,7 @@ button, input, optgroup, select, textarea {
     line-height: inherit;
     margin: 0;
     padding: 0;
-}
+} */
 
 .pr-2 {
   padding-right: 0.5rem;
@@ -341,7 +341,7 @@ div {
   position: sticky;
 }
 
-.button_disabled {
+/* .button_disabled {
   cursor: default;
   opacity: 0.4;
 }
@@ -356,8 +356,8 @@ button, input, optgroup, select, textarea {
 }
 button, select {
   text-transform: none;
-}
-[role=button], button {
+} */
+/* [role=button], button {
   cursor: pointer;
 }
 [type=button], [type=reset], [type=submit], button {
@@ -387,9 +387,9 @@ button:disabled {
   background-color: -internal-light-dark(rgba(239, 239, 239, 0.3), rgba(19, 1, 1, 0.3));
   color: -internal-light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
   border-color: -internal-light-dark(rgba(118, 118, 118, 0.3), rgba(195, 195, 195, 0.3));
-}
+} */
 /* user agent stylesheet */
-button {
+/* button {
   appearance: auto;
   writing-mode: horizontal-tb !important;
   text-rendering: auto;
@@ -411,7 +411,7 @@ button {
   border-style: outset;
   border-color: buttonborder;
   border-image: initial;
-}
+} */
 
 .dark .dark\:to-gray-50 {
   --tw-gradient-to: #f9fafb;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProductCreateForm } from '../../components/forms';
+import { ProductCreateForm } from '../../forms';
 import Notification, { type NotificationProps } from '../../components/core/Notification';
 
 export default function ProductCreate() {

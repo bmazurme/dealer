@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { SignUpForm } from '../../components/forms';
+import { SignUpForm } from '../../forms';
 import Logo from '../../components/page-components/Logo';
 import SignFooter from '../../components/SignFooter';
 import useUser from '../../hook/useUser';
@@ -22,7 +22,7 @@ export default function SignUp() {
   return (
     <section className="container">
       <Logo />
-      <h2 className="sign__title">SignUp</h2>
+      <h2 className="title_h2">SignUp</h2>
       <SignUpForm />
       <SignFooter links={links} />
     </section>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Cards from '../../components/Cards';
-import { SearchForm } from '../../components/forms';
+import { SearchForm } from '../../forms';
 
 export default function Main() {
   return (

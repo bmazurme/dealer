@@ -32,7 +32,7 @@ export default function SignConfirm() {
   return (
     <section className="container">
       <Logo />
-      <h2 className="sign__title">SignConfirm</h2>
+      <h2 className="title_h2">SignConfirm</h2>
       <p className="page__description">{message}</p>
       <SignFooter links={links} />
     </section>

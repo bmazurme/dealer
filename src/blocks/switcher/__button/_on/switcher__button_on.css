@@ -13,7 +13,7 @@
 
 .switcher__button_on::after {
   content: "";
-  background: #ffffff;
+  background: #fff;
   border-radius: 50%;
   margin: 0;
   padding: 0;
@@ -22,5 +22,5 @@
   position: absolute;
   top: 2px;
   right: 2px;
-  z-index: 1
+  z-index: 1;
 }

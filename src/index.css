@@ -69,6 +69,11 @@
 @import "./blocks/button/_submit/button_submit.css";
 @import "./blocks/button/_reload/button_reload.css";
 @import "./blocks/button/_disabled/button_disabled.css";
+@import "./blocks/button/_navigation/button_navigation.css";
+@import "./blocks/button/_square/button_square.css";
+@import "./blocks/button/_left/button_left.css";
+@import "./blocks/button/_mid/button_mid.css";
+@import "./blocks/button/_right/button_right.css";
 
 /* icon-button */
 @import "./blocks/icon-button/icon-button.css";
@@ -109,7 +114,7 @@
 
 /* sign */
 @import "./blocks/sign/sign.css";
-@import "./blocks/sign/__title/sign_title.css";
+/*@import "./blocks/sign/__title/sign_title.css";*/
 @import "./blocks/sign/__footer/sign_footer.css";
 @import "./blocks/sign/__help/sign__help.css";
 @import "./blocks/sign/__link/sign__link.css";
@@ -132,7 +137,6 @@
 @import "./blocks/about/__text/about__text.css";
 
 /* privacy */
-@import "./blocks/privacy/__title/privacy__title.css";
 @import "./blocks/privacy/__container/privacy__container.css";
 @import "./blocks/privacy/__text/privacy__text.css";
 
@@ -157,8 +161,8 @@
 
 /* title */
 @import "./blocks/title/title.css";
-@import "./blocks/title/_profile/title_profile.css";
 @import "./blocks/title/_h5/title_h5.css";
+@import "./blocks/title/_h2/title_h2.css";
 
 /* text */
 @import "./blocks/text/text.css";
@@ -207,7 +211,19 @@
 /* profile */
 @import "./blocks/profile/profile.css";
 @import "./blocks/profile/__avatar/profile__avatar.css";
-@import "./blocks/profile/__title/profile__title.css";
 @import "./blocks/profile/__links/profile__links.css";
 @import "./blocks/profile/__link/profile__link.css";
 @import "./blocks/profile/__link/_red/profile__link_red.css";
+
+/* datepicker */
+@import "./blocks/react-datepicker.css";
+
+/* popup */
+@import "./blocks/popup/popup.css";
+@import "./blocks/popup/__title/popup__title.css";
+@import "./blocks/popup/__text/popup__text.css";
+@import "./blocks/popup/__close/popup__close.css";
+@import "./blocks/popup/__container/popup__container.css";
+@import "./blocks/popup/__container/_image/popup__container_image.css";
+@import "./blocks/popup/_active/popup_active.css";
+@import "./blocks/popup/_image/popup_image.css";

@@ -1,11 +1,8 @@
 .table {
-  /* display: flex; */
-  margin: 0;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
   padding: 0;
   border: solid 1px #e8e8e8;
-  border-radius: 3px;
+  border-radius: 10px;
   box-sizing: border-box;
 }
 
@@ -29,17 +26,13 @@
 .table__cell {
   display: flex;
   margin: 0;
-  padding: 10px;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   text-align: left;
   letter-spacing: -0.04em;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 15px;
-  padding-top: 15px;
+  padding: 15px 20px;
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
@@ -49,22 +42,17 @@
 .table__field {
   display: flex;
   margin: 0;
-  padding: 10px;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
   text-align: left;
   letter-spacing: -0.04em;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 15px;
-  padding-top: 15px;
+  padding: 10px 20px;
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
   align-items: center;
-  /* justify-content: center; */
 }
 
 .table__header {
@@ -72,4 +60,6 @@
   padding: 0;
   background-color: #f4f4f4;
   border-bottom: 1px solid #e8e8e8;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }

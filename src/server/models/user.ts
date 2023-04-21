@@ -1,5 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable max-len */
 import {
   Schema,
   Document,
@@ -91,7 +89,8 @@ const UserSchema = new Schema({
   }],
 });
 
-UserSchema.statics.findUserByCredentials = function (email: string, password: string): Promise<IUser | undefined> {
+UserSchema.statics.findUserByCredentials = function (email: string, password: string)
+  : Promise<IUser | undefined> {
   return this.findOne({ email })
     .select('+password')
     .then((user: IUser) => {

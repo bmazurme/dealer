@@ -8,10 +8,12 @@ type Props = PropsWithChildren<{
   heading?: string;
   header?: boolean;
   menu?: boolean;
+  footer?: boolean;
+  banner?: boolean;
 }>;
 
 export default function Content({
-  heading, children, header, menu,
+  heading, children, header, menu, footer, banner,
 }: Props) {
   return (
     <>
@@ -25,8 +27,8 @@ export default function Content({
         {children}
       </main>
 
-      <Footer />
-      <Banner />
+      {footer && <Footer />}
+      {banner && <Banner />}
     </>
   );
 }

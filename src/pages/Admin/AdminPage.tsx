@@ -6,7 +6,7 @@ import Content from '../../components/core/Content';
 
 function AboutPage() {
   return (
-    <Content heading="Admin" header menu>
+    <Content heading="Admin" header menu footer banner>
       <Admin />
     </Content>
   );
