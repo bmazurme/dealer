@@ -3,7 +3,7 @@
   height: 32px;
   width: 32px;
   background-color: var(--color);
-  -webkit-mask: url(../../../images/close.svg) no-repeat center;
+  mask: url(../../../images/close.svg) no-repeat center;
   mask: url(../../../images/close.svg) no-repeat center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,7 +14,7 @@
 
 .popup__close:hover {
   opacity: 0.6;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 320px) and (max-width: 539px) {

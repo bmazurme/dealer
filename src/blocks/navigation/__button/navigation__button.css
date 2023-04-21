@@ -13,32 +13,32 @@
 @media screen and (max-width: 319px) {
   .navigation__button {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 28px;
     width: 28px;
-    background-size: 28px;
-    margin-top: auto;
-    margin-bottom: auto;
+    background-size: 20px;
   }
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
   .navigation__button {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 28px;
     width: 28px;
-    background-size: 28px;
-    margin-top: auto;
-    margin-bottom: auto;
+    background-size: 20px;
   }
 }
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
   .navigation__button {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 38px;
     width: 38px;
-    background-size: 38px;
-    margin-top: auto;
-    margin-bottom: auto;
+    background-size: 30px;
   }
 }

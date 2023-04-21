@@ -10,6 +10,8 @@ html {
   --background-cards: #f4f4f4;
   --color-error: #ee3465;
   --promo-signup-button: #000;
+  --promo-signin-button-bg: #3456f3;
+  --promo-signin-button-color: #fff;
 }
 
 html[data-theme="dark"] {
@@ -24,23 +26,30 @@ html[data-theme="dark"] {
   --background-cards: #222;
   --color-error: #ee3465;
   --promo-signup-button: #bfbfbf;
+  --promo-signin-button-bg: #3456f3;
+  --promo-signin-button-color: #fff;
 }
 
 .root {
+  --width-none: 100%;
+  --width-sm: 640px;
+  --width-md: 768px;
+  --width-lg: 1024px;
+  --width-xl: 1280px;
+  --width-2xl: 1536px;
+
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   height: 100%;
+  max-width: var(--width-xl);
   width: 100%;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0;
   box-sizing: border-box;
   font-family: Inter, "Helvetica Neue", Arial, sans-serif;
   font-style: normal;
   background: var(--background);
   color: var(--color);
   align-self: center;
-
-  --promo-signin-button-bg: #3456f3;
-  --promo-signin-button: #fff;
 }

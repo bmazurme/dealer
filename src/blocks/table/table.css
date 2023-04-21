@@ -26,7 +26,6 @@
 .table__cell {
   display: flex;
   margin: 0;
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -42,7 +41,6 @@
 .table__field {
   display: flex;
   margin: 0;
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;

@@ -1,14 +1,13 @@
 .navigation__signin {
   background: var(--promo-signin-button-bg);
-  border-radius: 3px;
+  border-radius: 10px;
   width: 76px;
   height: 32px;
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   align-items: center;
-  color: var(--promo-signin-button);
+  color: var(--promo-signin-button-color);
   padding: 0;
   margin: 0;
   display: flex;
@@ -20,29 +19,25 @@
 @media screen and (min-width: 100px) and (max-width: 479px) {
   .navigation__signin {
     background: #fafafa;
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    text-decoration: none;
     text-align: right;
     opacity: 1;
     transition: opacity 0.5s ease;
-    margin: 0 0 28px;
+    padding: 0 28px;
   }
 }
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
   .navigation__signin {
     background: #fafafa;
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    text-decoration: none;
     text-align: right;
     opacity: 1;
     transition: opacity 0.5s ease;
-    margin: 0 0 28px;
+    padding: 0 28px;
   }
 }

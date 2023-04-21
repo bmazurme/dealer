@@ -11,7 +11,7 @@
   display: flex;
   visibility: hidden;
   opacity: 0;
-  transition: .8s ease-out;
+  transition: 0.8s ease-out;
 }
 
 .notification::before {
