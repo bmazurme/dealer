@@ -189,9 +189,6 @@
 /* table */
 @import "./blocks/table/table.css";
 
-/* btn */
-/* @import "./blocks/btn/btn.css"; */
-
 /* select-button */
 @import "./blocks/select-button/select-button.css";
 @import "./blocks/select-button/_error/select-button_error.css";
