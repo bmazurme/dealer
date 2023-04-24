@@ -19,7 +19,6 @@
 
 ### Demo
 
-[![Heroky](https://img.shields.io/badge/-Heroky-black?style=flat-square&logo=heroku)](https://teadealer.herokuapp.com/)
 [![Netlify](https://img.shields.io/badge/-Netlify-black?style=flat-square&logo=netlify)](https://delicate-blancmange-5a0a6d.netlify.app/)
 
 ### Installation
