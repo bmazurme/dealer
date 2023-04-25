@@ -1,3 +1,3 @@
-import BucketPage from './BucketPage';
+import BucketPage from './bucket-page';
 
 export default BucketPage;

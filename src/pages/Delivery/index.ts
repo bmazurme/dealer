@@ -1,3 +1,3 @@
-import DeliveryPage from './DeliveryPage';
+import DeliveryPage from './delivery-page';
 
 export default DeliveryPage;

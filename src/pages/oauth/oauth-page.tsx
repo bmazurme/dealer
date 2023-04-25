@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Oauth from './Oauth';
+import Oauth from './oauth';
 import withUser from '../../hocs/with-user';
 import Content from '../../components/core/Content';
 

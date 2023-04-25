@@ -1,3 +1,3 @@
-import AdminPage from './AdminPage';
+import AdminPage from './admin-page';
 
 export default AdminPage;
