@@ -4,7 +4,7 @@
 import React, { MouseEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import useUser from '../../hook/useUser';
+import useUser from '../../hooks/use-user';
 import { useSignOutMutation } from '../../store';
 
 import { Urls } from '../../utils/constants';

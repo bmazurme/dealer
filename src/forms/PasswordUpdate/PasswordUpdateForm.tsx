@@ -2,7 +2,7 @@ import React from 'react';
 import { useErrorHandler } from 'react-error-boundary';
 import { useForm } from 'react-hook-form';
 
-import useUser from '../../hook/useUser';
+import useUser from '../../hooks/use-user';
 import { useUpdatePasswordMutation } from '../../store';
 import Form, { FormInputs, FormPayload } from '../Form';
 

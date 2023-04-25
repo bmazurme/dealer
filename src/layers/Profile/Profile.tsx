@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import useUser from '../../hook/useUser';
+import useUser from '../../hooks/use-user';
 import Avatar from '../../components/page-components/Avatar';
 import Field from '../../components/Field';
 import Switcher from '../../components/Switcher';

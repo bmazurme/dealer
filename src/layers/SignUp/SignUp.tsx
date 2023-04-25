@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { SignUpForm } from '../../forms';
 import Logo from '../../components/page-components/Logo';
 import SignFooter from '../../components/SignFooter';
-import useUser from '../../hook/useUser';
+import useUser from '../../hooks/use-user';
 import links from './links';
 
 export type FormPayload = Omit<User, 'id'>;

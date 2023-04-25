@@ -5,7 +5,7 @@ import { SignInForm } from '../../forms';
 import Logo from '../../components/page-components/Logo';
 import SignFooter from '../../components/SignFooter';
 import OauthButtons from '../../components/OauthButtons';
-import useUser from '../../hook/useUser';
+import useUser from '../../hooks/use-user';
 import links from './links';
 import { Urls } from '../../utils/constants';
 

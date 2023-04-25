@@ -3,7 +3,7 @@ import { useErrorHandler } from 'react-error-boundary';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-import useUser from '../../hook/useUser';
+import useUser from '../../hooks/use-user';
 import { useSignUpMutation } from '../../store';
 import Form, { FormInputs, FormPayload } from '../Form';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Main from '../../layers/Main/Main';
-import withUser from '../../hoc/withUser';
+import withUser from '../../hocs/with-user';
 import Content from '../../components/core/Content';
 
 function MainPage() {

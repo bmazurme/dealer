@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Profile from '../../layers/Profile';
-import withUser from '../../hoc/withUser';
+import withUser from '../../hocs/with-user';
 import Content from '../../components/core/Content';
 
 function ProfilePage() {

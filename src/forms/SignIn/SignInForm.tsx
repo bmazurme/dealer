@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useSignInMutation } from '../../store';
-import useUser from '../../hook/useUser';
+import useUser from '../../hooks/use-user';
 import Form, { FormInputs, FormPayload } from '../Form';
 import { Urls } from '../../utils/constants';
 

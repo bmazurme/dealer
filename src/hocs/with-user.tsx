@@ -5,7 +5,7 @@ import type { AxiosError } from 'axios';
 
 import Preloader from '../components/core/Preloader';
 
-import useUser from '../hook/useUser';
+import useUser from '../hooks/use-user';
 import { useGetUserMutation } from '../store';
 
 export default function withUser<P extends Record<string, unknown>>(

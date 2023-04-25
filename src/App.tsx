@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useState, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import AboutPage from './pages/About';
-import AdminPage from './pages/Admin';
+import AboutPage from './pages/about';
+import AdminPage from './pages/admin';
 import BucketPage from './pages/Bucket';
 import DeliveryPage from './pages/Delivery';
 import MainPage from './pages/Main';

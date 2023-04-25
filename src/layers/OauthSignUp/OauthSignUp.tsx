@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { OauthSignUpForm } from '../../forms';
 import Logo from '../../components/page-components/Logo';
-import useUser from '../../hook/useUser';
+import useUser from '../../hooks/use-user';
 
 export type FormPayload = Omit<User, 'id'>;
 
