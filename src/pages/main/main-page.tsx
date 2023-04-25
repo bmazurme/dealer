@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Main from '../../layers/Main/Main';
+import Main from '../../layers/main/main';
 import withUser from '../../hocs/with-user';
 import Content from '../../components/core/Content';
 

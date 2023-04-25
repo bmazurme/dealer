@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from '../../layers/Product';
+import Card from '../../layers/product';
 import withUser from '../../hocs/with-user';
 import Content from '../../components/core/Content';
 

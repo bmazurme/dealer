@@ -7,7 +7,7 @@ import BucketPage from './pages/bucket';
 import DeliveryPage from './pages/Delivery';
 import MainPage from './pages/main';
 import OauthPage from './pages/oauth-signin';
-import OauthSignUpPage from './layers/OauthSignUp';
+import OauthSignUpPage from './layers/oauth-signup';
 import PasswordNewPage from './pages/password-new';
 import PasswordResetPage from './pages/password-reset';
 import PasswordUpdatePage from './pages/password-update';

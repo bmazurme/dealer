@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SignUp from '../../layers/SignUp';
+import SignUp from '../../layers/signup';
 import withUser from '../../hocs/with-user';
 import Content from '../../components/core/Content';
 

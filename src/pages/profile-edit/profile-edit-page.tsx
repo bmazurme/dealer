@@ -1,6 +1,6 @@
 import React from 'react';
 
-import EditProfile from '../../layers/ProfileEdit';
+import EditProfile from '../../layers/profile-edit';
 import withUser from '../../hocs/with-user';
 import Content from '../../components/core/Content';
 

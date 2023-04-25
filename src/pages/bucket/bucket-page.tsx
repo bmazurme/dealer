@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Bucket from '../../layers/Bucket';
+import Bucket from '../../layers/bucket';
 import withUser from '../../hocs/with-user';
 import { Content } from '../../components/core';
 

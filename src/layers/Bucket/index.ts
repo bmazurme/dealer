@@ -1,3 +1,3 @@
-import Bucket from './Bucket';
+import Bucket from './bucket';
 
 export default Bucket;

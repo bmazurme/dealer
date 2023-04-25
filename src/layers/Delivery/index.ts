@@ -1,3 +1,3 @@
-import Delivery from './Delivery';
+import Delivery from './delivery';
 
 export default Delivery;

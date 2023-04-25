@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Admin from '../../layers/Admin';
+import Admin from '../../layers/admin';
 import withUser from '../../hocs/with-user';
 import Content from '../../components/core/Content';
 
