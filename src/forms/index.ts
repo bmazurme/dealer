@@ -1,12 +1,12 @@
-import SignInForm from './SignIn';
-import SignUpForm from './SignUp';
-import SearchForm from './Search';
-import PasswordResetForm from './PasswordReset';
-import ProfileEditForm from './ProfileEdit';
-import PasswordUpdateForm from './PasswordUpdate';
-import PasswordNewForm from './PasswordNew';
-import ProductCreateForm from './ProductCreate';
-import OauthSignUpForm from './OauthSignUp';
+import SignInForm from './signin';
+import SignUpForm from './signup';
+import SearchForm from './search';
+import PasswordResetForm from './password-reset';
+import ProfileEditForm from './profile-edit';
+import PasswordUpdateForm from './password-update';
+import PasswordNewForm from './password-new';
+import ProductCreateForm from './product-create';
+import OauthSignUpForm from './oauth-signup';
 
 export {
   SignInForm,

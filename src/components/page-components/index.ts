@@ -1,5 +1,5 @@
-import Footer from './Footer';
-import Banner from './Banner';
-import Header from './Header';
+import Footer from './footer';
+import Banner from './banner';
+import Header from './header';
 
 export { Footer, Banner, Header };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ProductCreateForm } from '../../forms';
-import Notification, { type NotificationProps } from '../../components/core/Notification';
+import Notification, { type NotificationProps } from '../../components/core/notification';
 
 export default function ProductCreate() {
   const [notification, setNotification] = useState<{ type: NotificationProps['type']; message: string; } | null>(null);

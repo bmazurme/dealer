@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Admin from '../../layers/admin';
+import Content from '../../components/core/content';
 import withUser from '../../hocs/with-user';
-import Content from '../../components/core/Content';
 
 function AboutPage() {
   return (

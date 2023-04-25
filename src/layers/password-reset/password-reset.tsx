@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import { PasswordResetForm } from '../../forms';
-import Logo from '../../components/page-components/Logo';
-import SignFooter from '../../components/SignFooter';
-import Notification, { type NotificationProps } from '../../components/core/Notification';
+import Logo from '../../components/page-components/logo';
+import SignFooter from '../../components/sign-footer';
+import Notification, { type NotificationProps } from '../../components/core/notification';
 
 import links from './links';
 

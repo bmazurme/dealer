@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, MouseEvent } from 'react';
 
-import Logo from '../Logo';
-import Navigation from '../../Navigation';
+import Logo from '../logo';
+import Navigation from '../../navigation';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);

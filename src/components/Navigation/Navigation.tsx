@@ -10,9 +10,9 @@ import { useSignOutMutation } from '../../store';
 import { Urls } from '../../utils/constants';
 import { INavigationProps } from './INavigationProps';
 
-import Link from '../page-components/Link';
-import ButtonBurger from '../BurgerButton';
-import ProfileButton from '../ProfileButton';
+import Link from '../page-components/link';
+import ButtonBurger from '../burger-button';
+import ProfileButton from '../profile-button';
 
 export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
   const userData = useUser();
@@ -58,7 +58,7 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
   return (
     <>
       <div
-        className={`navigation ${isOpen ? 'navigation_opened' : ''}`}
+        className={`navigation ${isOpen && 'navigation_opened'}`}
         onClick={(evt: MouseEvent<HTMLElement>) => handlerClick(evt)}
       >
         <ul className={`navigation__links ${isOpen ? 'navigation__links_opened' : ''} ${userData?.login ? 'navigation__links_rev' : ''}`}>

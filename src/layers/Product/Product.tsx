@@ -1,7 +1,7 @@
 import React from 'react';
 
-import cardData from '../../mocks/mockProduct';
-import Rating from '../../components/Rating';
+import cardData from '../../mocks/mock-product';
+import Rating from '../../components/rating';
 
 export default function Product() {
   return (

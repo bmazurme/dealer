@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import AboutPage from './pages/about';
 import AdminPage from './pages/admin';
 import BucketPage from './pages/bucket';
-import DeliveryPage from './pages/Delivery';
+import DeliveryPage from './pages/delivery';
 import MainPage from './pages/main';
 import OauthPage from './pages/oauth-signin';
 import OauthSignUpPage from './layers/oauth-signup';
@@ -22,9 +22,9 @@ import SignInPage from './pages/signin';
 import SignUpPage from './pages/signup';
 import { NotFoundPage, ServerErrorPage } from './pages/error';
 
-import ErrorBoundaryWrapper from './components/core/ErrorBoundaryWrapper';
+import ErrorBoundaryWrapper from './components/core/error-boundary-wrapper';
 
-import ThemeContext from './context/ThemeContext';
+import ThemeContext from './context/theme-context';
 
 import { Urls } from './utils/routers';
 

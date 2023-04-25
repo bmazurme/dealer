@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import useUser from '../../hooks/use-user';
-import Avatar from '../../components/page-components/Avatar';
-import Field from '../../components/Field';
-import Switcher from '../../components/Switcher';
+import Avatar from '../../components/page-components/avatar';
+import Field from '../../components/field';
+import Switcher from '../../components/switcher';
 import { Paths } from '../../utils/constants';
 
-import ThemeContext from '../../context/ThemeContext';
+import ThemeContext from '../../context/theme-context';
 
 export default function ProfilePage() {
   const userData: User | null = useUser();

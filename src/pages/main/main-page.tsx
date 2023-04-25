@@ -2,7 +2,7 @@ import React from 'react';
 
 import Main from '../../layers/main/main';
 import withUser from '../../hocs/with-user';
-import Content from '../../components/core/Content';
+import Content from '../../components/core/content';
 
 function MainPage() {
   return (

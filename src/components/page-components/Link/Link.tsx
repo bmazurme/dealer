@@ -4,10 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { ILinkProps } from './ILinkProps';
 
 export default function Link({
-  className,
-  to,
-  label,
-  onHandleClick,
+  className, to, label, onHandleClick,
 }: ILinkProps) {
   return (
     <li>

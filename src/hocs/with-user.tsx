@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';
 import type { AxiosError } from 'axios';
 
-import Preloader from '../components/core/Preloader';
+import Preloader from '../components/core/preloader';
 
 import useUser from '../hooks/use-user';
 import { useGetUserMutation } from '../store';

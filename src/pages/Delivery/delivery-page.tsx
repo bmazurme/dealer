@@ -2,7 +2,7 @@ import React from 'react';
 
 import Delivery from '../../layers/delivery';
 import withUser from '../../hocs/with-user';
-import Content from '../../components/core/Content';
+import Content from '../../components/core/content';
 
 function DeliveryPage() {
   return (

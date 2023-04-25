@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useErrorHandler } from 'react-error-boundary';
 
 import { useConfirmUserMutation } from '../../store';
-import Logo from '../../components/page-components/Logo';
-import SignFooter from '../../components/SignFooter';
+import Logo from '../../components/page-components/logo';
+import SignFooter from '../../components/sign-footer';
 import { Urls } from '../../utils/constants';
 import links from './links';
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Notification, { type NotificationProps } from '../../components/core/Notification';
-import Logo from '../../components/page-components/Logo';
+import Notification, { type NotificationProps } from '../../components/core/notification';
+import Logo from '../../components/page-components/logo';
 import { PasswordUpdateForm } from '../../forms';
 
 export default function PasswordUpdate() {

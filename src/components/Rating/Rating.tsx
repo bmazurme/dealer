@@ -2,8 +2,8 @@
 /* eslint-disable no-return-assign */
 import React, { useState } from 'react';
 
-import Star from './Star';
-import mockData from '../../mocks/mockRating';
+import Star from './star';
+import mockData from '../../mocks/mock-rating';
 
 interface IStar {
   key?: string,

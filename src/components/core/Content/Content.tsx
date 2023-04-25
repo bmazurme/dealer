@@ -1,7 +1,7 @@
 import React from 'react';
 import type { PropsWithChildren } from 'react';
 
-import HeaderMenu from '../../page-components/HeaderMenu';
+import HeaderMenu from '../../page-components/header-menu';
 import { Header, Footer, Banner } from '../../page-components';
 
 type Props = PropsWithChildren<{

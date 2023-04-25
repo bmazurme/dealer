@@ -10,7 +10,7 @@ import {
   type TableInstance,
 } from 'react-table';
 
-import Pagination from '../Pagination';
+import Pagination from '../pagination';
 
 // Required workaround for missing TypesScript definitions.
 // Will be fixed in react-table v8

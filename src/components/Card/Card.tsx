@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Rating from '../Rating';
-import Price from '../Price';
+import Rating from '../rating';
+import Price from '../price';
 
-import cardData from '../../mocks/mockCard';
+import cardData from '../../mocks/mock-card';
 
 export default function Card({ id }: Record<string, number>) {
   const { description, price, img } = cardData;
+
   return (
     <div className="card">
       <div className="card__container">

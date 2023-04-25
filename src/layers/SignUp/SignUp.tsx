@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { SignUpForm } from '../../forms';
-import Logo from '../../components/page-components/Logo';
-import SignFooter from '../../components/SignFooter';
+import Logo from '../../components/page-components/logo';
+import SignFooter from '../../components/sign-footer';
 import useUser from '../../hooks/use-user';
 import links from './links';
 

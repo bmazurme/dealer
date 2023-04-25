@@ -1,4 +1,4 @@
-import Notification, { NotificationProps } from './Notification';
-import Content from './Content';
+import Notification, { NotificationProps } from './notification';
+import Content from './content';
 
 export { Content, Notification, NotificationProps };

@@ -2,7 +2,7 @@ import React from 'react';
 
 import About from '../../layers/about';
 import withUser from '../../hocs/with-user';
-import Content from '../../components/core/Content';
+import Content from '../../components/core/content';
 
 function AboutPage() {
   return (

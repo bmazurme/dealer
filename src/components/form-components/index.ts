@@ -1,10 +1,10 @@
-import Input from './Input';
-import Range from './Range';
-import SelectButton from './SelectButton';
-import Button from './Button';
-import Checkbox from './Checkbox';
-import DatePicker from './DatePicker';
-import ToggleButton from './ToggleButton';
+import Input from './input';
+import Range from './range';
+import SelectButton from './select-button';
+import Button from './button';
+import Checkbox from './checkbox';
+import DatePicker from './date-picker';
+import ToggleButton from './toggle-button';
 
 export {
   Input,

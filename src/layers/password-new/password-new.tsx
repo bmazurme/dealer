@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { PasswordNewForm } from '../../forms';
-import Logo from '../../components/page-components/Logo';
+import Logo from '../../components/page-components/logo';
 
 export default function PasswordNew() {
   return (

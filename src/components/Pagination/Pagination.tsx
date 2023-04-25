@@ -108,7 +108,6 @@ export default function Pagination({
             <Button
               variant="icon"
               className="button button_square button_right"
-              // className="rounded-r-md"
               onClick={() => gotoPage(pageCount - 1)}
               disabled={!canNextPage}
             >

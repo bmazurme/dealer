@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from '../Card';
+import Card from '../card';
 
 export default function Cards() {
   const arr = [0, 1, 2, 3, 4, 5];

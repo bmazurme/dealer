@@ -11,12 +11,12 @@ import {
   Checkbox,
   SelectButton,
 } from '../../components/form-components';
-import Module from '../../components/Module';
-import Switcher from '../../components/Switcher';
-import Chip from '../../components/page-components/Chip';
-import List from '../../components/page-components/List';
-import Table from '../../components/Table';
-import Notification, { NotificationProps } from '../../components/core/Notification';
+import Module from '../../components/module';
+import Switcher from '../../components/switcher';
+import Chip from '../../components/page-components/chip';
+import List from '../../components/page-components/list';
+import Table from '../../components/table';
+import Notification, { NotificationProps } from '../../components/core/notification';
 
 registerLocale('ru', ru);
 

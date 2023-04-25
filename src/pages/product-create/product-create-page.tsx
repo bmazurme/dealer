@@ -2,7 +2,7 @@ import React from 'react';
 
 import CreateCard from '../../layers/product-create';
 import withUser from '../../hocs/with-user';
-import Content from '../../components/core/Content';
+import Content from '../../components/core/content';
 
 function ProductCreatePage() {
   return (
