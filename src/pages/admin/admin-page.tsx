@@ -4,7 +4,7 @@ import Admin from '../../layers/admin';
 import Content from '../../components/core/content';
 import withUser from '../../hocs/with-user';
 
-function AboutPage() {
+function AdminPage() {
   return (
     <Content heading="Admin" header menu footer banner>
       <Admin />
@@ -12,4 +12,4 @@ function AboutPage() {
   );
 }
 
-export default withUser(AboutPage, false);
+export default withUser(AdminPage, false);

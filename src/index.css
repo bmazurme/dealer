@@ -132,14 +132,6 @@
 @import "./blocks/error-boundary/__message/error-boundary__message.css";
 @import "./blocks/error-boundary/__block/error-boundary__block.css";
 
-/* about */
-@import "./blocks/about/about.css";
-@import "./blocks/about/__text/about__text.css";
-
-/* privacy */
-@import "./blocks/privacy/__container/privacy__container.css";
-@import "./blocks/privacy/__text/privacy__text.css";
-
 /* cards */
 @import "./blocks/cards/cards.css";
 

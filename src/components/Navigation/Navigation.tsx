@@ -42,12 +42,6 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
       },
     },
     {
-      label: 'Bucket',
-      link: Urls.BUCKET.INDEX,
-      className: 'navigation__link navigation__link',
-      handler: null,
-    },
-    {
       label: 'Admin',
       link: Urls.ADMIN.INDEX,
       className: 'navigation__link navigation__link',
@@ -61,7 +55,7 @@ export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
         className={`navigation ${isOpen && 'navigation_opened'}`}
         onClick={(evt: MouseEvent<HTMLElement>) => handlerClick(evt)}
       >
-        <ul className={`navigation__links ${isOpen ? 'navigation__links_opened' : ''} ${userData?.login ? 'navigation__links_rev' : ''}`}>
+        <ul className={`navigation__links ${isOpen && 'navigation__links_opened'} ${userData?.login && 'navigation__links_rev'}`}>
           <Link
             className="navigation__link navigation__link_home"
             to={Urls.MAIN.INDEX}

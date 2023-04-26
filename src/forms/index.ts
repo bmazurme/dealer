@@ -5,7 +5,6 @@ import PasswordResetForm from './password-reset';
 import ProfileEditForm from './profile-edit';
 import PasswordUpdateForm from './password-update';
 import PasswordNewForm from './password-new';
-import ProductCreateForm from './product-create';
 import OauthSignUpForm from './oauth-signup';
 
 export {
@@ -16,6 +15,5 @@ export {
   PasswordResetForm,
   PasswordUpdateForm,
   PasswordNewForm,
-  ProductCreateForm,
   OauthSignUpForm,
 };

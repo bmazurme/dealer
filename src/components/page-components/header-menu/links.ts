@@ -6,28 +6,8 @@ const links: Array<Record<string, string>> = [
     link: Urls.MAIN.INDEX,
   },
   {
-    label: 'About',
-    link: Urls.MAIN.ABOUT,
-  },
-  {
-    label: 'Privacy',
-    link: Urls.MAIN.PRIVACY,
-  },
-  {
-    label: 'Delivery',
-    link: Urls.MAIN.DELIVERY,
-  },
-  {
-    label: 'Product',
-    link: Urls.MAIN.PRODUCT.INDEX,
-  },
-  {
     label: 'Products',
     link: Urls.MAIN.PRODUCT.LIST,
-  },
-  {
-    label: 'Product Create',
-    link: Urls.MAIN.PRODUCT.CREATE,
   },
   // {
   //   label: 'SignConfirm',
