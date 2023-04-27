@@ -1,7 +1,8 @@
 import React from 'react';
 import { Control, Controller } from 'react-hook-form';
 
-import { Input, Button } from '../form-components';
+import Button from '../button';
+import Input from '../input';
 
 export type FormPayload = {
   newPassword?: string;
