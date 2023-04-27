@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Profile from '../../layers/profile';
-import withUser from '../../hocs/with-user';
 import Content from '../../components/core/content';
+import Profile from '../../layers/profile';
+
+import withUser from '../../hocs/with-user';
 
 function ProfilePage() {
   return (

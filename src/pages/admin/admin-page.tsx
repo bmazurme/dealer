@@ -1,7 +1,8 @@
 import React from 'react';
 
-import Admin from '../../layers/admin';
 import Content from '../../components/core/content';
+import Admin from '../../layers/admin';
+
 import withUser from '../../hocs/with-user';
 
 function AdminPage() {

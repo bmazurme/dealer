@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Main from '../../layers/main/main';
-import withUser from '../../hocs/with-user';
 import Content from '../../components/core/content';
+import Main from '../../layers/main';
+
+import withUser from '../../hocs/with-user';
 
 function MainPage() {
   return (

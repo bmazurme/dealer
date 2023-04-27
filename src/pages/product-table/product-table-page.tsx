@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Card from '../../layers/product-table';
-import withUser from '../../hocs/with-user';
 import Content from '../../components/core/content';
+import Card from '../../layers/product-table';
+
+import withUser from '../../hocs/with-user';
 
 function ProductTablePage() {
   return (

@@ -1,8 +1,9 @@
 import React from 'react';
 
-import withUser from '../../hocs/with-user';
 import Content from '../../components/core/content';
 import SignConfirm from '../../layers/sign-confirm';
+
+import withUser from '../../hocs/with-user';
 
 function SignConfirmPage() {
   return (

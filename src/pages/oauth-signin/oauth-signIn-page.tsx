@@ -1,8 +1,9 @@
 import React from 'react';
 
-import OauthSignIn from '../../layers/oauth-signIn';
-import withUser from '../../hocs/with-user';
 import Content from '../../components/core/content';
+import OauthSignIn from '../../layers/oauth-signIn';
+
+import withUser from '../../hocs/with-user';
 
 function OauthPage() {
   return (

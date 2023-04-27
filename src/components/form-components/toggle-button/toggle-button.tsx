@@ -24,11 +24,6 @@ export default function ToggleButton<T extends ElementType = 'button'>({
 
   const currentClass = rules.join(' ');
 
-  return (
-    <Component
-      className={currentClass}
-      disabled={disabled}
-      {...props}
-    />
+  return (<Component {...props} className={currentClass} disabled={disabled} />
   );
 }

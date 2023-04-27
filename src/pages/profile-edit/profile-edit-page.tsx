@@ -1,8 +1,9 @@
 import React from 'react';
 
-import EditProfile from '../../layers/profile-edit';
-import withUser from '../../hocs/with-user';
 import Content from '../../components/core/content';
+import EditProfile from '../../layers/profile-edit';
+
+import withUser from '../../hocs/with-user';
 
 function ProfileEditPage() {
   return (

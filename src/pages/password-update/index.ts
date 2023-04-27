@@ -1,3 +1,3 @@
-import PasswordUpdatePage from './PasswordUpdatePage';
+import PasswordUpdatePage from './password-update-page';
 
 export default PasswordUpdatePage;

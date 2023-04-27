@@ -1,16 +1,16 @@
 import React from 'react';
 
 import Content from '../../components/core/content';
-import SignUp from '../../layers/signup';
+import PasswordUpdate from '../../layers/password-update';
 
 import withUser from '../../hocs/with-user';
 
-function SignUpPage() {
+function PasswordUpdatePage() {
   return (
     <Content>
-      <SignUp />
+      <PasswordUpdate />
     </Content>
   );
 }
 
-export default withUser(SignUpPage, false);
+export default withUser(PasswordUpdatePage, false);

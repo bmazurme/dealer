@@ -3,8 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 
 import AdminPage from './pages/admin';
 import MainPage from './pages/main';
+
 import OauthPage from './pages/oauth-signin';
 import OauthSignUpPage from './layers/oauth-signup';
+
 import PasswordNewPage from './pages/password-new';
 import PasswordResetPage from './pages/password-reset';
 import PasswordUpdatePage from './pages/password-update';
@@ -12,10 +14,13 @@ import PasswordUpdatePage from './pages/password-update';
 import ProductTablePage from './pages/product-table';
 import ProfilePage from './pages/profile';
 import ProfileEditPage from './pages/profile-edit';
+
 import SignConfirmPage from './pages/sign-confirm';
 import SignInPage from './pages/signin';
 import SignUpPage from './pages/signup';
-import { NotFoundPage, ServerErrorPage } from './pages/error';
+
+import ServerErrorPage from './pages/server-error-page';
+import NotFoundPage from './pages/not-found-page';
 
 import ErrorBoundaryWrapper from './components/core/error-boundary-wrapper';
 
@@ -43,9 +48,9 @@ export default function App() {
 
           <Route path={Urls.SIGN.UP} element={(<SignUpPage />)} />
           <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
+          <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
           <Route path={Urls.SIGN.OAUTH} element={(<OauthPage />)} />
           <Route path={Urls.SIGN.OSIGNUP} element={(<OauthSignUpPage />)} />
-          <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
 
           <Route path={Urls.PASSWORD.RESET} element={(<PasswordResetPage />)} />
           <Route path={Urls.PASSWORD.NEW} element={(<PasswordNewPage />)} />

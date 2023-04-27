@@ -8,11 +8,15 @@ import useUser from '../../hooks/use-user';
 import { useSignOutMutation } from '../../store';
 
 import { Urls } from '../../utils/constants';
-import { INavigationProps } from './INavigationProps';
 
 import Link from '../page-components/link';
 import ButtonBurger from '../burger-button';
 import ProfileButton from '../profile-button';
+
+export interface INavigationProps {
+  isOpen: boolean,
+  handlerClick: (evt: MouseEvent<HTMLElement>) => void,
+}
 
 export default function Navigation({ isOpen, handlerClick }: INavigationProps) {
   const userData = useUser();

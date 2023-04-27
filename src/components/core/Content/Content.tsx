@@ -19,14 +19,14 @@ export default function Content({
     <>
       {header && <Header />}
       {menu && <HeaderMenu />}
-
       <main className="content">
         {heading && (
-          <h2 className="content__title">{heading}</h2>
+          <h2 className="content__title">
+            {heading}
+          </h2>
         )}
         {children}
       </main>
-
       {footer && <Footer />}
       {banner && <Banner />}
     </>
