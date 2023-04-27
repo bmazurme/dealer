@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Box from './box';
-import Popup from '../popup';
+import Popup from '../modal';
 
 export default function Module() {
   const [popupEditModule, setPopupEditModule] = useState(false);

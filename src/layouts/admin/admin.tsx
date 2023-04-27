@@ -10,11 +10,11 @@ import Input from '../../components/input';
 import Checkbox from '../../components/checkbox';
 import SelectButton from '../../components/select-button';
 
-import Module from '../../components/module';
-import Switcher from '../../components/switcher';
+import Module from '../../components/test-module';
+import Switcher from '../../components/button-switcher';
 import Chip from '../../components/chip';
 import List from '../../components/list';
-import Table from '../../components/table';
+import Table from '../../components/test-table';
 import Notification, { NotificationProps } from '../../components/notification';
 
 registerLocale('ru', ru);
