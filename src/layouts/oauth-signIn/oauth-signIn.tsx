@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 
-import { CLIENT_ID, CLIENT_SECRET } from '../../server/utils/devConfig';
+import { CLIENT_ID, CLIENT_SECRET } from '../../server/utils/dev-config';
 import { Urls } from '../../utils/constants';
 
 export default function OauthSignIn() {

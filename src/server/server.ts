@@ -13,14 +13,14 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 import { requestLogger, errorLogger } from './middlewares/logger';
-import corsOptions from './utils/corsOptions';
+import corsOptions from './utils/cors-options';
 
 import index from './routes/index';
 import { NotFoundError } from './errors';
 
 import limiter from './utils/limiter';
 
-import errorHandler from './middlewares/errorHandler';
+import errorHandler from './middlewares/error-handler';
 
 dotEnvConfig();
 

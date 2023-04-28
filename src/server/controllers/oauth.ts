@@ -9,7 +9,7 @@ import { config as dotEnvConfig } from 'dotenv';
 import { ObjectId } from 'mongoose';
 
 import User, { IUser } from '../models/user';
-import DEV_JWT_SECRET from '../utils/devConfig';
+import DEV_JWT_SECRET from '../utils/dev-config';
 import { UnauthorizedError, NotFoundError } from '../errors';
 
 dotEnvConfig();

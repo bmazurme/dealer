@@ -9,7 +9,7 @@ import {
   passApi,
   usersApi,
 } from './api';
-import userReducer from './slices/userSlice';
+import userReducer from './slices/user-slice';
 import { isServer } from '../utils';
 
 export * from './api/authApi/endpoints';

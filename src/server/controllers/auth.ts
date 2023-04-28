@@ -7,9 +7,9 @@ import { config as dotEnvConfig } from 'dotenv';
 
 import { ObjectId } from 'mongoose';
 
-import sendMail from './sendMail';
+import senMail from './send-mail';
 import User, { IUser } from '../models/user';
-import DEV_JWT_SECRET from '../utils/devConfig';
+import DEV_JWT_SECRET from '../utils/dev-config';
 import {
   UnauthorizedError,
   BadRequestError,
@@ -50,7 +50,7 @@ const createUser = (req: Request, res: Response, next: NextFunction) => {
       password: hash,
     }))
     .then((user: IUser | undefined) => {
-      sendMail(email, token, login, CONFIRM);
+      senMail(email, token, login, CONFIRM);
 
       res.send({
         // eslint-disable-next-line no-underscore-dangle

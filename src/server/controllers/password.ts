@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 
 import User, { IUser } from '../models/user';
-import sendMail from './sendMail';
+import senMail from './send-mail';
 
 const CHARACTERS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const RESET = 2;
@@ -41,7 +41,7 @@ const resetPassword = (req: Request, res: Response, next: NextFunction) => {
       user!.confirmationCode = token;
 
       user!.save();
-      sendMail(email, token, login, RESET);
+      senMail(email, token, login, RESET);
 
       return res.send({ message: 'message was sent' });
     })

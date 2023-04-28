@@ -1,5 +1,5 @@
 import authApi from '..';
-import { setCredentials } from '../../../slices/userSlice';
+import { setCredentials } from '../../../slices/user-slice';
 
 const authApiEndpoints = authApi
   .enhanceEndpoints({

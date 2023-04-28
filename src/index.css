@@ -106,15 +106,16 @@
 @import "./blocks/profile-button/__label/profile-button__label.css";
 
 /* headermenu */
-@import "./blocks/headermenu/headermenu.css";
-@import "./blocks/headermenu/__link/headermenu__link.css";
+
+/* @import "./blocks/headermenu/headermenu.css"; */
+
+/* @import "./blocks/headermenu/__link/headermenu__link.css"; */
 
 /* banner */
 @import "./blocks/banner/banner.css";
 
 /* sign */
 @import "./blocks/sign/sign.css";
-/*@import "./blocks/sign/__title/sign_title.css";*/
 @import "./blocks/sign/__footer/sign_footer.css";
 @import "./blocks/sign/__help/sign__help.css";
 @import "./blocks/sign/__link/sign__link.css";
@@ -132,24 +133,9 @@
 @import "./blocks/error-boundary/__message/error-boundary__message.css";
 @import "./blocks/error-boundary/__block/error-boundary__block.css";
 
-/* cards */
-@import "./blocks/cards/cards.css";
-
 /* grid */
 @import "./blocks/grid/grid.css";
 @import "./blocks/grid/_two/grid_two.css";
-
-/* card */
-@import "./blocks/card/card.css";
-@import "./blocks/card/__container/card__container.css";
-@import "./blocks/card/__image/card__image.css";
-@import "./blocks/card/__title/card__title.css";
-@import "./blocks/card/__description/card__description.css";
-
-/* rating */
-@import "./blocks/rating/rating.css";
-@import "./blocks/rating/__star/rating__star.css";
-@import "./blocks/rating/__star/_active/rating__star_active.css";
 
 /* title */
 @import "./blocks/title/title.css";

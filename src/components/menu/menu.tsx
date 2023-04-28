@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { MouseEvent, FormEvent } from 'react';
+import React, { MouseEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import useUser from '../../hooks/use-user';
 import { useSignOutMutation } from '../../store';
 
-import { Urls } from '../../utils/constants';
-
-import Link from '../link';
 import ButtonBurger from '../burger-button';
 import ProfileButton from '../profile-button';
+import Links, { Link } from '../links';
+
+import { Urls } from '../../utils/constants';
 
 export interface INavigationProps {
   isOpen: boolean,
@@ -20,85 +17,37 @@ export interface INavigationProps {
 
 export default function Menu({ isOpen, handlerClick }: INavigationProps) {
   const userData = useUser();
-  const [signOut] = useSignOutMutation();
   const navigate = useNavigate();
+  const [signOut] = useSignOutMutation();
 
   const linksSign = [
-    {
-      label: 'SignUp',
-      link: Urls.SIGN.UP,
-      className: 'navigation__signup',
-    },
-    {
-      label: 'SignIn',
-      link: Urls.SIGN.IN,
-      className: 'navigation__signin',
-    },
+    { label: 'SignUp', to: Urls.SIGN.UP, className: 'navigation__signup' },
+    { label: 'SignIn', to: Urls.SIGN.IN, className: 'navigation__signin' },
   ];
+
   const linksProfile = [
     {
       label: 'Exit',
-      link: Urls.MAIN.INDEX,
+      to: Urls.MAIN.INDEX,
       className: 'navigation__link navigation__link',
-      handler: async (event: FormEvent | MouseEvent) => {
+      onClick: async () => {
         await signOut();
         navigate('/');
       },
     },
-    {
-      label: 'Admin',
-      link: Urls.ADMIN.INDEX,
-      className: 'navigation__link navigation__link',
-      handler: null,
-    },
+    { label: 'Admin', to: Urls.ADMIN.INDEX, className: 'navigation__link navigation__link' },
   ];
 
   return (
     <>
-      <div
-        className={`navigation ${isOpen && 'navigation_opened'}`}
-        onClick={(evt: MouseEvent<HTMLElement>) => handlerClick(evt)}
-      >
+      <button type="button" className={`navigation ${isOpen && 'navigation_opened'}`} onClick={handlerClick}>
         <ul className={`navigation__links ${isOpen && 'navigation__links_opened'} ${userData?.login && 'navigation__links_rev'}`}>
-          <Link
-            className="navigation__link navigation__link_home"
-            to={Urls.MAIN.INDEX}
-            label="Main"
-            onHandleClick={null}
-          />
-          {userData?.login
-            ? (
-              <>
-                {linksProfile.map(({
-                  label, link, className, handler,
-                }) => (
-                  <Link
-                    key={label}
-                    className={className}
-                    to={link}
-                    label={label}
-                    onHandleClick={handler}
-                  />
-                ))}
-              </>
-            ) : null}
-          {!userData?.login
-            ? (
-              <>
-                {linksSign.map(({ label, link, className }) => (
-                  <Link
-                    key={label}
-                    className={className}
-                    to={link}
-                    label={label}
-                    onHandleClick={null}
-                  />
-                ))}
-              </>
-            ) : null}
-          { userData?.login ? <ProfileButton isOpen /> : null }
+          <Link className="navigation__link navigation__link_home" to={Urls.MAIN.INDEX} label="Main" />
+          {userData?.login && (<Links links={linksProfile} />)}
+          {!userData?.login && (<Links links={linksSign} />)}
+          {userData?.login && <ProfileButton isOpen />}
         </ul>
-      </div>
+      </button>
       <ButtonBurger isOpen={isOpen} handlerClick={handlerClick} />
     </>
   );

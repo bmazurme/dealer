@@ -2,6 +2,7 @@
 import React, { useState, useMemo } from 'react';
 import Select, { StylesConfig } from 'react-select';
 import DatePicker, { registerLocale } from 'react-datepicker';
+
 import chroma from 'chroma-js';
 import ru from 'date-fns/locale/ru';
 
