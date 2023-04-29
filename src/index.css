@@ -8,9 +8,6 @@
 @import "./blocks/logo/logo.css";
 @import "./blocks/logo/__icon/logo__icon.css";
 
-/* header */
-@import "./blocks/header/header.css";
-
 /* headermenu */
 @import "./blocks/headermenu/headermenu.css";
 @import "./blocks/headermenu/__link/headermenu__link.css";
@@ -100,15 +97,6 @@
 @import "./blocks/profile-button/profile-button.css";
 @import "./blocks/profile-button/__icon/profile-button__icon.css";
 @import "./blocks/profile-button/__label/profile-button__label.css";
-
-/* headermenu */
-
-/* @import "./blocks/headermenu/headermenu.css"; */
-
-/* @import "./blocks/headermenu/__link/headermenu__link.css"; */
-
-/* banner */
-@import "./blocks/banner/banner.css";
 
 /* sign */
 @import "./blocks/sign/sign.css";

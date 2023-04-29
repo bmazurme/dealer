@@ -4,6 +4,8 @@ import React, { useState, MouseEvent } from 'react';
 import Logo from '../logo';
 import Navigation from '../menu';
 
+import style from './header.module.css';
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -12,7 +14,7 @@ export default function Header() {
   };
 
   return (
-    <header className="header">
+    <header className={style.header}>
       <Logo />
       <Navigation isOpen={isOpen} handlerClick={handlerClick} />
     </header>
