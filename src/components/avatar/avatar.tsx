@@ -1,4 +1,6 @@
 import React from 'react';
+
+import style from './avatar.module.css';
 import src from '../../images/profile.svg';
 
 export default function Avatar() {
@@ -7,8 +9,8 @@ export default function Avatar() {
   };
 
   return (
-    <button type="button" className="avatar" onClick={handlerEditAvatar}>
-      <img className="avatar__link" src={src} alt="alt" />
+    <button type="button" className={style.avatar} onClick={handlerEditAvatar}>
+      <img className={style.avatar__link} src={src} alt="alt" />
     </button>
   );
 }

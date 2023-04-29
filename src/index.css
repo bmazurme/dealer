@@ -86,10 +86,6 @@
 /* page */
 @import "./blocks/page/__link/page__link.css";
 
-/* avatar */
-@import "./blocks/avatar/avatar.css";
-@import "./blocks/avatar/__link/avatar__link.css";
-
 /* fields */
 @import "./blocks/fields/fields.css";
 
