@@ -41,9 +41,6 @@
 @import "./blocks/navigation/__signup/navigation__signup.css";
 @import "./blocks/label/_off/label_off.css";
 
-/* content */
-@import "./blocks/content/content.css";
-
 /* container */
 @import "./blocks/container/container.css";
 

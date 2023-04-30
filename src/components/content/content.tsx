@@ -6,6 +6,8 @@ import Header from '../header';
 import Footer from '../footer';
 import Banner from '../banner';
 
+import style from './content.module.css';
+
 type Props = PropsWithChildren<{
   heading?: string;
   header?: boolean;
@@ -21,9 +23,9 @@ export default function Content({
     <>
       {header && <Header />}
       {menu && <HeaderMenu />}
-      <main className="content">
+      <main className={style.content}>
         {heading && (
-          <h2 className="content__title">
+          <h2>
             {heading}
           </h2>
         )}
