@@ -138,11 +138,6 @@
 /* search-box */
 @import "./blocks/search-box/search-box.css";
 
-/* chip */
-@import "./blocks/chip/chip.css";
-@import "./blocks/chip/__label/chip__label.css";
-@import "./blocks/chip/_outline/chip_outline.css";
-
 /* list */
 @import "./blocks/list/list.css";
 @import "./blocks/list/__item/list__item.css";
