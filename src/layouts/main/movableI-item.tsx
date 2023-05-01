@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
@@ -19,8 +20,8 @@ export default function MovableItem({
   name: string,
   index: number,
   currentColumnName: string,
-  moveCardHandler: any,
-  setItems: any,
+  moveCardHandler: (dragIndex: number, hoverIndex: number) => void,
+  setItems: (fiber: any) => void,
 }) {
   const changeItemColumn = (currentItem: {
     index?: number;
@@ -33,7 +34,7 @@ export default function MovableItem({
     })));
   };
 
-  const ref = useRef(null);
+  const ref: any = useRef(null);
 
   const [, drop] = useDrop({
     accept: 'Our first type',
@@ -112,6 +113,7 @@ export default function MovableItem({
   return (
     <div ref={ref} className="movable-item" style={{ opacity }}>
       {name}
+      1
     </div>
   );
 }

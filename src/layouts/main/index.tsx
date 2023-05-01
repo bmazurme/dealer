@@ -3,8 +3,8 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
 
-import Column from './Column';
-import MovableItem from './MovableItem';
+import Column from './column';
+import MovableItem from './movableI-item';
 
 import { COLUMN_NAMES } from './constants';
 import { tasks } from './tasks';
