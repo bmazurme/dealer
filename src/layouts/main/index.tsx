@@ -1,243 +1,219 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable react/button-has-type */
-import React from 'react';
+import React, { ReactNode, useRef, useState } from 'react';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
+
+import { COLUMN_NAMES } from './constants';
+import { tasks } from './tasks';
+
 import './app.css';
 
-const TASKS = [
-  {
-    id: 1,
-    status: 'New Order',
-    time: '8 hrs',
-    days: '5 days left',
-  },
-  {
-    id: 2,
-    status: 'In Progress',
-    time: '6 hrs',
-    days: '6 days left',
-    done: false,
-  },
-  {
-    id: 3,
-    status: 'Completed',
-    time: '13 hrs',
-    days: '4 days left',
-  },
-  {
-    id: 4,
-    status: 'New Order',
-    time: '22 hrs',
-    days: '2 days left',
-    done: true,
-  },
-  {
-    id: 5,
-    status: 'In Progress',
-    time: '2 hrs',
-    days: '1 day left',
-    newOrder: true,
-    done: false,
-  },
-  {
-    id: 6,
-    status: 'Completed',
-    time: '20 hrs',
-    days: '11 days left',
-    done: true,
-  },
-  {
-    id: 7,
-    status: 'Delivered',
-    time: '2 hrs',
-    days: '1 day left',
-    done: false,
-  },
-];
+const {
+  DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE,
+} = COLUMN_NAMES;
 
-class Main extends React.Component {
-  state = { tasks: [] };
-
-  componentDidMount() {
-    const { tasks }: any = this.props;
-    this.setState({
-      tasks: TASKS,
-    });
-  }
-
-  onDragStart = (evt: any) => {
-    const element = evt.currentTarget;
-    element.classList.add('dragged');
-    evt.dataTransfer.setData('text/plain', evt.currentTarget.id);
-    evt.dataTransfer.effectAllowed = 'move';
+function MovableItem({
+  name,
+  index,
+  currentColumnName,
+  moveCardHandler,
+  setItems,
+}: {
+  name: string,
+  index: number,
+  currentColumnName: string,
+  moveCardHandler: any,
+  setItems: any,
+}) {
+  const changeItemColumn = (currentItem: {
+    index?: number;
+    name: string;
+    currentColumnName?: string;
+  }, columnName: string) => {
+    setItems((prevState: any[]) => prevState.map((e: { name: string; column: any; }) => ({
+      ...e,
+      column: e.name === currentItem.name ? columnName : e.column,
+    })));
   };
 
-  onDragEnd = (evt: any) => {
-    evt.currentTarget.classList.remove('dragged');
-  };
+  const ref = useRef(null);
 
-  onDragEnter = (evt: any) => {
-    evt.preventDefault();
-    const element = evt.currentTarget;
-    element.classList.add('dragged-over');
-    evt.dataTransfer.dropEffect = 'move';
-  };
-
-  onDragLeave = (evt: any) => {
-    const { currentTarget } = evt;
-    const newTarget = evt.relatedTarget;
-    if (newTarget.parentNode === currentTarget || newTarget === currentTarget) { return; }
-    evt.preventDefault();
-    const element = evt.currentTarget;
-    element.classList.remove('dragged-over');
-  };
-
-  onDragOver = (evt: any) => {
-    evt.preventDefault();
-    evt.dataTransfer.dropEffect = 'move';
-  };
-
-  onDrop = (evt: any, value: any, status: any) => {
-    evt.preventDefault();
-    evt.currentTarget.classList.remove('dragged-over');
-    const data = evt.dataTransfer.getData('text/plain');
-    const { tasks } = this.state;
-    console.log('data', data, status);
-    const updated = tasks.map((task: any) => {
-      if (task.id.toString() === data.toString()) {
-        task.status = status;
+  const [, drop] = useDrop({
+    accept: 'Our first type',
+    hover(item: any, monitor) {
+      if (!ref.current) {
+        return;
       }
+      const dragIndex = item.index;
+      const hoverIndex = index;
+      // Don't replace items with themselves
+      if (dragIndex === hoverIndex) {
+        return;
+      }
+      // Determine rectangle on screen
+      const hoverBoundingRect = ref.current?.getBoundingClientRect();
+      // Get vertical middle
+      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      // Determine mouse position
+      const clientOffset = monitor.getClientOffset();
+      // Get pixels to the top
+      const hoverClientY = clientOffset!.y - hoverBoundingRect.top;
+      // Only perform the move when the mouse has crossed half of the items height
+      // When dragging downwards, only move when the cursor is below 50%
+      // When dragging upwards, only move when the cursor is above 50%
+      // Dragging downwards
+      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+        return;
+      }
+      // Dragging upwards
+      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+        return;
+      }
+      // Time to actually perform the action
+      moveCardHandler(dragIndex, hoverIndex);
+      // Note: we're mutating the monitor item here!
+      // Generally it's better to avoid mutations,
+      // but it's good here for the sake of performance
+      // to avoid expensive index searches.
+      item.index = hoverIndex;
+    },
+  });
 
-      return task;
-    });
-    this.setState({ tasks: updated });
-  };
+  const [{ isDragging }, drag] = useDrag({
+    type: 'Our first type',
+    item: { index, name, currentColumnName },
+    end: (item, monitor) => {
+      const dropResult = monitor.getDropResult();
 
-  render() {
-    const { tasks } = this.state;
-    console.log('tasks', tasks);
-    const pending = tasks.filter((data: any) => data.status === 'In Progress');
-    const done = tasks.filter((data: any) => data.status === 'Completed');
-    const newOrder = tasks.filter((data: any) => data.status === 'New Order');
-    const waiting = tasks.filter((data: any) => data.status === 'Delivered');
+      if (dropResult) {
+        const { name: currName } = dropResult as { name: string };
 
-    return (
-    // <div className="App">
-      <div className="container1">
-        <div
-          className="order small-box"
-          onDragLeave={(e) => this.onDragLeave(e)}
-          onDragEnter={(e) => this.onDragEnter(e)}
-          onDragEnd={(e) => this.onDragEnd(e)}
-          onDragOver={(e) => this.onDragOver(e)}
-          onDrop={(e) => this.onDrop(e, false, 'New Order')}
-        >
-          <section className="drag_container">
-            <div className="container1">
-              <div className="drag_column">
-                <div className="drag_row">
-                  <h4>Todo List</h4>
-                  <button style={{ width: '100%' }}>+</button>
-                  {newOrder.map((task: any) => (
-                    <div
-                      className="card"
-                      key={task.id}
-                      id={task.id}
-                      draggable
-                      onDragStart={(e) => this.onDragStart(e)}
-                      onDragEnd={(e) => this.onDragEnd(e)}
-                    >
-                      <div className="card_right">
-                        <div className="status">{task.status}</div>
-                        <div className="days">{task.time}</div>
-                        <div className="time">{task.days}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div
-          className="pending small-box"
-          onDragLeave={(e) => this.onDragLeave(e)}
-          onDragEnter={(e) => this.onDragEnter(e)}
-          onDragEnd={(e) => this.onDragEnd(e)}
-          onDragOver={(e) => this.onDragOver(e)}
-          onDrop={(e) => this.onDrop(e, false, 'In Progress')}
-        >
-          <section className="drag_container">
-            <div className="container1">
-              <div className="drag_column">
-                <div className="drag_row">
-                  <h4>In Progress</h4>
-                  <button style={{ width: '100%' }}>+</button>
-                  {pending.map((task: any) => (
-                    <div
-                      className="card"
-                      key={task.id}
-                      id={task.id}
-                      draggable
-                      onDragStart={(e) => this.onDragStart(e)}
-                      onDragEnd={(e) => this.onDragEnd(e)}
-                    >
-                      <div className="card_right">
-                        <div className="status">{task.status}</div>
-                        <div className="days">{task.time}</div>
-                        <div className="time">{task.days}</div>
-                      </div>
+        switch (currName) {
+          case IN_PROGRESS:
+            changeItemColumn(item, IN_PROGRESS);
+            break;
+          case AWAITING_REVIEW:
+            changeItemColumn(item, AWAITING_REVIEW);
+            break;
+          case DONE:
+            changeItemColumn(item, DONE);
+            break;
+          case DO_IT:
+            changeItemColumn(item, DO_IT);
+            break;
+          default:
+            break;
+        }
+      }
+    },
+    collect: (monitor) => ({ isDragging: monitor.isDragging() }),
+  });
 
-                    </div>
+  const opacity = isDragging ? 0.4 : 1;
 
-                  ))}
+  drag(drop(ref));
 
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <div
-          className="done small-box"
-          onDragLeave={(e) => this.onDragLeave(e)}
-          onDragEnter={(e) => this.onDragEnter(e)}
-          onDragEnd={(e) => this.onDragEnd(e)}
-          onDragOver={(e) => this.onDragOver(e)}
-          onDrop={(e) => this.onDrop(e, true, 'Completed')}
-        >
-          <section className="drag_container">
-            <div className="container1">
-              <div className="drag_column">
-                <div className="drag_row">
-                  <h4>Completed</h4>
-                  <button style={{ width: '100%' }}>+</button>
-                  {done.map((task: any) => (
-                    <div
-                      className="card"
-                      key={task.id}
-                      id={task.id}
-                      draggable
-                      onDragStart={(e) => this.onDragStart(e)}
-                      onDragEnd={(e) => this.onDragEnd(e)}
-                    >
-                      <div className="card_right">
-                        <div className="status">{task.status}</div>
-                        <div className="days">{task.time}</div>
-                        <div className="time">{task.days}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    // </div>
-
-    );
-  }
+  return (
+    <div ref={ref} className="movable-item" style={{ opacity }}>
+      {name}
+    </div>
+  );
 }
 
-export default Main;
+function Column({ children, className, title }
+  : { children: ReactNode, className: string, title: string }) {
+  console.log(children);
+  const [{ isOver, canDrop }, drop] = useDrop({
+    accept: 'Our first type',
+    drop: () => ({ name: title }),
+    collect: (monitor) => ({
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop(),
+    }),
+    // Override monitor.canDrop() function
+    canDrop: (item: any) => {
+      const { currentColumnName } = item;
+      return (
+        currentColumnName === title
+        || (currentColumnName === DO_IT && title === IN_PROGRESS)
+        || (currentColumnName === IN_PROGRESS
+          && (title === DO_IT || title === AWAITING_REVIEW))
+        || (currentColumnName === AWAITING_REVIEW
+          && (title === IN_PROGRESS || title === DONE))
+        || (currentColumnName === DONE && title === AWAITING_REVIEW)
+      );
+    },
+  });
+
+  const getBackgroundColor = () => {
+    if (isOver) {
+      if (canDrop) {
+        return 'rgb(188,251,255)';
+      } if (!canDrop) {
+        return 'rgb(255,188,188)';
+      }
+    }
+
+    return '';
+  };
+
+  return (
+    <div ref={drop} className={className} style={{ backgroundColor: getBackgroundColor() }}>
+      <p>{title}</p>
+      {children}
+    </div>
+  );
+}
+
+export default function Main() {
+  const [items, setItems] = useState(tasks);
+  const isMobile = window.innerWidth < 600;
+
+  const moveCardHandler = (dragIndex: number, hoverIndex: number) => {
+    const dragItem = items[dragIndex];
+
+    if (dragItem) {
+      setItems((prevState) => {
+        const coppiedStateArray = [...prevState];
+        // remove item by "hoverIndex" and put "dragItem" instead
+        const prevItem = coppiedStateArray.splice(hoverIndex, 1, dragItem);
+        // remove item by "dragIndex" and put "prevItem" instead
+        coppiedStateArray.splice(dragIndex, 1, prevItem[0]);
+
+        return coppiedStateArray;
+      });
+    }
+  };
+
+  const returnItemsForColumn = (columnName: string) => items
+    .filter((item) => item.column === columnName)
+    .map((item, index) => (
+      <MovableItem
+        key={item.id}
+        name={item.name}
+        currentColumnName={item.column}
+        setItems={setItems}
+        index={index}
+        moveCardHandler={moveCardHandler}
+      />
+    ));
+
+  return (
+    <div className="container1">
+      <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
+        <Column title={DO_IT} className="column do-it-column">
+          {returnItemsForColumn(DO_IT)}
+        </Column>
+        <Column title={IN_PROGRESS} className="column in-progress-column">
+          {returnItemsForColumn(IN_PROGRESS)}
+        </Column>
+        <Column title={AWAITING_REVIEW} className="column awaiting-review-column">
+          {returnItemsForColumn(AWAITING_REVIEW)}
+        </Column>
+        <Column title={DONE} className="column done-column">
+          {returnItemsForColumn(DONE)}
+        </Column>
+      </DndProvider>
+    </div>
+  );
+}
