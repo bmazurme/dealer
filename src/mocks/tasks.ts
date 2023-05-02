@@ -1,4 +1,4 @@
-import { COLUMN_NAMES } from './constants';
+import { COLUMN_NAMES } from '../layouts/main/constants';
 
 const { DO_IT } = COLUMN_NAMES;
 

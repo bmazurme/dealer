@@ -7,7 +7,7 @@ import Column from './column';
 import MovableItem from './movableI-item';
 
 import { COLUMN_NAMES } from './constants';
-import { tasks } from './tasks';
+import { tasks } from '../../mocks/tasks';
 
 import './app.css';
 
