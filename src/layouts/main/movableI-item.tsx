@@ -77,7 +77,7 @@ export default function MovableItem({
     },
   });
 
-  const [{ isDragging }, drag] = useDrag({
+  const [{ opacity }, drag] = useDrag({
     type: 'Our first type',
     item: { index, name, currentColumnName },
     end: (item, monitor) => {
@@ -104,16 +104,14 @@ export default function MovableItem({
         }
       }
     },
-    collect: (monitor) => ({ isDragging: monitor.isDragging() }),
+    collect: (monitor) => ({ opacity: monitor.isDragging() ? 0.4 : 1 }),
   });
 
-  const opacity = isDragging ? 0.4 : 1;
   drag(drop(ref));
 
   return (
     <div ref={ref} className="movable-item" style={{ opacity }}>
       {name}
-      1
     </div>
   );
 }
