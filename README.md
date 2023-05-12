@@ -13,6 +13,10 @@
 ![Nodejs](https://img.shields.io/badge/-Nodejs-black?style=flat-square&logo=Node.js)
 ![Express](https://img.shields.io/badge/-Express-black?style=flat-square&logo=express)
 
+- classnames
+- react-dnd
+- uuid
+
 ### Layout
 
 [![Figma](https://img.shields.io/badge/-Figma-black?style=flat-square&logo=figma)](https://www.figma.com/file/vbRrCeW3YFaiJfEzw9u4Na?)
@@ -23,11 +27,25 @@
 
 ### Installation
 
-- Clone the repository on your computer: `git@github.com:bmazurme/dealer.git`
-- Install dependencies: `npm install`
-- Launch: `npm start`
-- run dev: `npm run dev`
-- run test: `npm run test`
+```bash
+# clone the repository on your computer
+git clone git@github.com:bmazurme/dealer.git
+
+# install dependencies
+$ npm install
+
+# build
+$ npm run build
+
+# launch
+$ npm start
+
+# run dev
+$ npm run dev
+
+# run test
+$ npm run test
+```
 
 ### .env
 
