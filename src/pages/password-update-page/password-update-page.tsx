@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import PasswordUpdate from '../../layouts/password-update';
+import PasswordUpdate from '../../layers/password-update';
 
 import withUser from '../../hocs/with-user';
 

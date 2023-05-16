@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import PasswordNew from '../../layouts/password-new';
+import PasswordNew from '../../layers/password-new';
 
 export default function PasswordNewPage() {
   return (

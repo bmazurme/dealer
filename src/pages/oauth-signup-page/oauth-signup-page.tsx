@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import OauthSignUp from '../../layouts/oauth-signup';
+import OauthSignUp from '../../layers/oauth-signup';
 
 import withUser from '../../hocs/with-user';
 

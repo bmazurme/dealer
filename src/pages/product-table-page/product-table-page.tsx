@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import Card from '../../layouts/product-table';
+import Card from '../../layers/product-table';
 
 import withUser from '../../hocs/with-user';
 

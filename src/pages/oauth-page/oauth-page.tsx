@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import Oauth from '../../layouts/oauth';
+import Oauth from '../../layers/oauth';
 
 import withUser from '../../hocs/with-user';
 

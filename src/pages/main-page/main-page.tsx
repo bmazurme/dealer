@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import Main from '../../layouts/main';
+import Main from '../../layers/main';
 
 import withUser from '../../hocs/with-user';
 

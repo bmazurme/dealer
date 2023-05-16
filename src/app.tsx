@@ -9,7 +9,7 @@ import ErrorBoundaryWrapper from './components/error-boundary-wrapper';
 import AdminPage from './pages/admin-page';
 import MainPage from './pages/main-page';
 import OauthPage from './pages/oauth-signin-page';
-import OauthSignUpPage from './layouts/oauth-signup';
+import OauthSignUpPage from './layers/oauth-signup';
 import PasswordNewPage from './pages/password-new-page';
 import PasswordResetPage from './pages/password-reset-page';
 import PasswordUpdatePage from './pages/password-update-page';

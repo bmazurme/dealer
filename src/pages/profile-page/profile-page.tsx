@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import Profile from '../../layouts/profile';
+import Profile from '../../layers/profile';
 
 import withUser from '../../hocs/with-user';
 

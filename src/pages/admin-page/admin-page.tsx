@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import Admin from '../../layouts/admin';
+import Admin from '../../layers/admin';
 
 import withUser from '../../hocs/with-user';
 

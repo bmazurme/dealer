@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import PasswordReset from '../../layouts/password-reset';
+import PasswordReset from '../../layers/password-reset';
 
 export default function PasswordResetPage() {
   return (

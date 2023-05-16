@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import SignConfirm from '../../layouts/sign-confirm';
+import SignConfirm from '../../layers/sign-confirm';
 
 import withUser from '../../hocs/with-user';
 

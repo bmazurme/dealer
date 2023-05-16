@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Content from '../../components/content';
-import SignIn from '../../layouts/signin';
+import SignIn from '../../layers/signin';
 
 import withUser from '../../hocs/with-user';
 
