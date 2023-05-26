@@ -2,12 +2,14 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 
 import { getBaseQuery } from '../../base-query';
 
-const baseQuery = getBaseQuery('http://localhost:3000/api');
+import { BASE_URL } from '../../../utils/constants';
+
+const baseQuery = getBaseQuery(BASE_URL);
 
 const usersApi = createApi({
   reducerPath: 'usersApi',
   baseQuery,
-  tagTypes: ['Users'],
+  tagTypes: ['user'],
   keepUnusedDataFor: 5 * 60,
   refetchOnMountOrArgChange: 30 * 60,
   endpoints: () => ({}),

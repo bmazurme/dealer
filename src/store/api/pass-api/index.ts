@@ -2,7 +2,9 @@ import createApi from '../../create-api';
 
 import { getBaseQuery } from '../../base-query';
 
-const baseQuery = getBaseQuery('http://localhost:3000/api');
+import { BASE_URL } from '../../../utils/constants';
+
+const baseQuery = getBaseQuery(BASE_URL);
 
 const passApi = createApi({
   reducerPath: 'passApi',

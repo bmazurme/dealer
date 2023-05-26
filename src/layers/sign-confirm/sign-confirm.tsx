@@ -20,7 +20,7 @@ export default function SignConfirm() {
     confirm(token!)
       .then(() => {
         if (token) {
-          setTimeout(() => (navigate(Urls.SIGN.IN)), 10000);
+          // setTimeout(() => (navigate(Urls.SIGN.IN)), 10000);
         }
       })
       .catch(({ status, data: { reason } }) => errorHandler(new Error(`${status}: ${reason}`)));

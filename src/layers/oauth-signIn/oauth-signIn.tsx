@@ -54,16 +54,17 @@ export default function OauthSignIn() {
       fetch('/api/oauth', requestOptions)
         .then((response) => {
           setResCode(response.status.toString());
+          // console.log(response);
 
           return response.json();
         })
         .then((result: unknown) => {
           setMessage((result as Record<string, string>)?.message);
-          setTimeout(() => navigate(Urls.MAIN.INDEX), 2000);
+          setTimeout(() => navigate(Urls.MAIN.INDEX), 12000);
         })
         .catch((error) => {
           setMessage((error as Record<string, string>)?.message);
-          setTimeout(() => navigate(Urls.MAIN.INDEX), 5000);
+          setTimeout(() => navigate(Urls.MAIN.INDEX), 15000);
           console.log('error', error);
         });
     }

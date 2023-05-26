@@ -1,5 +1,6 @@
 export { Urls } from './routers';
 export { EMAIL_REGEXP } from './regexp';
+export const BASE_URL = 'http://localhost:3000/api';
 
 export const Paths = {
   MAIN: '/',

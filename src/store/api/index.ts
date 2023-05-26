@@ -1,6 +1,6 @@
-export { default as authApi } from './authApi';
-export { default as passApi } from './passApi';
-export { default as usersApi } from './usersApi';
-export * from './authApi/endpoints';
-export * from './passApi/endpoints';
-export * from './usersApi/endpoints';
+export { default as authApi } from './auth-api';
+export { default as passApi } from './pass-api';
+export { default as usersApi } from './users-api';
+export * from './auth-api/endpoints';
+export * from './pass-api/endpoints';
+export * from './users-api/endpoints';

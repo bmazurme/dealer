@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import useUser from '../../hooks/use-user';
+
 import Avatar from '../../components/avatar';
 import Field from '../../components/text-field';
 import Switcher from '../../components/button-switcher';
+
 import { Paths } from '../../utils/constants';
 
 import ThemeContext from '../../context/theme-context';

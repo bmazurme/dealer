@@ -1,9 +1,8 @@
 import usersApi from '..';
-import { setCredentials } from '../../../slices/user-slice';
 
 const usersApiEndpoints = usersApi
   .enhanceEndpoints({
-    addTagTypes: ['Users'],
+    addTagTypes: ['user'],
   })
   .injectEndpoints({
     endpoints: (builder) => ({
@@ -12,16 +11,13 @@ const usersApiEndpoints = usersApi
           url: `/user/${id}`,
           method: 'GET',
         }),
-        providesTags: ['Users'],
+        providesTags: ['user'],
       }),
       updateUser: builder.mutation({
         query: (user) => ({
           url: '/users/update',
           method: 'PATCH',
           data: user,
-          async onSuccess(dispatch, data) {
-            dispatch(setCredentials(data as User));
-          },
         }),
       }),
       updatePassword: builder.mutation({
@@ -29,9 +25,6 @@ const usersApiEndpoints = usersApi
           url: '/password/update',
           method: 'PATCH',
           data: pass,
-          async onSuccess(dispatch, data) {
-            dispatch(setCredentials(data as User));
-          },
         }),
       }),
     }),

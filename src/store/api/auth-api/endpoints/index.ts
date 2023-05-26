@@ -1,9 +1,8 @@
 import authApi from '..';
-import { setCredentials } from '../../../slices/user-slice';
 
 const authApiEndpoints = authApi
   .enhanceEndpoints({
-    addTagTypes: ['User'],
+    addTagTypes: ['auth'],
   })
   .injectEndpoints({
     endpoints: (builder) => ({
@@ -25,31 +24,22 @@ const authApiEndpoints = authApi
         query: () => ({
           url: '/users/me',
           method: 'GET',
-          async onSuccess(dispatch, data) {
-            dispatch(setCredentials(data as User));
-          },
         }),
-        invalidatesTags: ['User'],
+        invalidatesTags: ['auth'],
       }),
       confirmUser: builder.mutation({
         query: (token: string) => ({
           url: `/confirm/${token}`,
           method: 'GET',
-          // async onSuccess(dispatch, data) {
-          //   dispatch(setCredentials(data as User));
-          // },
         }),
-        invalidatesTags: ['User'],
+        invalidatesTags: ['auth'],
       }),
       signOut: builder.mutation<void, void>({
         query: () => ({
           url: '/logout',
           method: 'POST',
-          async onSuccess(dispatch) {
-            await dispatch(setCredentials(null));
-          },
         }),
-        invalidatesTags: ['User'],
+        invalidatesTags: ['auth'],
       }),
     }),
   });

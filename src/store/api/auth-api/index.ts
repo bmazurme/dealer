@@ -2,12 +2,14 @@ import createApi from '../../create-api';
 
 import { getBaseQuery } from '../../base-query';
 
-const baseQuery = getBaseQuery('http://localhost:3000/api');
+import { BASE_URL } from '../../../utils/constants';
+
+const baseQuery = getBaseQuery(BASE_URL);
 
 const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery,
-  tagTypes: ['User'],
+  tagTypes: ['auth'],
   keepUnusedDataFor: 5 * 60,
   refetchOnMountOrArgChange: 30 * 60,
   endpoints: () => ({}),

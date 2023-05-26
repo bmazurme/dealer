@@ -48,6 +48,7 @@ const createUser = (req: Request, res: Response, next: NextFunction) => {
       phone,
       avatar,
       password: hash,
+      confirmationCode: token,
     }))
     .then((user: IUser | undefined) => {
       senMail(email, token, login, CONFIRM);
