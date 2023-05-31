@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
@@ -9,6 +9,9 @@ import MovableItem from './movableI-item';
 import { COLUMN_NAMES } from './constants';
 import { tasks } from '../../mocks/tasks';
 
+import Switcher from '../../components/button-switcher';
+import ThemeContext from '../../context/theme-context';
+
 import './app.css';
 
 const {
@@ -18,6 +21,10 @@ const {
 export default function Main() {
   const [items, setItems] = useState(tasks);
   const isMobile = window.innerWidth < 600;
+
+  const { style, setStyle } = useContext(ThemeContext);
+  const toggleTheme = () => setStyle(style === 'light' ? 'dark' : 'light');
+  console.log(style);
 
   const moveCardHandler = (dragIndex: number, hoverIndex: number) => {
     const dragItem = items[dragIndex];
@@ -50,6 +57,11 @@ export default function Main() {
 
   return (
     <div className="container1">
+      <Switcher
+        label="Dark theme"
+        handlerSwitchClick={toggleTheme}
+        value={(localStorage.getItem('wp-theme') === 'dark')}
+      />
       <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
         <Column title={DO_IT} className="column do-it-column">
           {returnItemsForColumn(DO_IT)}

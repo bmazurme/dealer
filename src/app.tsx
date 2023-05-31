@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import ThemeContext from './context/theme-context';
@@ -20,6 +20,8 @@ import SignUpPage from './pages/signup-page';
 import ServerErrorPage from './pages/server-error-page';
 import NotFoundPage from './pages/not-found-page';
 
+import CurrentPage from './pages/current-page';
+
 import { Urls } from './utils/routers';
 
 import './index.css';
@@ -28,7 +30,7 @@ export default function App() {
   const [style, setStyle] = useState(localStorage.getItem('wp-theme') === 'dark' ? 'dark' : 'light');
   const providerValue = useMemo(() => ({ style, setStyle }), [style, setStyle]);
 
-  useLayoutEffect(() => {
+  useMemo(() => {
     document.documentElement.setAttribute('data-theme', (style === 'dark') ? 'dark' : 'light');
     localStorage.setItem('wp-theme', (style === 'dark') ? 'dark' : 'light');
   }, [style]);
@@ -50,6 +52,9 @@ export default function App() {
           <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
           <Route path={Urls.PROFILE.EDIT} element={(<ProfileEditPage />)} />
           <Route path={Urls.MAIN.PRODUCT.LIST} element={(<ProductTablePage />)} />
+
+          <Route path="/current" element={(<CurrentPage />)} />
+
           <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />
 
           <Route path="*" element={(<NotFoundPage />)} />

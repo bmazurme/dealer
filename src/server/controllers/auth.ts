@@ -105,7 +105,7 @@ const login = (req: Request, res: Response, next: NextFunction) => {
 };
 
 const confirmEmail = (req: Request, res: Response, next: NextFunction) => {
-  User.findOne({ confirmationCode: req.params.confirmationCode })
+  User.findOne({ confirmationCode: req.params.code })
     .then((user: (IUser & { _id: ObjectId; }) | null) => {
       if (!user) {
         return next(new NotFoundError('USER_NOT_FOUND_RU'));

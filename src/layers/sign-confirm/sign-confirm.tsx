@@ -5,7 +5,7 @@ import { useErrorHandler } from 'react-error-boundary';
 import { useConfirmUserMutation } from '../../store';
 import Logo from '../../components/logo';
 import SignFooter from '../../components/sign-footer';
-import { Urls } from '../../utils/constants';
+import { Urls } from '../../utils/routers';
 import links from './links';
 
 export default function SignConfirm() {
@@ -20,7 +20,7 @@ export default function SignConfirm() {
     confirm(token!)
       .then(() => {
         if (token) {
-          // setTimeout(() => (navigate(Urls.SIGN.IN)), 10000);
+          setTimeout(() => (navigate(Urls.SIGN.IN)), 10000);
         }
       })
       .catch(({ status, data: { reason } }) => errorHandler(new Error(`${status}: ${reason}`)));
