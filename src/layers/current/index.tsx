@@ -15,19 +15,28 @@ function Card({ id }: { id: string }) {
   return (
     <li className={style.card}>
       <div className={style.img} />
-      <h3 className={style.title}>title</h3>
-      <p className={style.price}>value</p>
-      <button
-        type="button"
-        disabled={!bucket.find((x) => x.id === id)}
-        onClick={() => dispatch(removeItem(id))}
-      >
-        -
-      </button>
-      <span>{bucket.find((x) => x.id === id)?.count || 0}</span>
-      <button type="button" onClick={() => dispatch(addItem(id))}>
-        +
-      </button>
+      <h3 className={style.title}>{`title${id}`}</h3>
+      <p className={style.price}>{`${id}0$`}</p>
+      <div className={style.footer}>
+        <button
+          className={style.button}
+          type="button"
+          disabled={!bucket.find((x) => x.id === id)}
+          onClick={() => dispatch(removeItem(id))}
+        >
+          -
+        </button>
+        <span className={style.counter}>
+          {bucket.find((x) => x.id === id)?.count || 0}
+        </span>
+        <button
+          className={style.button}
+          type="button"
+          onClick={() => dispatch(addItem(id))}
+        >
+          +
+        </button>
+      </div>
     </li>
   );
 }

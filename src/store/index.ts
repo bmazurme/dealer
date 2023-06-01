@@ -5,6 +5,7 @@ import { setupListeners } from '@reduxjs/toolkit/query/react';
 import { authApi, passApi, usersApi } from './api';
 import userReducer from './slices/user-slice';
 import bucketReducer from './slices/bucket-slice';
+import itemSlice from './slices/item-slice';
 
 export * from './api/auth-api/endpoints';
 export * from './api/pass-api/endpoints';
@@ -23,6 +24,7 @@ export const store = configureStore({
     // Add the generated reducer as a specific top-level slice
     user: userReducer,
     bucket: bucketReducer,
+    item: itemSlice,
     [authApi.reducerPath]: authApi.reducer,
     [passApi.reducerPath]: passApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,

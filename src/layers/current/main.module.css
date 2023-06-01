@@ -20,11 +20,55 @@
 }
 
 .title {
-  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 0;
   padding: 0;
 }
 
 .price {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin: 5px 0;
   padding: 0;
+}
+
+.counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #a0a0a0;
+  border: 1px solid var(--background-container);
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.button {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--background-container);
+  background-color: #a0a0a0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }

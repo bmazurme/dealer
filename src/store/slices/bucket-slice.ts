@@ -11,7 +11,7 @@ export type BucketState = {
   data: TypeItem[];
 };
 
-export const initialState: BucketState = {
+export const initialBucketState: BucketState = {
   data: [],
 };
 

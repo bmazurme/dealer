@@ -14,12 +14,7 @@ export const initialState: AuthState = {
 const slice = createSlice({
   name: 'auth',
   initialState: { data: null } as AuthState,
-  reducers: {
-    // setCredentials: (
-    //   state,
-    //   { payload: data }: PayloadAction<User | null>,
-    // ) => ({ ...state, data }),
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       // @ts-ignore
@@ -51,8 +46,6 @@ const slice = createSlice({
       });
   },
 });
-
-// export const { setCredentials } = slice.actions;
 
 export default slice.reducer;
 
