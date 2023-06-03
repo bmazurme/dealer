@@ -57,7 +57,7 @@ function Tabs() {
   );
 }
 
-export default function Current() {
+export default function Board() {
   return (
     <div className="container">
       <Tabs />
