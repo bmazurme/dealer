@@ -1,4 +1,10 @@
 html {
+
+  --background-alt: #131316;
+  --common-transition: all .3s ease-in;
+  --text-inactive-color: #8585AD;
+  --text-primary-color: white;
+
   --background: #fafafa;
   --background-container: #fff;
   --background-board: #fff;
