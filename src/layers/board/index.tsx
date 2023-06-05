@@ -27,7 +27,7 @@ const cards = [
   { id: '8', group: 'type-2', name: 'Item 8' },
   { id: '9', group: 'type-2', name: 'Item 9' },
   { id: '10', group: 'type-3', name: 'Item 10' },
-  { id: '11', group: 'type-4', name: 'Item 11' },
+  { id: '11', group: 'type-3', name: 'Item 11' },
   { id: '12', group: 'type-1', name: 'Item 12' },
 ];
 
@@ -38,12 +38,10 @@ const tabs = [
   { name: 'type-1', active: true },
   { name: 'type-2', active: false },
   { name: 'type-3', active: false },
-  { name: 'type-4', active: false },
 ];
 
 function Card({ id }: { id: string }) {
   const dispatch = useAppDispatch();
-
   const bucket = useAppSelector(selectBucket);
   console.log(bucket);
 
@@ -81,7 +79,6 @@ function Cards({ onClickTab }: any) {
   const refs2 = useRef<HTMLLIElement | null>(null);
   const refs3 = useRef<HTMLLIElement | null>(null);
   const refs4 = useRef<HTMLLIElement | null>(null);
-
   const refs = [refs1, refs2, refs3, refs4];
 
   const groupsWithRef = groups.map((x, i) => (
@@ -153,6 +150,7 @@ function Tabs({ links, onClickTab }
 
 export default function Board() {
   const [links, setLinks] = useState(tabs);
+  const bucket = useAppSelector(selectBucket);
   const onScroll = (id: string) => {
     const element = document.getElementById(id);
     element!.scrollIntoView();
@@ -171,8 +169,21 @@ export default function Board() {
 
   return (
     <div className={style.board}>
-      <Tabs links={links} onClickTab={onToggleTab} />
-      <Cards onClickTab={changeGroup} />
+      <div>
+        <Tabs links={links} onClickTab={onToggleTab} />
+        <Cards onClickTab={changeGroup} />
+      </div>
+      <div>
+        bucket
+        <ul>
+          {bucket.map((x) => (
+            <li>
+              {x.id}
+              <span>{`(${x.count})`}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
