@@ -150,6 +150,7 @@ function Tabs({ links, onClickTab }
 
 export default function Board() {
   const [links, setLinks] = useState(tabs);
+  const dispatch = useAppDispatch();
   const bucket = useAppSelector(selectBucket);
   const onScroll = (id: string) => {
     const element = document.getElementById(id);
@@ -174,12 +175,32 @@ export default function Board() {
         <Cards onClickTab={changeGroup} />
       </div>
       <div>
-        bucket
-        <ul>
-          {bucket.map((x) => (
-            <li>
-              {x.id}
-              <span>{`(${x.count})`}</span>
+        <h2 className={style.bucket_title}>
+          Bucket
+        </h2>
+
+        <ul className={style.list}>
+          {bucket.map((x, i) => (
+            <li className={style.block}>
+              <span className={style.label}>{i + 1}</span>
+              <span className={style.label}>{x.id}</span>
+              <button
+                className={style.button}
+                type="button"
+                onClick={() => dispatch(removeItem(x.id))}
+              >
+                -
+              </button>
+              <span className={style.counter}>
+                {x.count}
+              </span>
+              <button
+                className={style.button}
+                type="button"
+                onClick={() => dispatch(addItem(x.id))}
+              >
+                +
+              </button>
             </li>
           ))}
         </ul>
