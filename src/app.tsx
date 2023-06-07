@@ -20,7 +20,7 @@ import SignUpPage from './pages/signup-page';
 import ServerErrorPage from './pages/server-error-page';
 import NotFoundPage from './pages/not-found-page';
 
-import CurrentPage from './pages/current-page';
+import ProductPage from './pages/product-page';
 
 import { Urls } from './utils/routers';
 
@@ -40,25 +40,38 @@ export default function App() {
       <ErrorBoundaryWrapper>
         <Routes>
           <Route index element={(<MainPage />)} />
-          <Route path={Urls.ADMIN.INDEX} element={(<AdminPage />)} />
+
           <Route path={Urls.SIGN.UP} element={(<SignUpPage />)} />
           <Route path={Urls.SIGN.IN} element={(<SignInPage />)} />
           <Route path={Urls.SIGN.CONFIRM} element={(<SignConfirmPage />)} />
           <Route path={Urls.SIGN.OAUTH} element={(<OauthPage />)} />
           <Route path={Urls.SIGN.OSIGNUP} element={(<OauthSignUpPage />)} />
+
           <Route path={Urls.PASSWORD.RESET} element={(<PasswordResetPage />)} />
           <Route path={Urls.PASSWORD.NEW} element={(<PasswordNewPage />)} />
-          <Route path={Urls.PASSWORD.UPDATE} element={(<PasswordUpdatePage />)} />
-          <Route path={Urls.PROFILE.INDEX} element={(<ProfilePage />)} />
-          <Route path={Urls.PROFILE.EDIT} element={(<ProfileEditPage />)} />
-          <Route path={Urls.MAIN.PRODUCT.LIST} element={(<ProductTablePage />)} />
 
-          <Route path="/current" element={(<CurrentPage />)} />
+          <Route path={Urls.PROFILE.INDEX}>
+            <Route index element={(<ProfilePage />)} />
+            <Route path={Urls.PROFILE.EDIT} element={(<ProfileEditPage />)} />
+            <Route path={Urls.PROFILE.EDIT_PASSWORD} element={(<PasswordUpdatePage />)} />
+          </Route>
+
+          <Route path={Urls.PRODUCTS.INDEX}>
+            <Route index element={(<ProductPage />)} />
+            <Route path={Urls.PRODUCTS.ID} element={(<ServerErrorPage />)} />
+          </Route>
+
+          <Route path={Urls.ADMIN.INDEX} element={(<AdminPage />)} />
+          <Route path={Urls.MAIN.PRODUCT.LIST} element={(<ProductTablePage />)} />
 
           <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />
 
           <Route path="*" element={(<NotFoundPage />)} />
         </Routes>
+
+        {/* popups */}
+        {/* bucket */}
+
       </ErrorBoundaryWrapper>
     </ThemeContext.Provider>
   );

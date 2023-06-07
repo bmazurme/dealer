@@ -16,6 +16,7 @@ export const Paths = {
   PROFILE: {
     INDEX: '/profile',
     EDIT: '/profile/edit',
+    EDIT_PASSWORD: '/profile/edit-password',
   },
   PROJECT: {
     INDEX: '/project',

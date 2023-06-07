@@ -40,7 +40,7 @@ export default function ProfilePage() {
           </NavLink>
         </li>
         <li>
-          <NavLink className="profile__link" to={Paths.PASSWORD.UPDATE}>
+          <NavLink className="profile__link" to={Paths.PROFILE.EDIT_PASSWORD}>
             Update password
           </NavLink>
         </li>

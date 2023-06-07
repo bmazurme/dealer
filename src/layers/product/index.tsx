@@ -8,7 +8,7 @@ import { useAppSelector, useAppDispatch } from '../../hooks';
 
 import { selectBucket, addItem, removeItem } from '../../store/slices/bucket-slice';
 
-import style from './main.module.css';
+import style from './product.module.css';
 
 type TypeTab = {
   active: boolean;
@@ -43,7 +43,7 @@ const tabs = [
 function Card({ id }: { id: string }) {
   const dispatch = useAppDispatch();
   const bucket = useAppSelector(selectBucket);
-  console.log(bucket);
+  // console.log(bucket);
 
   return (
     <div className={style.card}>
@@ -75,34 +75,23 @@ function Card({ id }: { id: string }) {
 }
 
 function Cards({ onClickTab }: any) {
-  const refs1 = useRef<HTMLLIElement | null>(null);
-  const refs2 = useRef<HTMLLIElement | null>(null);
-  const refs3 = useRef<HTMLLIElement | null>(null);
-  const refs4 = useRef<HTMLLIElement | null>(null);
-  const refs = [refs1, refs2, refs3, refs4];
-
-  const groupsWithRef = groups.map((x, i) => (
-    { ...x, refCurr: refs[i] }
-  ));
-
+  const refs = Array.from(Array(3), () => useRef<HTMLLIElement | null>(null));
+  const groupsWithRef = groups.map((x, i) => ({ ...x, refCurr: refs[i] }));
   const onScroll = (e: UIEvent<HTMLElement>) => {
     const scroll = e.currentTarget.scrollTop;
-    const scrollViewHeight = e.currentTarget.clientHeight;
+    // const scrollViewHeight = e.currentTarget.clientHeight;
+    const types = refs.map((ref) => (ref.current!.scrollHeight!));
 
-    const type1 = refs1.current!.scrollHeight!;
-    const type2 = refs2.current!.scrollHeight!;
-    const type3 = refs3.current!.scrollHeight!;
-    const type4 = refs4.current!.scrollHeight!;
-
-    if (scroll < type1) {
-      onClickTab('type-1');
-    } else if (scroll >= type1 && scroll + scrollViewHeight * 0.5 < type1 + type2) {
-      onClickTab('type-2');
-    } else if (scroll >= type1 + type2 && scroll + scrollViewHeight * 0.5 < type1 + type2 + type3) {
-      onClickTab('type-3');
-    } else if (scroll >= type1 + type2 + type3) {
-      onClickTab('type-4');
+    if (scroll < types[0]) {
+      onClickTab(tabs[0].name);
+    } else if (scroll >= types[0] && scroll < types[0] + types[1] * 0.5) {
+      onClickTab(tabs[1].name);
+    } else if (scroll >= types[0] + types[1] * 0.5) {
+      onClickTab(tabs[2].name);
     }
+    // else if (scroll >= type1 + type2 + type3) {
+    //   onClickTab('type-4');
+    // }
   };
 
   return (
@@ -181,7 +170,7 @@ export default function Board() {
 
         <ul className={style.list}>
           {bucket.map((x, i) => (
-            <li className={style.block}>
+            <li className={style.block} key={uuidv4()}>
               <span className={style.label}>{i + 1}</span>
               <span className={style.label}>{x.id}</span>
               <button

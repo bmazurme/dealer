@@ -25,6 +25,10 @@ export const Urls = {
       LIST: '/products/:number',
     },
   },
+  PRODUCTS: {
+    INDEX: '/products',
+    ID: ':id',
+  },
   ADMIN: {
     INDEX: '/admin',
   },
@@ -33,7 +37,8 @@ export const Urls = {
   },
   PROFILE: {
     INDEX: '/profile',
-    EDIT: '/profile/edit',
+    EDIT: 'edit',
+    EDIT_PASSWORD: 'edit-password',
   },
   ERROR: {
     404: '/page-not-found',
