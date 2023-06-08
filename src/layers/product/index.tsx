@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useRef, UIEvent } from 'react';
@@ -75,23 +74,26 @@ function Card({ id }: { id: string }) {
 }
 
 function Cards({ onClickTab }: any) {
-  const refs = Array.from(Array(3), () => useRef<HTMLLIElement | null>(null));
+  const refs = Array.from(Array(groups.length), () => useRef<HTMLLIElement | null>(null));
   const groupsWithRef = groups.map((x, i) => ({ ...x, refCurr: refs[i] }));
   const onScroll = (e: UIEvent<HTMLElement>) => {
     const scroll = e.currentTarget.scrollTop;
-    // const scrollViewHeight = e.currentTarget.clientHeight;
     const types = refs.map((ref) => (ref.current!.scrollHeight!));
 
-    if (scroll < types[0]) {
-      onClickTab(tabs[0].name);
-    } else if (scroll >= types[0] && scroll < types[0] + types[1] * 0.5) {
-      onClickTab(tabs[1].name);
-    } else if (scroll >= types[0] + types[1] * 0.5) {
-      onClickTab(tabs[2].name);
-    }
-    // else if (scroll >= type1 + type2 + type3) {
-    //   onClickTab('type-4');
-    // }
+    let d = 0;
+    let m = 0;
+
+    types.forEach((x, i) => {
+      d += x;
+
+      if (scroll < types[0]) {
+        onClickTab(tabs[0].name);
+      } else if (scroll < d && scroll >= m - x / 2) {
+        onClickTab(tabs[i].name);
+      }
+
+      m = d;
+    });
   };
 
   return (
@@ -164,9 +166,7 @@ export default function Board() {
         <Cards onClickTab={changeGroup} />
       </div>
       <div>
-        <h2 className={style.bucket_title}>
-          Bucket
-        </h2>
+        <h2 className={style.bucket_title}>Bucket</h2>
 
         <ul className={style.list}>
           {bucket.map((x, i) => (
