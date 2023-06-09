@@ -12,6 +12,8 @@ import {
 
 import Pagination from '../test-pagination';
 
+import style from './table.module.css';
+
 // Required workaround for missing TypesScript definitions.
 // Will be fixed in react-table v8
 // see also https://github.com/tannerlinsley/react-table/issues/3064
@@ -42,10 +44,7 @@ export default function Table({ columns, data }
     prepareRow,
     ...paginationProps
   } = useTable<object>(
-    {
-      columns,
-      data,
-    },
+    { columns, data },
     useFlexLayout,
     useSortBy,
     usePagination,
@@ -53,9 +52,9 @@ export default function Table({ columns, data }
 
   return (
     <>
-      <div className="table">
+      <div className={style.table}>
         <div className="" {...getTableProps()}>
-          <div className="table__header">
+          <div className={style.table__header}>
             {headerGroups.map((headerGroup) => (
               <div {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
@@ -63,7 +62,7 @@ export default function Table({ columns, data }
                     {...column.getHeaderProps(column.getSortByToggleProps())}
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    <div className="table__field">
+                    <div className={style.table__field}>
                       {column.render('Header')}
                       {/* Add a sort direction indicator */}
                       <span>
@@ -76,14 +75,14 @@ export default function Table({ columns, data }
               </div>
             ))}
           </div>
-          <div className="table__rows" {...getTableBodyProps()}>
+          <div className={style.table__rows} {...getTableBodyProps()}>
             {page.map((row) => {
               prepareRow(row);
               return (
-                <div className="table__row" {...row.getRowProps()}>
+                <div className={style.table__row} {...row.getRowProps()}>
                   {row.cells.map((cell) => (
-                    <div className="table__column" {...cell.getCellProps()}>
-                      <div className="table__cell">
+                    <div className={style.table__column} {...cell.getCellProps()}>
+                      <div className={style.table__cell}>
                         {cell.render('Cell')}
                       </div>
                     </div>
