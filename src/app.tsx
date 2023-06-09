@@ -6,12 +6,15 @@ import ErrorBoundaryWrapper from './components/error-boundary-wrapper';
 
 import AdminPage from './pages/admin-page';
 import MainPage from './pages/main-page';
+
+import FeedPage from './pages/feed-page';
+import FeedDatailPage from './pages/feed-detail-page';
+
 import OauthPage from './pages/oauth-signin-page';
 import OauthSignUpPage from './layers/oauth-signup';
 import PasswordNewPage from './pages/password-new-page';
 import PasswordResetPage from './pages/password-reset-page';
 import PasswordUpdatePage from './pages/password-update-page';
-import ProductTablePage from './pages/product-table-page';
 import ProfilePage from './pages/profile-page';
 import ProfileEditPage from './pages/profile-edit';
 import SignConfirmPage from './pages/sign-confirm-page';
@@ -62,10 +65,13 @@ export default function App() {
           </Route>
 
           <Route path={Urls.ADMIN.INDEX} element={(<AdminPage />)} />
-          <Route path={Urls.MAIN.PRODUCT.LIST} element={(<ProductTablePage />)} />
+
+          <Route path={Urls.FEED.INDEX}>
+            <Route index element={(<FeedPage />)} />
+            <Route path={Urls.FEED.ID} element={(<FeedDatailPage />)} />
+          </Route>
 
           <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />
-
           <Route path="*" element={(<NotFoundPage />)} />
         </Routes>
 

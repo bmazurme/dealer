@@ -7,6 +7,8 @@ import { useAppSelector, useAppDispatch } from '../../hooks';
 
 import { selectBucket, addItem, removeItem } from '../../store/slices/bucket-slice';
 
+import getCurrentTab from '../../utils/get-current-tab';
+
 import style from './product.module.css';
 
 type TypeTab = {
@@ -33,11 +35,8 @@ const cards = [
 const groups = [...new Set(cards.map((x) => x.group))]
   .map((x) => ({ group: x, cards: cards.filter((y) => y.group === x) }));
 
-const tabs = [
-  { name: 'type-1', active: true },
-  { name: 'type-2', active: false },
-  { name: 'type-3', active: false },
-];
+const tabs = [...new Set(cards.map(({ group }) => group))].sort()
+  .map((x, i) => ({ name: x, active: i === 0 }));
 
 function Card({ id }: { id: string }) {
   const dispatch = useAppDispatch();
@@ -79,21 +78,11 @@ function Cards({ onClickTab }: any) {
   const onScroll = (e: UIEvent<HTMLElement>) => {
     const scroll = e.currentTarget.scrollTop;
     const types = refs.map((ref) => (ref.current!.scrollHeight!));
+    const tab = getCurrentTab(tabs, types, scroll);
 
-    let d = 0;
-    let m = 0;
-
-    types.forEach((x, i) => {
-      d += x;
-
-      if (scroll < types[0]) {
-        onClickTab(tabs[0].name);
-      } else if (scroll < d && scroll >= m - x / 2) {
-        onClickTab(tabs[i].name);
-      }
-
-      m = d;
-    });
+    if (tab !== '') {
+      onClickTab(tab);
+    }
   };
 
   return (

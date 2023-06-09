@@ -1,5 +1,5 @@
-import Popup from './modal';
+import Modal from './modal';
 import InfoTooltip from './info-tooltip';
 
-export default Popup;
+export default Modal;
 export { InfoTooltip };

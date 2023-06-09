@@ -29,6 +29,10 @@ export const Urls = {
     INDEX: '/products',
     ID: ':id',
   },
+  FEED: {
+    INDEX: '/feed',
+    ID: ':id',
+  },
   ADMIN: {
     INDEX: '/admin',
   },

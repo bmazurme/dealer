@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Box from './box';
-import Popup from '../modal';
+import Modal from '../modal';
 
 export default function Module() {
   const [popupEditModule, setPopupEditModule] = useState(false);
@@ -24,10 +24,13 @@ export default function Module() {
       >
         X
       </button>
-      <Popup
+      <Modal
         isOpen={popupEditModule}
         onClose={closePopupEditModule}
-        children={<Box setResult={setResult} closePopupEditModule={closePopupEditModule} />}
+        children={<>123</>}
+        // isOpen={popupEditModule}
+        // onClose={closePopupEditModule}
+        // children={<Box setResult={setResult} closePopupEditModule={closePopupEditModule} />}
       />
     </>
   );
