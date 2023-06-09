@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
+
+import style from './switcher.module.css';
 
 export default function Switcher({ handlerSwitchClick, value, label }
   : { handlerSwitchClick: () => void, value: boolean, label?: string }) {
@@ -9,12 +12,15 @@ export default function Switcher({ handlerSwitchClick, value, label }
   };
 
   return (
-    <div className="switcher">
-      <span className="switcher__label">{label}</span>
+    <div className={style.switcher}>
+      <span className={style.switcher__label}>{label}</span>
       <button
         type="button"
         aria-label="Switch"
-        className={`${on ? 'switcher__button_on' : 'switcher__button'}`}
+        className={classNames(
+          { [style.switcher__button_on]: on },
+          { [style.switcher__button]: !on },
+        )}
         onClick={onClickHandler}
       />
     </div>
