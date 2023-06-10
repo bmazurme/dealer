@@ -1,4 +1,6 @@
 .container {
+  --header-bg-color: #1c1c21;
+
   width: 720px;
   min-height: 480px;
   display: flex;
@@ -10,15 +12,16 @@
 
 .close {
   position: absolute;
-	justify-self: flex-end;
-	margin: 0;
-	padding: 0;
-	z-index: 3;
-	width: 24px;
-	height: 24px;
-	top: 63px;
-	right: 43px;
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
+  justify-self: flex-end;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+  width: 24px;
+  height: 24px;
+  top: 63px;
+  right: 43px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color);
 }

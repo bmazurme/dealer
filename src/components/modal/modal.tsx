@@ -1,64 +1,17 @@
-// import React from 'react';
-// import type { PropsWithChildren } from 'react';
-
-// export default function Popup({ onClose, isOpen, children }
-//   : PropsWithChildren & { isOpen: boolean, onClose: () => void }) {
-//   return (
-//     <div className={`popup popup_tooltip ${isOpen ? 'popup_active' : ''}`}>
-//       <div className="popup__container">
-//         <button
-//           aria-label="Close"
-//           className="popup__close"
-//           type="button"
-//           onClick={onClose}
-//         />
-//         <div className="tooltip">
-//           {children}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
+import { XIcon } from '@heroicons/react/solid';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import ModalOverlay from '../modal-overlay';
 
-// import { ESC_CLOSE_ON, OVERLAY_CLOSE_ON, MODAL_CONFIG } from '../../utils';
+import { ESC_CLOSE_ON, OVERLAY_CLOSE_ON, MODAL_CONFIG } from './config';
 
 import style from './modal.module.css';
 
-const ESC_CLOSE_ON = true;
-const OVERLAY_CLOSE_ON = true;
-
-const MODAL_CONFIG = {
-  INITIAL: {
-    opacity: 0,
-    scale: 0.75,
-  },
-  ANIMATE: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      ease: 'easeOut',
-      duration: 0.15,
-    },
-  },
-  EXIT: {
-    opacity: 0,
-    scale: 0.75,
-    transition: {
-      ease: 'easeIn',
-      duration: 0.15,
-    },
-  },
-};
-
-type TypeModal = {
+export type TypeModal = {
   title?: string;
   children: ReactNode;
   onClose: () => void;
@@ -99,10 +52,14 @@ export default function Modal({
             animate={MODAL_CONFIG.ANIMATE}
             exit={MODAL_CONFIG.EXIT}
           >
-            {title && <h2 className={"text text_type_main-large mt-10 ml-10 pt-3'}"}>{title}</h2>}
-            <button type="button" className={style.close} data-test="close-button">
-              {/* <CloseIcon type="primary" onClick={onClose} /> */}
-              X
+            {title && <h2 className="">{title}</h2>}
+            <button
+              type="button"
+              className={style.close}
+              data-test="close-button"
+              onClick={onClose}
+            >
+              <XIcon />
             </button>
             {children}
           </motion.div>
