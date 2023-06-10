@@ -32,3 +32,16 @@
     max-width: 599px;
   }
 }
+
+.icon-button_disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.icon-button_disabled:hover {
+  opacity: 0.4;
+}
+
+.icon-button_black {
+  background: #000;
+}
