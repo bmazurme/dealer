@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useRef, UIEvent } from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import { useAppSelector, useAppDispatch } from '../../hooks';
 
@@ -102,7 +102,7 @@ function Cards({ onClickTab }: any) {
 function Tab({ value, onClick, active }: TypeTab) {
   return (
     <div
-      className={classNames(style.tab, { [style.tab_active]: active })}
+      className={classnames(style.tab, { [style.tab_active]: active })}
       onClick={() => onClick(value)}
     >
       <span className="">

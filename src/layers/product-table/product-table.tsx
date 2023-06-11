@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useMemo } from 'react';
 
-import Table from '../../components/test-table';
+import Table from '../../components/table';
 
 export default function ProductTable() {
   const columns = useMemo(
