@@ -10,7 +10,7 @@ import {
   type TableInstance,
 } from 'react-table';
 
-import Pagination from '../test-pagination';
+import Pagination from '../pagination';
 
 import style from './table.module.css';
 
