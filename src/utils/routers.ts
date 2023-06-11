@@ -33,6 +33,14 @@ export const Urls = {
     INDEX: '/feed',
     ID: ':id',
   },
+  SEARCH: {
+    INDEX: '/search',
+    ID: ':id',
+  },
+  BPM: {
+    INDEX: '/bpm-task',
+    ID: ':id',
+  },
   ADMIN: {
     INDEX: '/admin',
   },
