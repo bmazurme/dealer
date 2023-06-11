@@ -15,7 +15,7 @@ import Module from '../../components/test-module';
 import Switcher from '../../components/button-switcher';
 import Chip from '../../components/chip';
 import List from '../../components/list';
-import Table from '../../components/test-table';
+import Table from '../../components/table';
 import Notification, { NotificationProps } from '../../components/notification';
 
 registerLocale('ru', ru);
@@ -85,26 +85,11 @@ export default function Admin() {
     autoComplete: 'email',
   };
   const list = [
-    {
-      key: 'white',
-      name: 'Белый чай',
-    },
-    {
-      key: 'green',
-      name: 'Зеленый чай',
-    },
-    {
-      key: 'red',
-      name: 'Красный чай',
-    },
-    {
-      key: 'puer',
-      name: 'Пуэр',
-    },
-    {
-      key: 'ulun',
-      name: 'Улун',
-    },
+    { key: 'white', name: 'Белый чай' },
+    { key: 'green', name: 'Зеленый чай' },
+    { key: 'red', name: 'Красный чай' },
+    { key: 'puer', name: 'Пуэр' },
+    { key: 'ulun', name: 'Улун' },
   ];
 
   const columns = useMemo(
