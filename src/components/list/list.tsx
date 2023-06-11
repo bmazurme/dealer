@@ -1,9 +1,23 @@
 import React from 'react';
+import classNames from 'classnames';
 
-export default function List({ value, type } : { value: Record<string, string>[], type?: string }) {
+import style from './list.module.css';
+
+export default function List({ value, type }
+  : { value: Record<string, string>[], type?: string }) {
   return (
-    <ul className={`list ${type === 'line' && 'list_line'}`}>
-      { value.map((item: Record<string, string>) => (<li key={item.key} className="list__item">{item.name}</li>)) }
+    <ul
+      className={classNames(
+        style.list,
+        { [style.line]: type },
+        { [style.list_line]: !type },
+      )}
+    >
+      { value.map((item: Record<string, string>) => (
+        <li key={item.key} className={style.list__item}>
+          {item.name}
+        </li>
+      ))}
     </ul>
   );
 }

@@ -1,3 +1,24 @@
+.list {
+  background-color: #f4f4f4;
+  border: #f4f4f4 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  margin: 10px 0 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  overflow: hidden;
+}
+
+.list_line {
+  background-color: rgb(0 0 0 / 0%);
+  border: #e8e8e8 1px solid;
+}
+
 .list__item {
   font-weight: 400;
   font-size: 14px;
@@ -28,5 +49,9 @@
 @media (prefers-color-scheme: dark) {
   .list__item:hover {
     color: var(--color);
+  }
+
+  .list_line {
+    color: #e8e8e8;
   }
 }
