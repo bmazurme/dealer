@@ -1,17 +1,20 @@
 /* eslint-disable */
 import React, { forwardRef } from 'react';
 import { type InputHTMLAttributes } from 'react';
+import classnames from 'classnames';
 
 type OwnProps = {
   id?: string;
   label?: string;
   errorText?: string;
+  className?: string;
 };
 
 export type InputProps = OwnProps & Omit<InputHTMLAttributes<HTMLInputElement>, 'pattern'>;
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
+    className = '',
     errorText = '',
     type,
     onChange,
@@ -21,7 +24,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     placeholder,
   } = props;
   return (
-    <div className="input-field">
+    <div className={classnames('input-field', className) }>
       {label && <label htmlFor={id} className={`input__label ${errorText ? 'input__label_error' : ''}`}>{label}</label>}
       <input
         ref={ref}
