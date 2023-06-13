@@ -2,15 +2,7 @@
 @import "./fonts/fonts.css";
 
 /* root */
-@import "./blocks/root/root.css";
-
-/* logo */
-@import "./blocks/logo/logo.css";
-@import "./blocks/logo/__icon/logo__icon.css";
-
-/* headermenu */
-@import "./blocks/headermenu/headermenu.css";
-@import "./blocks/headermenu/__link/headermenu__link.css";
+@import "./style/root/root.css";
 
 /* button */
 @import "./blocks/button/button.css";
@@ -69,19 +61,11 @@
 @import "./blocks/checkbox/__checkmark/_black/checkbox__checkmark_black.css";
 @import "./blocks/checkbox/_disabled/checkbox_disabled.css";
 
-/* icon-button */
-@import "./blocks/icon-button/icon-button.css";
-@import "./blocks/icon-button/_black/icon-button_black.css";
-@import "./blocks/icon-button/_disabled/icon-button_disabled.css";
-
 /* link */
 @import "./blocks/link/_home/link_home.css";
 
 /* page */
 @import "./blocks/page/__link/page__link.css";
-
-/* fields */
-@import "./blocks/fields/fields.css";
 
 /* field */
 @import "./blocks/field/field.css";
@@ -89,11 +73,6 @@
 @import "./blocks/field/__label/field__label.css";
 @import "./blocks/field/__value/field__value.css";
 @import "./blocks/field/__input/field__input.css";
-
-/* profile-button */
-@import "./blocks/profile-button/profile-button.css";
-@import "./blocks/profile-button/__icon/profile-button__icon.css";
-@import "./blocks/profile-button/__label/profile-button__label.css";
 
 /* sign */
 @import "./blocks/sign/sign.css";
@@ -107,12 +86,6 @@
 @import "./blocks/error/__code/error__code.css";
 @import "./blocks/error/__description/error__description.css";
 @import "./blocks/error/__link/error__link.css";
-
-/* error-boundary */
-@import "./blocks/error-boundary/error-boundary.css";
-@import "./blocks/error-boundary/__title/error-boundary__title.css";
-@import "./blocks/error-boundary/__message/error-boundary__message.css";
-@import "./blocks/error-boundary/__block/error-boundary__block.css";
 
 /* grid */
 @import "./blocks/grid/grid.css";
@@ -132,17 +105,6 @@
 @import "./blocks/notification/_open/notification_open.css";
 @import "./blocks/notification/__container/notification__container.css";
 
-/* search-box */
-@import "./blocks/search-box/search-box.css";
-
-/* list */
-@import "./blocks/list/list.css";
-@import "./blocks/list/__item/list__item.css";
-@import "./blocks/list/_line/list_line.css";
-
-/* table */
-@import "./blocks/table/table.css";
-
 /* select-button */
 @import "./blocks/select-button/select-button.css";
 @import "./blocks/select-button/_error/select-button_error.css";
@@ -152,12 +114,6 @@
 
 /* oauth */
 @import "./blocks/oauth/oauth.css";
-
-/* switcher */
-@import "./blocks/switcher/switcher.css";
-@import "./blocks/switcher/__label/switcher__label.css";
-@import "./blocks/switcher/__button/switcher__button.css";
-@import "./blocks/switcher/__button/_on/switcher__button_on.css";
 
 /* profile */
 @import "./blocks/profile/profile.css";
