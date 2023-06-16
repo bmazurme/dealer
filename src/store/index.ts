@@ -2,12 +2,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
 
-import { authApi, passApi, usersApi } from './api';
+import {
+  authApi, bpmApi, passApi, usersApi,
+} from './api';
 import userReducer from './slices/user-slice';
 import bucketReducer from './slices/bucket-slice';
 import itemSlice from './slices/item-slice';
 
 export * from './api/auth-api/endpoints';
+export * from './api/bpm-api/endpoints';
 export * from './api/pass-api/endpoints';
 export * from './api/users-api/endpoints';
 export * from './slices';
@@ -26,6 +29,7 @@ export const store = configureStore({
     bucket: bucketReducer,
     item: itemSlice,
     [authApi.reducerPath]: authApi.reducer,
+    [bpmApi.reducerPath]: bpmApi.reducer,
     [passApi.reducerPath]: passApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
   },
@@ -36,6 +40,7 @@ export const store = configureStore({
       authApi.middleware,
       passApi.middleware,
       usersApi.middleware,
+      bpmApi.middleware,
     ),
 });
 
