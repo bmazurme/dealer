@@ -10,6 +10,8 @@ import MainPage from './pages/main-page';
 import FeedPage from './pages/feed-page';
 import FeedDatailPage from './pages/feed-detail-page';
 
+import BpmTaskPage from './pages/bpm-tast-page';
+
 import OauthPage from './pages/oauth-signin-page';
 import OauthSignUpPage from './layers/oauth-signup';
 import PasswordNewPage from './pages/password-new-page';
@@ -17,6 +19,7 @@ import PasswordResetPage from './pages/password-reset-page';
 import PasswordUpdatePage from './pages/password-update-page';
 import ProfilePage from './pages/profile-page';
 import ProfileEditPage from './pages/profile-edit';
+import SearchPage from './pages/search-page';
 import SignConfirmPage from './pages/sign-confirm-page';
 import SignInPage from './pages/signin-page';
 import SignUpPage from './pages/signup-page';
@@ -69,6 +72,16 @@ export default function App() {
           <Route path={Urls.FEED.INDEX}>
             <Route index element={(<FeedPage />)} />
             <Route path={Urls.FEED.ID} element={(<FeedDatailPage />)} />
+          </Route>
+
+          <Route path={Urls.SEARCH.INDEX}>
+            <Route index element={(<SearchPage />)} />
+            {/* <Route path={Urls.FEED.ID} element={(<FeedDatailPage />)} /> */}
+          </Route>
+
+          <Route path={Urls.BPM.INDEX}>
+            <Route index element={(<BpmTaskPage />)} />
+            {/* <Route path={Urls.FEED.ID} element={(<FeedDatailPage />)} /> */}
           </Route>
 
           <Route path={Urls.ERROR[500]} element={(<ServerErrorPage />)} />
