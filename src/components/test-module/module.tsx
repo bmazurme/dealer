@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
-import Box from './box';
+// import Box from './box';
 import Modal from '../modal';
 
 export default function Module() {
   const [popupEditModule, setPopupEditModule] = useState(false);
-  const [result, setResult] = useState(null);
-  console.log(result);
+  // const [result, setResult] = useState(null);
 
   const openPopupEditModule = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -24,14 +23,16 @@ export default function Module() {
       >
         X
       </button>
-      <Modal
-        isOpen={popupEditModule}
-        onClose={closePopupEditModule}
-        children={<>123</>}
-        // isOpen={popupEditModule}
-        // onClose={closePopupEditModule}
-        // children={<Box setResult={setResult} closePopupEditModule={closePopupEditModule} />}
-      />
+      {popupEditModule && (
+        <Modal
+          isOpen={popupEditModule}
+          onClose={closePopupEditModule}
+          children={<>123</>}
+          // isOpen={popupEditModule}
+          // onClose={closePopupEditModule}
+          // children={<Box setResult={setResult} closePopupEditModule={closePopupEditModule} />}
+        />
+      )}
     </>
   );
 }
