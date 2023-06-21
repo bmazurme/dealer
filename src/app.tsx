@@ -10,7 +10,7 @@ import MainPage from './pages/main-page';
 import FeedPage from './pages/feed-page';
 import FeedDatailPage from './pages/feed-detail-page';
 
-import BpmTaskPage from './pages/bpm-tast-page';
+import BpmTaskPage from './pages/bpm-task-page';
 
 import OauthPage from './pages/oauth-signin-page';
 import OauthSignUpPage from './layers/oauth-signup';
